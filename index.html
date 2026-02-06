@@ -2,33 +2,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TLiM website</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="CSS/reset.css" rel="stylesheet" type="text/css">
 <link href="CSS/style.css" rel="stylesheet" type="text/css">
+<meta name="format-detection" content="telephone=no">
 </head>
 
 <body>
-	<div class="header-menu">
-		<div class="header-wrapper">
-		<div class="logo"><img src="img/TLiMロゴ.svg"></div>
-		
-	<div class="navi-menu">
-	<nav class="global-nav">
-  		<ul class="nav-list">
-    		<li class="nav-item"><a href="#about">About us</a></li>
-    		<li class="nav-item"><a href="#service">What we do</a></li>
-    		<li class="nav-item"><a href="#case">Case</a></li>
-    		<li class="nav-item"><a href="/recruit">Recruit</a></li>
-    		<li class="nav-item"><a href="/company">Company</a></li>
-    		<li class="nav-item"><a href="#contact">Contact</a></li>
-  		</ul>
-</nav>
-	</div>
-		</div>
-	</div>
+	<div data-include="header"></div>
 	
 	<section class="hero hero--still fade-in" aria-label="Hero">
   <div class="hero__overlay" aria-hidden="true"></div>
@@ -76,18 +61,21 @@
         <img src="img/poster.png" alt="">
       </div>
 
-      <!-- 動画 -->
-      <video
-  class="scroll-video__video"
-  muted
-  playsinline
-  autoplay
-  preload="metadata"
->
+
+      <!-- 背景動画（mute再生：拡大開始と同時にJSでplay） -->
+      <video class="scroll-video__video" id="bgVideo" muted playsinline loop preload="metadata" poster="img/poster.png">
         <source src="Video/TLiM_Video_nobgm.mp4" type="video/mp4">
+        <source src="TLiM_Video_nobgm.mp4" type="video/mp4">
       </video>
 
-    </div>
+      <!-- オーバーレイ（黒マスク＋Full Movieボタン） -->
+      <div class="scroll-video__overlay">
+        <button class="scroll-video__fullbtn" type="button" id="fullMovieBtn">
+          Full Movie (音声あり)
+        </button>
+      </div>
+
+</div>
   </div>
 </section>
 
@@ -101,7 +89,7 @@
 		<ul class="business-detail-box-wrapper">
 			<li>
 			<div class="business-detail-box fade-in">
-				<div class="business-detail-box-img"><img src="../過去フォルダ/デスクトップ - 川邊晃のノートブックコンピュータ/グループ 4.png"></div>
+				<div class="business-detail-box-img"><img src="img/shooting.png"></div>
 				<div class="business-detail-box-text">
 					<h3>クリエイティブ制作事業</h3>
 					<p>企業やブランドが持つ世界観・哲学から設計し、ブランドの「核」を写真・映像・WEBから表現</p>
@@ -111,7 +99,7 @@
 				
 			<li>
 				<div class="business-detail-box fade-in">
-				<div class="business-detail-box-img"><img src="../過去フォルダ/デスクトップ - 川邊晃のノートブックコンピュータ/グループ 6.png"></div>
+				<div class="business-detail-box-img"><img src="img/PRmarketing.png"></div>
 				<div class="business-detail-box-text">
 					<h3>PR・マーケティング事業</h3>
 					<p>インフルエンサーやオープニング・ローンチイベント、メディアリレーションなど共感を生むストーリー設計とともに効果的な情報伝達手段でアプローチ</p>
@@ -120,7 +108,7 @@
 			</li>	
 			<li>
 				<div class="business-detail-box fade-in">
-				<div class="business-detail-box-img"><img src="../過去フォルダ/デスクトップ - 川邊晃のノートブックコンピュータ/グループ 20.png"></div>
+				<div class="business-detail-box-img"><img src="img/recruiting.png"></div>
 				<div class="business-detail-box-text">
 					<h3>採用サポート事業</h3>
 					<p>採用サイト・採用SNS構築・コンセプト設計・コピー開発、求職者向け動画・写真制作など「どんな人と、どんな未来をつくりたいのか」その想いが正しく届く採用ブランディングを支援</p>
@@ -129,7 +117,7 @@
 			</li>	
 		</ul>
 				<div class="business-detail-box-SNS fade-in">
-				<div class="business-detail-box--SNS-img"><img src="../過去フォルダ/デスクトップ - 川邊晃のノートブックコンピュータ/グループ 15.png"></div>
+				<div class="business-detail-box--SNS-img"><img src="img/SNSmanagement.png"></div>
 				<div class="business-detail-box-text">
 					<h3>SNS運用代行事業</h3>
 					<p>SNSは、集客ツールである前に”企業や人の人格がにじみ出るメディア”です。<br>
@@ -150,7 +138,7 @@
 
     <div class="professional-wrapper fade-in">
       <a class="professional-card" href="#">
-        <img src="../過去フォルダ/デスクトップ - 川邊晃のノートブックコンピュータ/マスクグループ 6.png" alt="Food and Beverage">
+        <img src="img/food.png" alt="Food and Beverage">
         <span class="professional-overlay" aria-hidden="true"></span>
         <span class="professional-text">
           <span class="professional-en">Food and Beverage</span>
@@ -159,7 +147,7 @@
       </a>
 
       <a class="professional-card" href="#">
-        <img src="../過去フォルダ/デスクトップ - 川邊晃のノートブックコンピュータ/マスクグループ 7.png" alt="Beauty">
+        <img src="img/beauty.png" alt="Beauty">
         <span class="professional-overlay" aria-hidden="true"></span>
         <span class="professional-text">
           <span class="professional-en">Beauty</span>
@@ -168,7 +156,7 @@
       </a>
 
       <a class="professional-card" href="#">
-        <img src="../過去フォルダ/デスクトップ - 川邊晃のノートブックコンピュータ/マスクグループ 8.png" alt="Apparel">
+        <img src="img/apparel .png" alt="Apparel">
         <span class="professional-overlay" aria-hidden="true"></span>
         <span class="professional-text">
           <span class="professional-en">Apparel</span>
@@ -177,7 +165,7 @@
       </a>
 
       <a class="professional-card" href="#">
-        <img src="../過去フォルダ/デスクトップ - 川邊晃のノートブックコンピュータ/マスクグループ 9.png" alt="Medical">
+        <img src="img/Medical.png" alt="Medical">
         <span class="professional-overlay" aria-hidden="true"></span>
         <span class="professional-text">
           <span class="professional-en">Medical</span>
@@ -194,7 +182,7 @@
 			<div class="case-ttl"><h2>Case</h2></div>
 			
 			<div class="case-detail">
-				<div class="case-img"><img src="../過去フォルダ/デスクトップ - 川邊晃のノートブックコンピュータ/マスクグループ 15.png"></div>
+				<div class="case-img"><img src="img/SASAYA.png"></div>
 				<div class="case-text">
 					<div class="case-text-category"><p>Branding / Recruitment / SNS Management</p>
 					</div>
@@ -209,7 +197,7 @@
 			</div>
 			
 			<div class="case-detail">
-				<div class="case-img"><img src="../過去フォルダ/デスクトップ - 川邊晃のノートブックコンピュータ/マスクグループ 18.png"></div>
+				<div class="case-img"><img src="img/Spiceworks.png"></div>
 				<div class="case-text">
 					<div class="case-text-category"><p>Branding / Recruitment / SNS Management</p>
 					</div>
@@ -275,8 +263,8 @@
 	<!-- ===== Company / Recruit tiles ===== -->
 <section class="promo" aria-label="Company & Recruit">
   <div class="promo-grid fade-in">
-    <a class="promo-card" href="#company">
-      <img class="promo-img" src="../ChatGPT Image 2026年1月31日 16_03_38.png">
+    <a class="promo-card" href="company.html">
+      <img class="promo-img" src="img/TLiMcompany.png">
       <div class="promo-overlay" aria-hidden="true"></div>
       <div class="promo-text">
         <div class="promo-ttl">Company Info</div>
@@ -284,8 +272,8 @@
       </div>
     </a>
 
-    <a class="promo-card" href="#recruit">
-      <img class="promo-img" src="../スクリーンショット 2026-01-31 16.10.56.png" alt="">
+    <a class="promo-card" href="recruit.html">
+      <img class="promo-img" src="img/Companybanner.png">
       <div class="promo-overlay" aria-hidden="true"></div>
       <div class="promo-text">
         <div class="promo-ttl">Recruit</div>
@@ -297,40 +285,30 @@
 
 <!-- ===== Contact CTA ===== -->
 <section class="contact-cta fade-in" id="contact" aria-label="Contact">
-  <a class="contact-cta-link" href="#contact-form">
+  <a class="contact-cta-link" href="contact.html">
     CONTACT US.
   </a>
 </section>
 
-<!-- ===== Footer ===== -->
-<footer class="site-footer" aria-label="Footer">
-  <div class="footer-inner">
-    <nav class="footer-nav" aria-label="Footer navigation">
-      <ul class="footer-list">
-        <li><a href="#">HOME</a></li>
-        <li><a href="#about">About us</a></li>
-        <li><a href="#service">What we do</a></li>
-        <li><a href="#case">Case</a></li>
-        <li><a href="#recruit">Recruit</a></li>
-        <li><a href="#company">Company</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+<div data-include="footer"></div>
 
-    <div class="footer-sns" aria-label="Social links">
-      <a class="footer-sns-link" href="#" aria-label="Instagram">IG</a>
-      <a class="footer-sns-link" href="#" aria-label="YouTube">YT</a>
-    </div>
 
-    <div class="footer-copy">
-      <small>2026 TLiM Co Ltd. ALL RIGHTS RESERVED.</small>
-    </div>
+
+<!-- Full Movie モーダル -->
+<div class="fullmovie" id="fullMovieModal" hidden>
+  <div class="fullmovie__backdrop" data-fullmovie-close></div>
+  <div class="fullmovie__content" role="dialog" aria-modal="true" aria-label="Full Movie">
+    <button class="fullmovie__close" type="button" aria-label="Close" data-fullmovie-close>×</button>
+    <video class="fullmovie__video" id="fullMovieVideo" controls preload="metadata"></video>
   </div>
-</footer>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="JS/includes.js"></script>
+<script src="JS/nav-toggle.js"></script>
 <script src="JS/tlim-scroll-video.js"></script>
+<script src="JS/full-movie.js"></script>
 <script src="JS/scroll-fade.js"></script>
 
 </body>
