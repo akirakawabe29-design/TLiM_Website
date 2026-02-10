@@ -213,15 +213,27 @@
 
   <!-- Footer -->
   <footer class="bg-black text-white py-16 px-6">
-    <!-- (共通フッターの内容をここに記述、またはJSで読み込み) -->
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
       <div class="space-y-6">
-        <h2 class="text-3xl font-bold tracking-tighter">TLiM</h2>
+        <a href="index.html" aria-label="TLiM Top">
+          <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+        </a>
         <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
       </div>
-      <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
-        <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
-      </div>
+      <nav>
+        <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+          <li><a href="index.html#about" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="index.html#service" class="hover:text-white transition-colors">Service</a></li>
+          <li><a href="index.html#case" class="hover:text-white transition-colors">Case</a></li>
+          <li><a href="index.html#news" class="hover:text-white transition-colors">News</a></li>
+          <li><a href="company.html" class="hover:text-white transition-colors">Company</a></li>
+          <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
+          <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
+      <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
     </div>
   </footer>
 
