@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileNav = document.getElementById('js-mobile-nav');
   const body = document.body;
   const navLinks = document.querySelectorAll('.js-nav-link');
-  const spans = toggleBtn.querySelectorAll('span');
 
   if (!toggleBtn || !mobileNav) return;
+  const spans = toggleBtn.querySelectorAll('span');
 
   // メニュー開閉のトグル
   toggleBtn.addEventListener('click', () => {
@@ -13,8 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextExpanded = !isExpanded;
     toggleBtn.setAttribute('aria-expanded', String(nextExpanded));
 
-    // Tailwindの translate-x-full を直接制御して開閉する
-    mobileNav.classList.toggle('translate-x-full', !nextExpanded);
+    // フェード表示に切り替え
+    mobileNav.classList.toggle('opacity-0', !nextExpanded);
+    mobileNav.classList.toggle('pointer-events-none', !nextExpanded);
+    mobileNav.classList.toggle('opacity-100', nextExpanded);
     mobileNav.setAttribute('aria-hidden', String(!nextExpanded));
     body.style.overflow = nextExpanded ? 'hidden' : '';
 
@@ -35,7 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // リンクをクリックしたらメニューを閉じる（ページ内リンク対応）
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
-      mobileNav.classList.add('translate-x-full');
+      mobileNav.classList.add('opacity-0', 'pointer-events-none');
+      mobileNav.classList.remove('opacity-100');
       mobileNav.setAttribute('aria-hidden', 'true');
       body.style.overflow = '';
       toggleBtn.setAttribute('aria-expanded', 'false');

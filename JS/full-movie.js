@@ -57,6 +57,8 @@
 
     document.body.classList.add('is-fullmovie-open');
     modal.hidden = false;
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100');
     if (scrollSection) scrollSection.classList.add('is-full-opened');
 
     // まずは推奨パス → ダメならフォールバック
@@ -72,7 +74,7 @@
       }
     }
 
-    const closeBtn = modal.querySelector('.fullmovie__close');
+    const closeBtn = modal.querySelector('[data-fullmovie-close]');
     if (closeBtn) closeBtn.focus();
   }
 
@@ -82,6 +84,8 @@
     video.load();
 
     modal.hidden = true;
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0', 'pointer-events-none');
     document.body.classList.remove('is-fullmovie-open');
     if (scrollSection) scrollSection.classList.remove('is-full-opened');
 

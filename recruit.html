@@ -49,6 +49,7 @@
                     <li><a href="index.html#service" class="hover:text-gray-500 transition-colors">Service</a></li>
                     <li><a href="index.html#case" class="hover:text-gray-500 transition-colors">Case</a></li>
                     <li><a href="index.html#news" class="hover:text-gray-500 transition-colors">News</a></li>
+                    <li><a href="company.html" class="hover:text-gray-500 transition-colors">Company</a></li>
                     <li><a href="recruit.html" class="hover:text-gray-500 transition-colors">Recruit</a></li>
                     <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
                 </ul>
@@ -64,7 +65,7 @@
         </div>
     </header>
 
-    <div class="fixed inset-0 z-40 bg-black transform transition-transform duration-300 translate-x-full md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+    <div class="fixed inset-0 z-40 bg-black transition-opacity duration-300 opacity-0 pointer-events-none md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
         <div class="h-full overflow-y-auto">
             <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
                 <li><a href="index.html#about" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
@@ -224,11 +225,13 @@
     <footer class="bg-black text-white py-16 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
             <div class="space-y-6">
-                <h2 class="text-3xl font-bold tracking-tighter">TLiM</h2>
+                <a href="index.html" aria-label="TLiM Top">
+                    <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+                </a>
                 <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
                 
                 <div class="flex space-x-4">
-                    <a href="https://www.instagram.com/your_account" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="https://www.instagram.com/tlim.marketing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </a>
                     <a href="https://www.youtube.com/@your_channel" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
