@@ -4,197 +4,280 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Contact | TLiM</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Noto Sans JP"', 'sans-serif'],
+            sans: ['"Manrope"', '"Noto Sans JP"', 'sans-serif'],
+            jp: ['"Noto Sans JP"', 'sans-serif'],
           },
           colors: {
             black: '#111',
+            gray: {
+              50: '#F9FAFB',
+              100: '#F3F4F6',
+              200: '#E5E7EB',
+              300: '#D1D5DB',
+              400: '#9CA3AF',
+              500: '#6B7280',
+              800: '#1F2937',
+            }
           }
         }
       }
     }
   </script>
+  
   <style>
+    /* ベーススタイル */
+    body {
+      font-feature-settings: "palt";
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* 入力フォームのアニメーション */
+    .input-group {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    
+    .input-field {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #E5E7EB; /* gray-200 */
+      padding: 1rem 0;
+      font-size: 1rem;
+      color: #111;
+      transition: border-color 0.3s ease;
+      border-radius: 0; /* iOS対策 */
+    }
+    
+    .input-field:focus {
+      outline: none;
+      border-bottom-color: #111;
+    }
+    
+    /* フローティングラベル */
+    .input-label {
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      font-size: 0.875rem;
+      color: #6B7280; /* gray-500 */
+      pointer-events: none;
+      transition: all 0.3s ease;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    
+    /* 入力済み or フォーカス時のラベル位置 */
+    .input-field:focus ~ .input-label,
+    .input-field:not(:placeholder-shown) ~ .input-label {
+      top: -0.75rem;
+      font-size: 0.7rem;
+      color: #111;
+    }
+
+    /* Selectボックスのカスタマイズ */
+    select.input-field {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+      background-position: right 0 center;
+      background-repeat: no-repeat;
+      background-size: 1.5em 1.5em;
+    }
+
+    /* カスタムチェックボックス */
+    .custom-checkbox input:checked + div {
+      background-color: #111;
+      border-color: #111;
+    }
+    .custom-checkbox input:checked + div svg {
+      display: block;
+    }
+    
+    /* ページ遷移アニメーション用 */
     .reveal-up {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.2, 1, 0.3, 1), transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
     }
     .reveal-up.is-visible {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
-  <meta name="format-detection" content="telephone=no">
 </head>
+<body class="font-sans text-black bg-white">
 
-<body class="font-sans text-black antialiased bg-white">
   <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
-    <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
-      <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
-    </a>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+      <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
+        <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+      </a>
+      
+      <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
+         <ul class="flex space-x-8 text-sm font-medium tracking-wide text-white">
+          <li><a href="index.html#about" class="hover:text-gray-500 transition-colors">About</a></li>
+          <li><a href="index.html#service" class="hover:text-gray-500 transition-colors">Service</a></li>
+          <li><a href="index.html#case" class="hover:text-gray-500 transition-colors">Case</a></li>
+          <li><a href="index.html#news" class="hover:text-gray-500 transition-colors">News</a></li>
+          <li><a href="company.html" class="hover:text-gray-500 transition-colors">Company</a></li>
+          <li><a href="recruit.html" class="hover:text-gray-500 transition-colors">Recruit</a></li>
+          <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
+        </ul>
+      </nav>
 
-    <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
-      <ul class="flex space-x-8 text-sm font-medium tracking-wide text-white">
-        <li><a href="index.html#about" class="hover:text-gray-500 transition-colors">About</a></li>
-        <li><a href="index.html#service" class="hover:text-gray-500 transition-colors">Service</a></li>
-        <li><a href="index.html#case" class="hover:text-gray-500 transition-colors">Case</a></li>
-        <li><a href="index.html#news" class="hover:text-gray-500 transition-colors">News</a></li>
-        <li><a href="company.html" class="hover:text-gray-500 transition-colors">Company</a></li>
-        <li><a href="recruit.html" class="hover:text-gray-500 transition-colors">Recruit</a></li>
-        <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
+      <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
+        <div class="w-6 h-5 flex flex-col justify-between">
+          <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+          <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
+          <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <div class="fixed inset-0 z-40 bg-black transition-opacity duration-300 opacity-0 pointer-events-none md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+    <div class="h-full overflow-y-auto">
+      <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
+        <li><a href="index.html#about" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+        <li><a href="index.html#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+        <li><a href="index.html#case" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+        <li><a href="index.html#news" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+        <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
+        <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
+        <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
       </ul>
-    </nav>
-
-    <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
-      <div class="w-6 h-5 flex flex-col justify-between">
-        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
-        <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
-        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
-      </div>
-    </button>
+    </div>
   </div>
-</header>
 
-<div class="fixed inset-0 z-40 bg-black transition-opacity duration-300 opacity-0 pointer-events-none md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
-  <div class="h-full overflow-y-auto">
-    <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
-      <li><a href="index.html#about" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
-      <li><a href="index.html#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
-      <li><a href="index.html#case" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
-      <li><a href="index.html#news" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
-      <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
-      <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
-      <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
-    </ul>
-  </div>
-</div>
-
-  <main class="pt-20">
-    <section class="min-h-[50vh] flex flex-col justify-center px-4 sm:px-6 lg:px-8 max-w-2xl mx-auto w-full pt-10 pb-16">
+  <main class="pt-20 sm:pt-28 pb-20">
+    
+    <section class="px-6 sm:px-8 max-w-3xl mx-auto mb-16 sm:mb-24 mt-8 sm:mt-12">
       <div class="reveal-up">
-        <p class="text-xs font-bold tracking-widest uppercase mb-6 text-gray-500">CONTACT US</p>
-        <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight mb-8">
+        <span class="block text-xs font-extrabold tracking-widest text-gray-400 mb-4 font-sans">CONTACT</span>
+        <h1 class="text-4xl sm:text-6xl font-bold tracking-tighter mb-6 font-jp">
           お問い合わせ
         </h1>
-        <p class="text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl">
-          写真撮影・映像制作、SNS運用、採用支援、広告に関するご相談は<br>
-          下記フォームよりお送りください。<br>
-          通常、3営業日以内に担当者より返信いたします。
+        <p class="text-sm sm:text-base text-gray-500 leading-relaxed font-jp max-w-xl">
+          プロジェクトのご相談、採用についてなど、お気軽にお問い合わせください。<br>
+          <span class="text-xs text-gray-400 mt-2 block">※通常3営業日以内に返信いたします。</span>
         </p>
       </div>
     </section>
 
-    <section class="px-4 sm:px-6 max-w-2xl mx-auto pb-32 reveal-up" style="transition-delay: 0.2s;" aria-label="Contact form">
-      <div class="bg-white">
-        <form id="contactForm" action="#" method="post" class="space-y-10">
-          <div class="space-y-8">
-            <div class="flex flex-col space-y-2">
-              <label for="inquiryType" class="text-xs font-bold tracking-wider text-gray-500">INQUIRY TYPE <span class="text-red-500 ml-1">お問い合わせ種別</span></label>
-              <select id="inquiryType" name="inquiry_type" required class="w-full border-b border-gray-300 py-3 bg-transparent focus:outline-none focus:border-black transition-colors rounded-none appearance-none">
-                <option value="" selected disabled>選択してください</option>
-                <option value="photo_video">写真撮影映像制作</option>
-                <option value="sns">SNS運用について</option>
-                <option value="recruiting">採用支援について</option>
-                <option value="ads">広告について</option>
-                <option value="career">採用への応募</option>
-              </select>
-            </div>
+    <section class="px-6 sm:px-8 max-w-3xl mx-auto">
+      <form id="contactForm" action="#" method="post" class="space-y-4 reveal-up" style="transition-delay: 100ms;" novalidate>
+        
+        <div class="input-group">
+          <select id="inquiryType" name="inquiry_type" required class="input-field cursor-pointer text-gray-900">
+            <option value="" disabled selected></option> <option value="photo_video">映像制作 / 写真撮影</option>
+            <option value="sns">SNS運用マーケティング</option>
+            <option value="recruiting">採用支援 / 採用広報</option>
+            <option value="ads">広告クリエイティブ</option>
+            <option value="career">採用への応募</option>
+            <option value="other">その他</option>
+          </select>
+          <label for="inquiryType" class="input-label">INQUIRY TYPE <span class="text-xs text-red-500 ml-1">*</span></label>
+        </div>
 
-            <div class="flex flex-col space-y-2">
-              <label for="name" class="text-xs font-bold tracking-wider text-gray-500">NAME <span class="text-red-500 ml-1">＊</span></label>
-              <input id="name" name="name" type="text" autocomplete="name" required class="w-full border-b border-gray-300 py-3 bg-transparent focus:outline-none focus:border-black transition-colors rounded-none placeholder-gray-300">
-            </div>
+        <div class="input-group">
+          <input id="name" name="name" type="text" autocomplete="name" required class="input-field" placeholder=" ">
+          <label for="name" class="input-label">YOUR NAME <span class="text-xs text-red-500 ml-1">*</span></label>
+        </div>
 
-            <div class="flex flex-col space-y-2">
-              <label for="email" class="text-xs font-bold tracking-wider text-gray-500">EMAIL <span class="text-red-500 ml-1">＊</span></label>
-              <input id="email" name="email" type="email" autocomplete="email" required class="w-full border-b border-gray-300 py-3 bg-transparent focus:outline-none focus:border-black transition-colors rounded-none placeholder-gray-300">
-            </div>
+        <div class="input-group">
+          <input id="company" name="company" type="text" autocomplete="organization" class="input-field" placeholder=" ">
+          <label for="company" class="input-label">COMPANY NAME</label>
+        </div>
 
-            <div class="flex flex-col space-y-2">
-              <label for="phone" class="text-xs font-bold tracking-wider text-gray-500">PHONE NUMBER <span class="text-gray-400 ml-1 text-[10px]">電話番号</span></label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" class="w-full border-b border-gray-300 py-3 bg-transparent focus:outline-none focus:border-black transition-colors rounded-none placeholder-gray-300">
-            </div>
+        <div class="input-group">
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required class="input-field" placeholder=" ">
+          <label for="email" class="input-label">EMAIL ADDRESS <span class="text-xs text-red-500 ml-1">*</span></label>
+        </div>
 
-            <div class="flex flex-col space-y-2">
-              <label for="message" class="text-xs font-bold tracking-wider text-gray-500">MESSAGE <span class="text-red-500 ml-1">＊</span></label>
-              <textarea id="message" name="message" required rows="4" class="w-full border-b border-gray-300 py-3 bg-transparent focus:outline-none focus:border-black transition-colors rounded-none resize-none"></textarea>
-            </div>
-          </div>
+        <div class="input-group">
+          <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" class="input-field" placeholder=" ">
+          <label for="phone" class="input-label">PHONE NUMBER</label>
+        </div>
 
-          <label class="flex items-center justify-center space-x-3 cursor-pointer py-4">
-            <input id="agree" type="checkbox" required class="w-4 h-4 text-black border-gray-300 rounded focus:ring-black">
-            <span class="text-sm text-gray-600">プライバシーポリシーに同意の上、送信します。</span>
+        <div class="input-group">
+          <textarea id="message" name="message" required rows="1" class="input-field resize-none overflow-hidden" placeholder=" " style="min-height: 3rem;"></textarea>
+          <label for="message" class="input-label">MESSAGE <span class="text-xs text-red-500 ml-1">*</span></label>
+        </div>
+
+        <div class="pt-8 pb-12">
+          <label class="custom-checkbox flex items-start gap-3 cursor-pointer group">
+            <input type="checkbox" required class="sr-only">
+            <div class="w-5 h-5 border border-gray-300 rounded flex items-center justify-center flex-shrink-0 transition-colors mt-0.5 group-hover:border-black">
+              <svg class="w-3 h-3 text-white hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <span class="text-sm text-gray-500 leading-tight">
+              <a href="#" class="underline hover:text-black transition-colors">プライバシーポリシー</a>に同意の上、<br class="sm:hidden">送信してください。
+            </span>
           </label>
+        </div>
 
-          <div class="text-center">
-            <button class="inline-block bg-black text-white text-sm font-bold tracking-widest py-4 px-12 rounded-full hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl" type="submit">SEND MESSAGE</button>
-          </div>
-        </form>
-      </div>
+        <div class="relative group">
+          <button type="submit" class="w-full sm:w-auto bg-black text-white font-bold text-sm tracking-widest py-5 px-16 rounded-full hover:bg-gray-800 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 mx-auto sm:mx-0">
+            <span>SEND MESSAGE</span>
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </button>
+        </div>
+
+      </form>
     </section>
-
   </main>
 
   <footer class="bg-black text-white py-16 px-6">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-    <div class="space-y-6">
-      <a href="index.html" aria-label="TLiM Top">
-        <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
-      </a>
-      <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
-      
-      <div class="flex space-x-4">
-        <a href="https://www.instagram.com/tlim.marketing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+      <div class="space-y-6">
+        <a href="index.html" aria-label="TLiM Top">
+          <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
         </a>
-        <a href="index.html" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
-        </a>
+        <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
+        
+        <div class="flex space-x-4">
+          <a href="https://www.instagram.com/tlim.marketing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="index.html" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          </a>
+        </div>
       </div>
-    </div>
-    
-    <nav>
-      <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
-        <li><a href="index.html#about" class="hover:text-white transition-colors">About</a></li>
-        <li><a href="index.html#service" class="hover:text-white transition-colors">Service</a></li>
-        <li><a href="index.html#case" class="hover:text-white transition-colors">Case</a></li>
-        <li><a href="index.html#news" class="hover:text-white transition-colors">News</a></li>
-        <li><a href="company.html" class="hover:text-white transition-colors">Company</a></li>
+      
+      <nav>
+        <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+          <li><a href="index.html#about" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="index.html#service" class="hover:text-white transition-colors">Service</a></li>
+          <li><a href="index.html#case" class="hover:text-white transition-colors">Case</a></li>
+          <li><a href="index.html#news" class="hover:text-white transition-colors">News</a></li>
+          <li><a href="company.html" class="hover:text-white transition-colors">Company</a></li>
           <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
-        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-  <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
-    <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
-  </div>
-</footer>
+          <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
+      <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
+    </div>
+  </footer>
 
   <script src="JS/nav-toggle.js"></script>
   <script>
-    document.getElementById("contactForm").addEventListener("submit", (e) => {
-      const form = e.currentTarget;
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        const firstInvalid = form.querySelector(":invalid");
-        if (firstInvalid) {
-          firstInvalid.focus({ preventScroll: true });
-          firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-      }
-    });
-
     document.addEventListener('DOMContentLoaded', () => {
+      // 1. Reveal Animation
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -202,9 +285,52 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.15 });
+      }, { threshold: 0.1 });
 
       document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+      // 2. Auto-resize Textarea
+      const textarea = document.getElementById('message');
+      const resizeTextarea = () => {
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px';
+      };
+      textarea.addEventListener('input', resizeTextarea);
+      
+      // 3. Form Validation & UX
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', (e) => {
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // エラーのある最初の要素へスムーズスクロール
+          const firstInvalid = form.querySelector(':invalid');
+          if (firstInvalid) {
+            const yOffset = -100; // ヘッダー分を考慮
+            const y = firstInvalid.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            firstInvalid.focus({ preventScroll: true });
+            
+            // 視覚的なフィードバック（揺らすなど）を追加する場合はここに記述
+          }
+        } else {
+          // 送信中のUI変更（デモ用）
+          const btn = form.querySelector('button[type="submit"]');
+          const originalText = btn.innerHTML;
+          btn.disabled = true;
+          btn.innerHTML = '<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+          
+          // 実際はここでAjax送信などを行う
+          setTimeout(() => {
+            alert('送信完了しました（デモ）');
+            btn.disabled = false;
+            btn.innerHTML = originalText;
+            form.reset();
+          }, 1500);
+          e.preventDefault();
+        }
+      });
     });
   </script>
 </body>
