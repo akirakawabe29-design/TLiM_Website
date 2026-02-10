@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://tlim.co.jp/sitemap.xml
