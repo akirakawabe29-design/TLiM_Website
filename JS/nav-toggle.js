@@ -1,40 +1,51 @@
-// Mobile navigation toggle (no dependencies)
-function initNavToggle() {
-  const btn = document.querySelector(".nav-toggle");
-  const nav = document.querySelector(".global-nav");
-  const backdrop = document.querySelector(".nav-backdrop");
-  const closeBtn = document.querySelector(".nav-close");
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('js-nav-toggle');
+  const mobileNav = document.getElementById('js-mobile-nav');
+  const body = document.body;
+  const navLinks = document.querySelectorAll('.js-nav-link');
+  const spans = toggleBtn.querySelectorAll('span');
 
-  if (!btn || !nav || !backdrop) return;
+  if (!toggleBtn || !mobileNav) return;
 
-  const open = () => {
-    document.body.classList.add("nav-open");
-    btn.setAttribute("aria-expanded", "true");
-    backdrop.hidden = false;
-  };
+  // メニュー開閉のトグル
+  toggleBtn.addEventListener('click', () => {
+    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    const nextExpanded = !isExpanded;
+    toggleBtn.setAttribute('aria-expanded', String(nextExpanded));
 
-  const close = () => {
-    document.body.classList.remove("nav-open");
-    btn.setAttribute("aria-expanded", "false");
-    backdrop.hidden = true;
-  };
+    // Tailwindの translate-x-full を直接制御して開閉する
+    mobileNav.classList.toggle('translate-x-full', !nextExpanded);
+    mobileNav.setAttribute('aria-hidden', String(!nextExpanded));
+    body.style.overflow = nextExpanded ? 'hidden' : '';
 
-  btn.addEventListener("click", () => {
-    const isOpen = document.body.classList.contains("nav-open");
-    if (isOpen) close();
-    else open();
+    // ハンバーガーアイコンのアニメーション
+    if (spans.length >= 3) {
+      if (nextExpanded) {
+        spans[0].classList.add('rotate-45', 'translate-y-[9px]');
+        spans[1].classList.add('opacity-0');
+        spans[2].classList.add('-rotate-45', '-translate-y-[9px]');
+      } else {
+        spans[0].classList.remove('rotate-45', 'translate-y-[9px]');
+        spans[1].classList.remove('opacity-0');
+        spans[2].classList.remove('-rotate-45', '-translate-y-[9px]');
+      }
+    }
   });
 
-  backdrop.addEventListener("click", close);
-  if (closeBtn) closeBtn.addEventListener("click", close);
+  // リンクをクリックしたらメニューを閉じる（ページ内リンク対応）
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.add('translate-x-full');
+      mobileNav.setAttribute('aria-hidden', 'true');
+      body.style.overflow = '';
+      toggleBtn.setAttribute('aria-expanded', 'false');
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") close();
+      // アイコンを元に戻す
+      if (spans.length >= 3) {
+        spans[0].classList.remove('rotate-45', 'translate-y-[9px]');
+        spans[1].classList.remove('opacity-0');
+        spans[2].classList.remove('-rotate-45', '-translate-y-[9px]');
+      }
+    });
   });
-
-  nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", close));
-}
-
-window.initNavToggle = initNavToggle;
-
-document.addEventListener("DOMContentLoaded", initNavToggle);
+});

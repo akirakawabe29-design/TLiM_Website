@@ -1,0 +1,118 @@
+/* /CSS/case-detail.css */
+
+.case { padding: clamp(24px, 4vw, 56px) 0; }
+
+.case__container {
+  width: min(920px, 92vw);
+  margin: 0 auto;
+}
+
+.case__title {
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+
+.case__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.case__category {
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.case__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid rgba(0,0,0,.18);
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.case__hero {
+  margin: 0 0 18px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.case__hero img { width: 100%; height: auto; display: block; }
+
+.case__lead { margin: 0 0 28px; }
+
+.case__catch {
+  font-size: clamp(16px, 1.6vw, 18px);
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.case__summary { margin: 0; opacity: .9; }
+
+.case__body { display: grid; gap: 22px; }
+
+.case__block h2 {
+  font-size: clamp(18px, 2vw, 22px);
+  margin: 0 0 10px;
+}
+
+.case__block p { margin: 0 0 10px; }
+
+.case__image {
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.case__image img { width: 100%; height: auto; display: block; }
+
+.case__gallery2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 768px) {
+  .case__gallery2 { grid-template-columns: 1fr 1fr; }
+}
+
+.case__bullets { padding-left: 1.2em; margin: 0; }
+
+.case__footer { margin-top: 6px; display: grid; gap: 14px; }
+
+.case__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.btn {
+  appearance: none;
+  border: 1px solid rgba(0,0,0,.18);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.btn--ghost { opacity: .9; }
+
+/* ✅ 読み込み確認（効いてたらタイトル下に細い線が出ます） */
+.case__title { border-bottom: 1px solid rgba(0,0,0,.12); padding-bottom: 10px; }

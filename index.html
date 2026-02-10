@@ -4,312 +4,510 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TLiM website</title>
+<!-- Tailwind CSS (Movieセクション用) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Noto Sans JP"', 'sans-serif'],
+          serif: ['"Playfair Display"', 'serif'],
+        },
+        colors: {
+          black: '#050505',
+        },
+        animation: {
+          marquee: 'marquee 55s linear infinite',
+        },
+        keyframes: {
+          marquee: {
+            '0%': { transform: 'translateX(0)' },
+            '100%': { transform: 'translateX(-50%)' },
+          }
+        }
+      }
+    }
+  }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<link href="CSS/reset.css" rel="stylesheet" type="text/css">
-<link href="CSS/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<!-- <link href="CSS/reset.css" rel="stylesheet" type="text/css"> -->
+<!-- <link href="CSS/style.css" rel="stylesheet" type="text/css"> -->
 <meta name="format-detection" content="telephone=no">
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
 </head>
 
-<body>
-	<div data-include="header"></div>
-	
-	<section class="hero hero--still fade-in" aria-label="Hero">
-  <div class="hero__overlay" aria-hidden="true"></div>
-  <div class="hero__content">
-    <h1>Turn Life into Meaningful.</h1>
-  </div>
-</section>
-	
-	<section class="about" id="about">
-	<div class="about-wrapper fade-in">
-		<div class="about-ttl"><h2>about</h2>
-		<div class="about-ttl-japanese"><p>事業に、意義ある成果を。</p></div>
-		</div>
-	
-	<div class="about-detail-messsage">
-	<div class="about-bg-marquee" aria-hidden="true">
-    <div class="about-bg-track">
-      <span>Turn Life into Meaningful</span>
-      <span>Turn Life into Meaningful</span>
-	  <span>Turn Life into Meaningful</span>
-    </div>
-  </div>
-	<p>  私たちが向き合っているのは、<br>
-		「売上」や「フォロワー数」ではありません。<br>
-		なぜこの事業をやっているのか<br>
-		この会社は、誰の人生を支えたいのか<br>
-		その想いは、正しく伝わっているのか<br>
-		<br>
-		TLiMは、表面的な流行や一時的なバズではなく、<br>
-		“人の心に残り、選ばれ続ける“本質的なブランドづくり”を大切にしています。<br>
-		<br>
-		柔軟性と冷静に物事を見つめる視点を武器に、<br>
-		クライアントの期待値を、誠実に超えていく。<br>
-		仕事を通して「人生を、意義あるものに。」</p>	
-	</div>
-	</div>
-	</section>
-	
-	<section class="scroll-video">
-  <div class="scroll-video__pin">
-    <div class="scroll-video__inner">
+<body class="font-sans text-white antialiased bg-black">
+  <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+    <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
+      <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+    </a>
 
-      <!-- バナー画像 -->
-      <div class="scroll-video__poster">
-        <img src="img/poster.png" alt="">
+    <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
+      <ul class="flex space-x-8 text-sm font-medium tracking-wide">
+        <li><a href="#about" class="hover:text-gray-400 transition-colors">About</a></li>
+        <li><a href="#service" class="hover:text-gray-400 transition-colors">Service</a></li>
+        <li><a href="#case" class="hover:text-gray-400 transition-colors">Case</a></li>
+        <li><a href="#news" class="hover:text-gray-400 transition-colors">News</a></li>
+        <li><a href="recruit.html" class="hover:text-gray-400 transition-colors">Recruit</a></li>
+        <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
+      <div class="w-6 h-5 flex flex-col justify-between">
+        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+        <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
+        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
       </div>
+    </button>
+  </div>
+</header>
 
-
-      <!-- 背景動画（mute再生：拡大開始と同時にJSでplay） -->
-      <video class="scroll-video__video" id="bgVideo" muted playsinline loop preload="metadata" poster="img/poster.png">
-        <source src="Video/TLiM_Video_nobgm.mp4" type="video/mp4">
-        <source src="TLiM_Video_nobgm.mp4" type="video/mp4">
-      </video>
-
-      <!-- オーバーレイ（黒マスク＋Full Movieボタン） -->
-      <div class="scroll-video__overlay">
-        <button class="scroll-video__fullbtn" type="button" id="fullMovieBtn">
-          Full Movie (音声あり)
-        </button>
-      </div>
-
+<div class="fixed inset-0 z-40 bg-black transform transition-transform duration-300 translate-x-full md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+  <div class="h-full overflow-y-auto">
+    <ul class="flex flex-col space-y-6 text-xl font-bold">
+      <li><a href="#about" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+      <li><a href="#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+      <li><a href="#case" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+      <li><a href="#news" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+      <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
+      <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
+      <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
+    </ul>
+  </div>
 </div>
+  
+<section class="relative h-screen flex flex-col items-center justify-center text-center px-4 fade-in" aria-label="Hero">
+  <!-- 背景画像（PC/SPで出し分けも可能ですが、今回はCSSで制御） -->
+  <div class="absolute inset-0 -z-10">
+    <img src="img/HEROsteel.png" alt="" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/35 to-black/65"></div>
+  </div>
+
+  <div class="max-w-4xl mx-auto">
+    <div class="mb-6">
+      <h1 class="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-none">
+        <span class="block text-white">Turn Life</span>
+        <span class="block text-white">into</span>
+        <span class="block text-gray-300">Meaningful.</span>
+      </h1>
+    </div>
+    <p class="text-sm sm:text-base tracking-widest text-white mt-8">人生を、意義あるものに。</p>
+  </div>
+  
+  <!-- スクロールを促すインジケーター -->
+  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+    <span class="text-[10px] tracking-widest">SCROLL</span>
+    <div class="w-[1px] h-12 bg-white"></div>
   </div>
 </section>
-
-
-
-	
-	<section class="service" id="service">
-		<div class="business-detail">
-		<div class="business-detail-ttl"><h2><p>事業内容</p>What we do</h2></div>
-		
-		<ul class="business-detail-box-wrapper">
-			<li>
-			<div class="business-detail-box fade-in">
-				<div class="business-detail-box-img"><img src="img/shooting.png"></div>
-				<div class="business-detail-box-text">
-					<h3>クリエイティブ制作事業</h3>
-					<p>企業やブランドが持つ世界観・哲学から設計し、ブランドの「核」を写真・映像・WEBから表現</p>
-				</div>
-			</div>
-			</li>
-				
-			<li>
-				<div class="business-detail-box fade-in">
-				<div class="business-detail-box-img"><img src="img/PRmarketing.png"></div>
-				<div class="business-detail-box-text">
-					<h3>PR・マーケティング事業</h3>
-					<p>インフルエンサーやオープニング・ローンチイベント、メディアリレーションなど共感を生むストーリー設計とともに効果的な情報伝達手段でアプローチ</p>
-				</div>
-				</div>
-			</li>	
-			<li>
-				<div class="business-detail-box fade-in">
-				<div class="business-detail-box-img"><img src="img/recruiting.png"></div>
-				<div class="business-detail-box-text">
-					<h3>採用サポート事業</h3>
-					<p>採用サイト・採用SNS構築・コンセプト設計・コピー開発、求職者向け動画・写真制作など「どんな人と、どんな未来をつくりたいのか」その想いが正しく届く採用ブランディングを支援</p>
-				</div>
-				</div>
-			</li>	
-		</ul>
-				<div class="business-detail-box-SNS fade-in">
-				<div class="business-detail-box--SNS-img"><img src="img/SNSmanagement.png"></div>
-				<div class="business-detail-box-text">
-					<h3>SNS運用代行事業</h3>
-					<p>SNSは、集客ツールである前に”企業や人の人格がにじみ出るメディア”です。<br>
-						投稿企画設計、撮影・編集、運用代行、数値分析・改善提案を一貫してサポート。<br>
-						短期的なバズや再生数だけを追うのではなく、「ファンが自然に増え、信頼が蓄積されるアカウント設計」を行います。<br>
-						採用ブランディングやEC連動、店舗集客など、事業全体につながるSNS運用をご提案します。</p>
-				</div>
-				</div>
-		</div>
-	</section>
-	
-	<section class="professional" aria-label="Field of Expertise">
-  <div class="professional-area">
-    <div class="professional-ttl fade-in">
-      <h2>Field of Expertise</h2>
-      <p>TLiMが特に強みをもつ専門領域</p>
+  
+  <section class="py-24 sm:py-32 px-4 sm:px-6 bg-black" id="about">
+  <div class="max-w-4xl mx-auto text-center fade-in">
+    <div class="mb-16">
+      <h2 class="text-xs font-bold tracking-widest text-gray-400 uppercase mb-2">about</h2>
+		  <div class="text-2xl sm:text-3xl font-bold"><p>事業に、意義ある成果を。</p></div>
     </div>
-
-    <div class="professional-wrapper fade-in">
-      <a class="professional-card" href="#">
-        <img src="img/food.png" alt="Food and Beverage">
-        <span class="professional-overlay" aria-hidden="true"></span>
-        <span class="professional-text">
-          <span class="professional-en">Food and Beverage</span>
-          <span class="professional-ja">飲食</span>
-        </span>
-      </a>
-
-      <a class="professional-card" href="#">
-        <img src="img/beauty.png" alt="Beauty">
-        <span class="professional-overlay" aria-hidden="true"></span>
-        <span class="professional-text">
-          <span class="professional-en">Beauty</span>
-          <span class="professional-ja">美容</span>
-        </span>
-      </a>
-
-      <a class="professional-card" href="#">
-        <img src="img/apparel .png" alt="Apparel">
-        <span class="professional-overlay" aria-hidden="true"></span>
-        <span class="professional-text">
-          <span class="professional-en">Apparel</span>
-          <span class="professional-ja">アパレル</span>
-        </span>
-      </a>
-
-      <a class="professional-card" href="#">
-        <img src="img/Medical.png" alt="Medical">
-        <span class="professional-overlay" aria-hidden="true"></span>
-        <span class="professional-text">
-          <span class="professional-en">Medical</span>
-          <span class="professional-ja">医療</span>
-        </span>
-      </a>
+  
+  <div class="relative">
+  <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none overflow-hidden" aria-hidden="true">
+    <div class="whitespace-nowrap text-[10rem] sm:text-[20rem] leading-none font-bold tracking-tighter animate-marquee italic">
+      <span>Turn Life into Meaningful </span>
+      <span>Turn Life into Meaningful </span>
     </div>
   </div>
-</section>
+  <p class="relative z-10 text-sm sm:text-base leading-loose sm:leading-10 text-gray-300">  私たちが向き合っているのは、<br>
+    「売上」や「フォロワー数」ではありません。<br>
+    なぜこの事業をやっているのか<br>
+    この会社は、誰の人生を支えたいのか<br>
+    その想いは、正しく伝わっているのか<br>
+    <br>
+    TLiMは、表面的な流行や一時的なバズではなく、<br>
+    “人の心に残り、選ばれ続ける“本質的なブランドづくり”を大切にしています。<br>
+    <br>
+    柔軟性と冷静に物事を見つめる視点を武器に、<br>
+    クライアントの期待値を、誠実に超えていく。<br>
+    仕事を通して「人生を、意義あるものに。」</p>  
+  </div>
+  </div>
+  </section>
+  
+  <!-- Movie Section (Aperture Effect) -->
+  <section id="movie-trigger" class="movie-section relative w-full h-screen bg-black overflow-hidden flex items-center justify-center">
+    
+    <!-- クリップパスで切り抜かれるラッパー -->
+    <div class="movie-mask-wrapper relative w-full h-full z-10 [clip-path:inset(15%_10%_15%_10%_round_20px)] will-change-[clip-path]">
+      
+      <!-- 2. 静止画レイヤー（動画より手前 z-20） -->
+      <div class="movie-poster-layer absolute inset-0 z-20 w-full h-full bg-cover bg-center scale-110 will-change-transform" style="background-image: url('img/poster.png');">
+        <!-- 画像がない場合のフォールバック（薄め） -->
+        <div class="movie-poster-fallback" aria-hidden="true"></div>
+      </div>
 
-			
-	<section class="case" id="case">
-		<div class="case-area fade-in">
-			<div class="case-ttl"><h2>Case</h2></div>
-			
-			<div class="case-detail">
-				<div class="case-img"><img src="img/SASAYA.png"></div>
-				<div class="case-text">
-					<div class="case-text-category"><p>Branding / Recruitment / SNS Management</p>
-					</div>
-					<div class="case-text-ttl"><h3>SASAYA Holdings<br>
-												集客,採用マーケティング<br>
-						SNS運用サポート</h3>
-					</div>
-					<div class="case-text-detail"><p>企画・投稿・分析・改善まで一貫で運用。<br>
-													集客、採用、通販と連携でファンが“自然に増える”設計を構築</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="case-detail">
-				<div class="case-img"><img src="img/Spiceworks.png"></div>
-				<div class="case-text">
-					<div class="case-text-category"><p>Branding / Recruitment / SNS Management</p>
-					</div>
-					<div class="case-text-ttl"><h3>SASAYA Holdings<br>
-												集客,採用マーケティング<br>
-												SNS運用サポート</h3>
-					</div>
-					<div class="case-text-detail"><p>企画・投稿・分析・改善まで一貫で運用。<br>
-													集客、採用、通販と連携でファンが“自然に増える”設計を構築</p>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-	</section>
-	<section class="news" aria-label="News">
-  <div class="news-inner fade-in">
-    <div class="news-head">
-      <h2 class="news-title">
-        <span class="news-title-en">News</span>
-        <span class="news-title-ja">ニュース</span>
+      <!-- 1. 動画レイヤー（奥 z-10） -->
+      <div class="movie-video-layer absolute inset-0 z-10 w-full h-full">
+        <video class="movie-video w-full h-full object-cover object-center scale-110" muted playsinline loop autoplay preload="metadata" poster="img/poster.png">
+          <!-- 動画パスはご自身の環境に合わせて変更してください -->
+          <source src="Video/TLiM_Video_nobgm.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- 最大化時のマスク＋ボタン -->
+      <div class="movie-overlay absolute inset-0 bg-black/30 transition-opacity duration-500" aria-hidden="true"></div>
+      <button class="movie-fullbtn absolute bottom-8 right-8 z-30 text-white text-xs tracking-widest border border-white/50 px-6 py-2 rounded-full hover:bg-white hover:text-black transition-colors" type="button" id="fullMovieBtn">
+        Full Movieを見る
+      </button>
+
+    </div>
+
+    <!-- テキストオーバーレイ -->
+    <div class="movie-content absolute z-30 text-center text-white mix-blend-overlay pointer-events-none w-full px-4">
+      <p class="text-xs tracking-[0.2em] uppercase mb-4 opacity-90">Concept Movie</p>
+      <h2 class="text-[clamp(32px,5vw,64px)] font-bold leading-[1.1] tracking-wide">
+        Emotion driven.<br>Logic backed.
       </h2>
     </div>
 
-    <div class="news-divider" aria-hidden="true"></div>
+  </section>
+  
+  <section class="py-24 sm:py-32 px-4 sm:px-6 bg-gray-50 text-black" id="service">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-2">What we do</h2>
+      <p class="text-xs font-bold tracking-widest text-gray-500 uppercase">事業内容</p>
+    </div>
+    
+    <!-- 3つの主要事業 -->
+    <ul class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <li>
+        <div class="bg-white p-8 h-full flex flex-col fade-in">
+          <div class="mb-6 aspect-video bg-gray-100 overflow-hidden"><img src="img/shooting.png" alt="Creative" class="w-full h-full object-cover"></div>
+          <div class="flex-1">
+            <span class="text-[10px] font-bold tracking-widest text-gray-500 uppercase block mb-2">Creative</span>
+            <h3 class="text-xl font-bold mb-4">クリエイティブ制作事業</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6">企業やブランドが持つ世界観・哲学から設計し、ブランドの「核」を写真・映像・WEBから表現</p>
+            <div class="flex flex-wrap gap-2 text-[10px] text-gray-500">
+              <span class="bg-gray-100 px-2 py-1">Photo</span><span class="bg-gray-100 px-2 py-1">Movie</span><span class="bg-gray-100 px-2 py-1">Web Design</span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="bg-white p-8 h-full flex flex-col fade-in">
+          <div class="mb-6 aspect-video bg-gray-100 overflow-hidden"><img src="img/PRmarketing.png" alt="Marketing" class="w-full h-full object-cover"></div>
+          <div class="flex-1">
+            <span class="text-[10px] font-bold tracking-widest text-gray-500 uppercase block mb-2">Marketing</span>
+            <h3 class="text-xl font-bold mb-4">PR・マーケティング事業</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6">インフルエンサーやイベント、メディアリレーションなど共感を生むストーリー設計でアプローチ</p>
+            <div class="flex flex-wrap gap-2 text-[10px] text-gray-500">
+              <span class="bg-gray-100 px-2 py-1">Influencer</span><span class="bg-gray-100 px-2 py-1">Event</span><span class="bg-gray-100 px-2 py-1">Media</span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="bg-white p-8 h-full flex flex-col fade-in">
+          <div class="mb-6 aspect-video bg-gray-100 overflow-hidden"><img src="img/recruiting.png" alt="Recruiting" class="w-full h-full object-cover"></div>
+          <div class="flex-1">
+            <span class="text-[10px] font-bold tracking-widest text-gray-500 uppercase block mb-2">HR Support</span>
+            <h3 class="text-xl font-bold mb-4">採用サポート事業</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6">採用サイトやSNS構築、コンセプト設計等、「どんな人と、どんな未来をつくりたいのか」を届ける支援</p>
+            <div class="flex flex-wrap gap-2 text-[10px] text-gray-500">
+              <span class="bg-gray-100 px-2 py-1">Branding</span><span class="bg-gray-100 px-2 py-1">Copywriting</span><span class="bg-gray-100 px-2 py-1">Movie</span>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
 
-    <ul class="news-list">
-      <li class="news-item">
-        <a class="news-link" href="#">
-          <time class="news-date" datetime="2025-12-15">2025.12.15</time>
-          <span class="news-badge is-info">お知らせ</span>
-          <span class="news-text">オフィシャルウェブサイトを公開しました。</span>
+    <!-- SNS運用代行（ワイド） -->
+    <div class="bg-gray-100 p-8 md:px-12 md:py-5 flex flex-col md:flex-row gap-8 md:gap-12 items-center fade-in">
+      <div class="w-full md:w-1/2">
+        <img src="img/SNSmanagement.png" alt="SNS Management" class="w-full h-auto object-cover">
+      </div>
+      <div class="w-full md:w-1/2">
+        <span class="text-[10px] font-bold tracking-widest text-gray-500 uppercase block mb-2">Social Media</span>
+        <h3 class="text-2xl font-bold mb-4">SNS運用代行事業</h3>
+        <p class="text-base font-bold mb-6">SNSは、集客ツールである前に”企業や人の人格がにじみ出るメディア”です。</p>
+        
+        <div class="flex flex-wrap gap-4 mb-8 text-xs font-bold text-center">
+          <div class="flex-1 min-w-[80px] bg-gray-50 p-3">
+            <span class="block text-gray-400 mb-1">01</span>
+            <span class="block">投稿企画設計</span>
+          </div>
+          <div class="flex-1 min-w-[80px] bg-gray-50 p-3">
+            <span class="block text-gray-400 mb-1">02</span>
+            <span class="block">撮影・編集</span>
+          </div>
+          <div class="flex-1 min-w-[80px] bg-gray-50 p-3">
+            <span class="block text-gray-400 mb-1">03</span>
+            <span class="block">運用代行</span>
+          </div>
+          <div class="flex-1 min-w-[80px] bg-gray-50 p-3">
+            <span class="block text-gray-400 mb-1">04</span>
+            <span class="block">分析・改善</span>
+          </div>
+        </div>
+
+        <p class="text-sm text-gray-600 leading-relaxed">
+          短期的なバズや再生数だけを追うのではなく、「ファンが自然に増え、信頼が蓄積されるアカウント設計」を行います。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+  <section class="bg-black pb-24" id="expertise" aria-label="Field of Expertise">
+  <div class="max-w-7xl mx-auto pt-24 sm:pt-32 pb-16 px-4 sm:px-6">
+    <div class="text-center fade-in">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-2">Field of Expertise</h2>
+      <p class="text-xs font-bold tracking-widest text-gray-400 uppercase">TLiMが特に強みをもつ専門領域</p>
+    </div>
+  </div>
+
+    <!-- ここからグリッドエリア -->
+    <div class="grid grid-cols-1 md:grid-cols-2 w-full fade-in">
+      
+      <!-- Card 1: Food -->
+      <a href="#" class="group relative block w-full aspect-[3/1] overflow-hidden">
+        <img src="img/food.png" alt="Food and Beverage" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500 flex flex-col justify-center items-center text-center p-8">
+          <div class="flex flex-col items-center transition-transform duration-500 group-hover:-translate-y-2">
+            <span class="text-2xl sm:text-3xl font-bold text-white mb-2">Food & Beverage</span>
+            <span class="text-sm text-gray-300 tracking-widest">飲食</span>
+          </div>
+          <div class="max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-700 overflow-hidden">
+            <p class="text-sm text-gray-200 leading-relaxed max-w-md mx-auto pt-4">
+              「おいしさ」の先にある情緒的価値を可視化。店舗の空気感や職人の想いを切り取り、来店動機を生むブランディングを展開します。
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2: Beauty -->
+      <a href="#" class="group relative block w-full aspect-[3/1] overflow-hidden">
+        <img src="img/beauty.png" alt="Beauty" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500 flex flex-col justify-center items-center text-center p-8">
+          <div class="flex flex-col items-center transition-transform duration-500 group-hover:-translate-y-2">
+            <span class="text-2xl sm:text-3xl font-bold text-white mb-2">Beauty</span>
+            <span class="text-sm text-gray-300 tracking-widest">美容</span>
+          </div>
+          <div class="max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-700 overflow-hidden">
+            <p class="text-sm text-gray-200 leading-relaxed max-w-md mx-auto pt-4">
+              清潔感と信頼、そして憧れ。クリニックやサロンの専門性を尊重しつつ、親しみやすさと洗練を両立させたビジュアルを追求します。
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3: Apparel -->
+      <a href="#" class="group relative block w-full aspect-[3/1] overflow-hidden">
+        <img src="img/apparel .png" alt="Apparel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500 flex flex-col justify-center items-center text-center p-8">
+          <div class="flex flex-col items-center transition-transform duration-500 group-hover:-translate-y-2">
+            <span class="text-2xl sm:text-3xl font-bold text-white mb-2">Apparel</span>
+            <span class="text-sm text-gray-300 tracking-widest">アパレル</span>
+          </div>
+          <div class="max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-700 overflow-hidden">
+            <p class="text-sm text-gray-200 leading-relaxed max-w-md mx-auto pt-4">
+              トレンドに流されない「ブランドの核」を表現。EC連動やルックブック撮影など、売上に直結する世界観づくりを支援します。
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 4: Medical -->
+      <a href="#" class="group relative block w-full aspect-[3/1] overflow-hidden">
+        <img src="img/Medical.png" alt="Medical" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500 flex flex-col justify-center items-center text-center p-8">
+          <div class="flex flex-col items-center transition-transform duration-500 group-hover:-translate-y-2">
+            <span class="text-2xl sm:text-3xl font-bold text-white mb-2">Medical</span>
+            <span class="text-sm text-gray-300 tracking-widest">医療</span>
+          </div>
+          <div class="max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-700 overflow-hidden">
+            <p class="text-sm text-gray-200 leading-relaxed max-w-md mx-auto pt-4">
+              難解な情報を「正しく、優しく」伝える。採用・集客の両面から、医療機関の誠実さと先進性を伝えるコミュニケーションを設計します。
+            </p>
+          </div>
+        </div>
+      </a>
+
+    </div>
+</section>
+
+
+      
+  <section class="py-24 sm:py-32 px-4 sm:px-6 bg-[#111]" id="case">
+    <div class="max-w-7xl mx-auto fade-in">
+      <div class="mb-16 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold">Case</h2>
+      </div>
+      
+      <div class="space-y-16">
+        <!-- Case 1 -->
+        <a href="case-detail-sasaya.html" class="block">
+        <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+          <div class="w-full md:w-1/2 aspect-video bg-gray-200 overflow-hidden"><img src="img/SASAYA.png" class="w-full h-full object-cover"></div>
+          <div class="w-full md:w-1/2">
+            <div class="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-4">Branding / Recruitment / SNS Management</div>
+            <h3 class="text-2xl font-bold mb-4 leading-tight">SASAYA Holdings<br>集客,採用マーケティング<br>SNS運用サポート</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">企画・投稿・分析・改善まで一貫で運用。<br>集客、採用、通販と連携でファンが“自然に増える”設計を構築</p>
+          </div>
+        </div>
+        </a>
+      
+        <!-- Case 2 -->
+        <a href="detail-spiceworks.html" class="block">
+        <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+          <div class="w-full md:w-1/2 aspect-video bg-gray-200 overflow-hidden"><img src="img/Spiceworks.png" class="w-full h-full object-cover"></div>
+          <div class="w-full md:w-1/2">
+            <div class="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-4">Branding / Recruitment / SNS Management</div>
+            <h3 class="text-2xl font-bold mb-4 leading-tight">Spiceworks<br>集客,採用マーケティング<br>SNS運用サポート</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">企画・投稿・分析・改善まで一貫で運用。<br>集客、採用、通販と連携でファンが“自然に増える”設計を構築</p>
+          </div>
+        </div>
+        </a>
+      </div>
+      
+    </div>
+  </section>
+  <section class="py-24 sm:py-32 px-4 sm:px-6 bg-gray-50 text-black" id="news" aria-label="News">
+  <div class="max-w-4xl mx-auto fade-in">
+    <div class="flex items-baseline gap-4 mb-8 border-b border-gray-200 pb-4">
+      <h2 class="text-3xl font-bold">News</h2>
+      <span class="text-xs font-bold text-gray-500">ニュース</span>
+    </div>
+
+    <ul class="space-y-6">
+      <li class="group">
+        <a class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 hover:opacity-60 transition-opacity" href="#">
+          <time class="text-sm font-mono text-gray-500" datetime="2025-12-15">2025.12.15</time>
+          <span class="inline-block w-fit self-start px-2 py-1 text-[10px] font-bold border border-gray-300 rounded">お知らせ</span>
+          <span class="text-sm sm:text-base font-medium group-hover:underline">オフィシャルウェブサイトを公開しました。</span>
         </a>
       </li>
 
-      <li class="news-item">
-        <a class="news-link" href="#">
-          <time class="news-date" datetime="2025-12-15">2025.12.15</time>
-          <span class="news-badge is-press">プレスリリース</span>
-          <span class="news-text">オフィシャルウェブサイトを公開しました。</span>
+      <li class="group">
+        <a class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 hover:opacity-60 transition-opacity" href="#">
+          <time class="text-sm font-mono text-gray-500" datetime="2025-12-15">2025.12.15</time>
+          <span class="inline-block w-fit self-start px-2 py-1 text-[10px] font-bold bg-black text-white rounded">プレスリリース</span>
+          <span class="text-sm sm:text-base font-medium group-hover:underline">オフィシャルウェブサイトを公開しました。</span>
         </a>
       </li>
 
-      <li class="news-item">
-        <a class="news-link" href="#">
-          <time class="news-date" datetime="2025-12-15">2025.12.15</time>
-          <span class="news-badge is-press">プレスリリース</span>
-          <span class="news-text">オフィシャルウェブサイトを公開しました。</span>
+      <li class="group">
+        <a class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 hover:opacity-60 transition-opacity" href="#">
+          <time class="text-sm font-mono text-gray-500" datetime="2025-12-15">2025.12.15</time>
+          <span class="inline-block w-fit self-start px-2 py-1 text-[10px] font-bold bg-black text-white rounded">プレスリリース</span>
+          <span class="text-sm sm:text-base font-medium group-hover:underline">オフィシャルウェブサイトを公開しました。</span>
         </a>
       </li>
 
-      <li class="news-item">
-        <a class="news-link" href="#">
-          <time class="news-date" datetime="2025-12-15">2025.12.15</time>
-          <span class="news-badge is-info">お知らせ</span>
-          <span class="news-text">オフィシャルウェブサイトを公開しました。</span>
+      <li class="group">
+        <a class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 hover:opacity-60 transition-opacity" href="#">
+          <time class="text-sm font-mono text-gray-500" datetime="2025-12-15">2025.12.15</time>
+          <span class="inline-block w-fit self-start px-2 py-1 text-[10px] font-bold border border-gray-300 rounded">お知らせ</span>
+          <span class="text-sm sm:text-base font-medium group-hover:underline">オフィシャルウェブサイトを公開しました。</span>
         </a>
       </li>
     </ul>
   </div>
 </section>
 
-	<!-- ===== Company / Recruit tiles ===== -->
-<section class="promo" aria-label="Company & Recruit">
-  <div class="promo-grid fade-in">
-    <a class="promo-card" href="company.html">
-      <img class="promo-img" src="img/TLiMcompany.png">
-      <div class="promo-overlay" aria-hidden="true"></div>
-      <div class="promo-text">
-        <div class="promo-ttl">Company Info</div>
-        <div class="promo-sub">会社情報</div>
+  <!-- ===== Company / Recruit tiles ===== -->
+<section class="py-4 px-4 sm:px-6" aria-label="Company & Recruit">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-7xl mx-auto fade-in">
+    <a class="group relative block h-64 sm:h-80 overflow-hidden" href="company.html">
+      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="img/TLiMcompany.png">
+      <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" aria-hidden="true"></div>
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+        <div class="text-2xl sm:text-3xl font-bold mb-2">Company Info</div>
+        <div class="text-sm tracking-widest opacity-80">会社情報</div>
       </div>
     </a>
 
-    <a class="promo-card" href="recruit.html">
-      <img class="promo-img" src="img/Companybanner.png">
-      <div class="promo-overlay" aria-hidden="true"></div>
-      <div class="promo-text">
-        <div class="promo-ttl">Recruit</div>
-        <div class="promo-sub">私たちと働きませんか？</div>
+    <a class="group relative block h-64 sm:h-80 overflow-hidden" href="recruit.html">
+      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="img/Companybanner.png">
+      <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" aria-hidden="true"></div>
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+        <div class="text-2xl sm:text-3xl font-bold mb-2">Recruit</div>
+        <div class="text-sm tracking-widest opacity-80">私たちと働きませんか？</div>
       </div>
     </a>
   </div>
 </section>
 
 <!-- ===== Contact CTA ===== -->
-<section class="contact-cta fade-in" id="contact" aria-label="Contact">
-  <a class="contact-cta-link" href="contact.html">
+<section class="py-24 sm:py-32 text-center fade-in" id="contact" aria-label="Contact">
+  <a class="inline-block text-4xl sm:text-6xl font-bold tracking-tighter hover:text-gray-400 transition-colors border-b-2 border-white pb-2" href="contact.html">
     CONTACT US.
   </a>
 </section>
 
-<div data-include="footer"></div>
-
+<footer class="bg-black text-white py-16 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+    <div class="space-y-6">
+      <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+      <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
+      
+      <div class="flex space-x-4">
+        <a href="https://www.instagram.com/your_account" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://www.youtube.com/@your_channel" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+        </a>
+      </div>
+    </div>
+    
+    <nav>
+      <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+        <li><a href="#service" class="hover:text-white transition-colors">Service</a></li>
+        <li><a href="#case" class="hover:text-white transition-colors">Case</a></li>
+        <li><a href="#news" class="hover:text-white transition-colors">News</a></li>
+        <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
+    <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
+  </div>
+</footer>
 
 
 <!-- Full Movie モーダル -->
-<div class="fullmovie" id="fullMovieModal" hidden>
-  <div class="fullmovie__backdrop" data-fullmovie-close></div>
-  <div class="fullmovie__content" role="dialog" aria-modal="true" aria-label="Full Movie">
-    <button class="fullmovie__close" type="button" aria-label="Close" data-fullmovie-close>×</button>
-    <video class="fullmovie__video" id="fullMovieVideo" controls preload="metadata"></video>
+<div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 opacity-0 pointer-events-none transition-opacity duration-300" id="fullMovieModal" hidden>
+  <div class="absolute inset-0" data-fullmovie-close></div>
+  <div class="relative w-full max-w-6xl aspect-video bg-black shadow-2xl" role="dialog" aria-modal="true" aria-label="Full Movie">
+    <button class="absolute -top-10 right-0 text-white text-2xl hover:text-gray-300" type="button" aria-label="Close" data-fullmovie-close>×</button>
+    <video class="w-full h-full" id="fullMovieVideo" controls preload="metadata"></video>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="JS/includes.js"></script>
 <script src="JS/nav-toggle.js"></script>
-<script src="JS/tlim-scroll-video.js"></script>
+<script src="JS/movie-aperture.js"></script>
 <script src="JS/full-movie.js"></script>
 <script src="JS/scroll-fade.js"></script>
+<script src="JS/header-scroll.js"></script>
 
 </body>
 </html>

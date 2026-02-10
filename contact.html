@@ -7,69 +7,122 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="CSS/reset.css" rel="stylesheet" type="text/css">
-  <link href="CSS/style.css" rel="stylesheet" type="text/css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+          },
+          colors: {
+            black: '#111',
+          }
+        }
+      }
+    }
+  </script>
   <meta name="format-detection" content="telephone=no">
 </head>
 
-<body>
-  <div data-include="header"></div>
+<body class="font-sans text-black antialiased bg-white">
+  <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+    <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
+      <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+    </a>
 
-  <main class="contact-page">
-    <section class="contact-hero">
-      <div class="contact-hero__inner">
-        <p class="contact-eyebrow">CONTACT</p>
-        <h1 class="contact-title">お問い合わせ</h1>
-        <p class="contact-lead">
+    <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
+      <ul class="flex space-x-8 text-sm font-medium tracking-wide text-white">
+        <li><a href="index.html#about" class="hover:text-gray-500 transition-colors">About</a></li>
+        <li><a href="index.html#service" class="hover:text-gray-500 transition-colors">Service</a></li>
+        <li><a href="index.html#case" class="hover:text-gray-500 transition-colors">Case</a></li>
+        <li><a href="index.html#news" class="hover:text-gray-500 transition-colors">News</a></li>
+        <li><a href="recruit.html" class="hover:text-gray-500 transition-colors">Recruit</a></li>
+        <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
+      <div class="w-6 h-5 flex flex-col justify-between">
+        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+        <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
+        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+      </div>
+    </button>
+  </div>
+</header>
+
+<div class="fixed inset-0 z-40 bg-black transform transition-transform duration-300 translate-x-full md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+  <div class="h-full overflow-y-auto">
+    <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
+      <li><a href="index.html#about" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+      <li><a href="index.html#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+      <li><a href="index.html#case" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+      <li><a href="index.html#news" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+      <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
+      <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
+      <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+  <main class="pt-24 pb-20 sm:pt-32 sm:pb-32">
+    <section class="px-4 sm:px-6 max-w-3xl mx-auto text-center mb-16">
+      <div class="space-y-4">
+        <p class="text-xs font-bold tracking-widest text-gray-500 uppercase">CONTACT</p>
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">お問い合わせ</h1>
+        <p class="text-sm sm:text-base text-gray-600 leading-relaxed mt-6">
           写真撮影・映像制作、SNS運用、採用支援、広告に関するご相談は下記フォームよりお送りください。<br>
           通常、3営業日以内に担当者より返信いたします。
         </p>
       </div>
     </section>
 
-    <section class="contact-form" aria-label="Contact form">
-      <div class="contact-form__card">
-        <form id="contactForm" action="#" method="post">
-          <div class="contact-grid">
-            <div class="contact-row">
-              <label for="inquiryType">INQUIRY TYPE <span class="req">お問い合わせ種別</span></label>
-              <select id="inquiryType" name="inquiry_type" required>
+    <section class="px-4 sm:px-6 max-w-2xl mx-auto" aria-label="Contact form">
+      <div class="bg-white">
+        <form id="contactForm" action="#" method="post" class="space-y-10">
+          <div class="space-y-8">
+            <div class="flex flex-col space-y-2">
+              <label for="inquiryType" class="text-xs font-bold tracking-wider text-gray-500">INQUIRY TYPE <span class="text-red-500 ml-1">お問い合わせ種別</span></label>
+              <select id="inquiryType" name="inquiry_type" required class="w-full border-b border-gray-300 py-3 bg-transparent focus:outline-none focus:border-black transition-colors rounded-none appearance-none">
                 <option value="" selected disabled>選択してください</option>
                 <option value="photo_video">写真撮影映像制作</option>
                 <option value="sns">SNS運用について</option>
                 <option value="recruiting">採用支援について</option>
                 <option value="ads">広告について</option>
+                <option value="career">採用への応募</option>
               </select>
             </div>
 
-            <div>
-              <label for="name">NAME <span class="req">＊</span></label>
-              <input id="name" name="name" type="text" autocomplete="name" required>
+            <div class="flex flex-col space-y-2">
+              <label for="name" class="text-xs font-bold tracking-wider text-gray-500">NAME <span class="text-red-500 ml-1">＊</span></label>
+              <input id="name" name="name" type="text" autocomplete="name" required class="w-full border-b border-gray-300 py-3 bg-transparent focus:outline-none focus:border-black transition-colors rounded-none placeholder-gray-300">
             </div>
 
-            <div>
-              <label for="email">EMAIL <span class="req">＊</span></label>
-              <input id="email" name="email" type="email" autocomplete="email" required>
+            <div class="flex flex-col space-y-2">
+              <label for="email" class="text-xs font-bold tracking-wider text-gray-500">EMAIL <span class="text-red-500 ml-1">＊</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" required class="w-full border-b border-gray-300 py-3 bg-transparent focus:outline-none focus:border-black transition-colors rounded-none placeholder-gray-300">
             </div>
 
-            <div class="contact-row">
-              <label for="phone">PHONE NUMBER <span class="req">電話番号</span></label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel">
+            <div class="flex flex-col space-y-2">
+              <label for="phone" class="text-xs font-bold tracking-wider text-gray-500">PHONE NUMBER <span class="text-gray-400 ml-1 text-[10px]">電話番号</span></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" class="w-full border-b border-gray-300 py-3 bg-transparent focus:outline-none focus:border-black transition-colors rounded-none placeholder-gray-300">
             </div>
 
-            <div class="contact-row">
-              <label for="message">MESSAGE <span class="req">＊</span></label>
-              <textarea id="message" name="message" required></textarea>
+            <div class="flex flex-col space-y-2">
+              <label for="message" class="text-xs font-bold tracking-wider text-gray-500">MESSAGE <span class="text-red-500 ml-1">＊</span></label>
+              <textarea id="message" name="message" required rows="4" class="w-full border-b border-gray-300 py-3 bg-transparent focus:outline-none focus:border-black transition-colors rounded-none resize-none"></textarea>
             </div>
           </div>
 
-          <label class="contact-agree">
-            <input id="agree" type="checkbox" required>
-            <span>プライバシーポリシーに同意の上、送信します。</span>
+          <label class="flex items-center justify-center space-x-3 cursor-pointer py-4">
+            <input id="agree" type="checkbox" required class="w-4 h-4 text-black border-gray-300 rounded focus:ring-black">
+            <span class="text-sm text-gray-600">プライバシーポリシーに同意の上、送信します。</span>
           </label>
 
-          <div class="contact-actions">
-            <button class="contact-submit" type="submit">SEND MESSAGE</button>
+          <div class="text-center">
+            <button class="inline-block bg-black text-white text-sm font-bold tracking-widest py-4 px-12 rounded-full hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl" type="submit">SEND MESSAGE</button>
           </div>
         </form>
       </div>
@@ -77,9 +130,38 @@
 
   </main>
 
-  <div data-include="footer"></div>
+  <footer class="bg-black text-white py-16 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+    <div class="space-y-6">
+      <h2 class="text-3xl font-bold tracking-tighter">TLiM</h2>
+      <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
+      
+      <div class="flex space-x-4">
+        <a href="https://www.instagram.com/your_account" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://www.youtube.com/@your_channel" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+        </a>
+      </div>
+    </div>
+    
+    <nav>
+      <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+        <li><a href="#service" class="hover:text-white transition-colors">Service</a></li>
+        <li><a href="#case" class="hover:text-white transition-colors">Case</a></li>
+        <li><a href="#news" class="hover:text-white transition-colors">News</a></li>
+        <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
+    <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
+  </div>
+</footer>
 
-  <script src="JS/includes.js"></script>
   <script src="JS/nav-toggle.js"></script>
   <script>
     document.getElementById("contactForm").addEventListener("submit", (e) => {

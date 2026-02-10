@@ -5,21 +5,70 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Company | TLiM</title>
 
-  <link rel="stylesheet" href="CSS/reset.css" />
-  <link rel="stylesheet" href="CSS/style.css" />
-
-  <!-- companyページ専用（style.cssに統合してもOK） -->
-  <link rel="stylesheet" href="CSS/company.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+          },
+          colors: {
+            black: '#111',
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-  <div data-include="header"></div>
+<body class="font-sans text-black antialiased bg-white">
+  <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+    <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
+      <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+    </a>
 
-  <main class="company">
+    <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
+      <ul class="flex space-x-8 text-sm font-medium tracking-wide text-white">
+        <li><a href="index.html#about" class="hover:text-gray-500 transition-colors">About</a></li>
+        <li><a href="index.html#service" class="hover:text-gray-500 transition-colors">Service</a></li>
+        <li><a href="index.html#case" class="hover:text-gray-500 transition-colors">Case</a></li>
+        <li><a href="index.html#news" class="hover:text-gray-500 transition-colors">News</a></li>
+        <li><a href="recruit.html" class="hover:text-gray-500 transition-colors">Recruit</a></li>
+        <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
+      <div class="w-6 h-5 flex flex-col justify-between">
+        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+        <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
+        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+      </div>
+    </button>
+  </div>
+</header>
+
+<div class="fixed inset-0 z-40 bg-black transform transition-transform duration-300 translate-x-full md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+  <div class="h-full overflow-y-auto">
+    <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
+      <li><a href="index.html#about" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+      <li><a href="index.html#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+      <li><a href="index.html#case" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+      <li><a href="index.html#news" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+      <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
+      <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
+      <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+  <main class="pt-20">
 
     <!-- Hero -->
-    <section class="company-hero">
-      <div class="company-hero__inner">
-        <h1 class="company-hero__title">Company</h1>
+    <section class="h-[40vh] sm:h-[50vh] flex items-center justify-center bg-gray-50">
+      <div class="text-center">
+        <h1 class="text-4xl sm:text-6xl font-bold tracking-tight">Company</h1>
       </div>
     </section>
 
@@ -28,41 +77,41 @@
     <!-- Message blocks (Removed) -->
 
     <!-- What we do（導線） -->
-    <section class="company-section company-capabilities">
-      <div class="company-section__inner">
-        <h2 class="company-section__title">TLiMができること</h2>
+    <section class="py-20 sm:py-32 px-4 sm:px-6 max-w-7xl mx-auto">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-12 text-center">TLiMができること</h2>
 
-        <ul class="cap-list">
-          <li class="cap-item">
-            <h3>写真撮影 / 映像制作</h3>
-            <p>ブランドムービー、採用、SNS用短尺など。</p>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+          <li class="space-y-3">
+            <h3 class="text-lg font-bold border-b border-gray-200 pb-2">写真撮影 / 映像制作</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">ブランドムービー、採用、SNS用短尺など。</p>
           </li>
-          <li class="cap-item">
-            <h3>SNS運用</h3>
-            <p>設計〜制作〜投稿〜改善まで。</p>
+          <li class="space-y-3">
+            <h3 class="text-lg font-bold border-b border-gray-200 pb-2">SNS運用</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">設計〜制作〜投稿〜改善まで。</p>
           </li>
-          <li class="cap-item">
-            <h3>採用支援</h3>
-            <p>採用広報、求人LP、運用導線整備。</p>
+          <li class="space-y-3">
+            <h3 class="text-lg font-bold border-b border-gray-200 pb-2">採用支援</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">採用広報、求人LP、運用導線整備。</p>
           </li>
-          <li class="cap-item">
-            <h3>広告</h3>
-            <p>クリエイティブ制作と運用改善。</p>
+          <li class="space-y-3">
+            <h3 class="text-lg font-bold border-b border-gray-200 pb-2">広告</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">クリエイティブ制作と運用改善。</p>
           </li>
         </ul>
 
         <!-- Thinking/Serviceへの導線（参考ページはThinkingへリンク） -->
-        <div class="company-cta">
-          <a class="company-cta__link" href="service.html">View Service</a>
+        <div class="mt-16 text-center">
+          <a class="inline-block border border-black px-8 py-3 text-sm font-medium hover:bg-black hover:text-white transition-colors rounded-full" href="service.html">View Service</a>
         </div>
       </div>
     </section>
 
     <!-- Philosophy -->
-    <section class="company-section company-intro">
-      <div class="company-section__inner">
-        <h2 class="company-section__title">私たちの指針</h2>
-        <div class="company-section__text">
+    <section class="py-20 sm:py-32 px-4 sm:px-6 bg-gray-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-12 text-center">私たちの指針</h2>
+        <div class="space-y-8 text-gray-700 leading-loose text-justify">
           <p>
             私たちの指針は、Turn Life into Meaningful ——「人生を、意義あるものに。」です。これは目先の成果だけでなく、関わる人や組織の時間が“意味のある体験”として積み重なる状態をつくる、という約束です。
           </p>
@@ -82,46 +131,78 @@
     <!-- Members (Removed) -->
 
     <!-- Company profile（表） -->
-    <section class="company-section company-profile">
-      <div class="company-section__inner">
-        <h2 class="company-section__title">会社概要</h2>
+    <section class="py-20 sm:py-32 px-4 sm:px-6 max-w-7xl mx-auto">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-12 text-center">会社概要</h2>
 
-        <dl class="profile-dl">
-          <div class="profile-row">
-            <dt>会社名</dt><dd>株式会社ＴＬｉＭ</dd>
+        <dl class="border-t border-gray-200">
+          <div class="flex flex-col sm:flex-row py-6 border-b border-gray-200">
+            <dt class="w-full sm:w-40 font-bold text-sm mb-2 sm:mb-0">会社名</dt>
+            <dd class="flex-1 text-sm text-gray-700">株式会社ＴＬｉＭ</dd>
           </div>
-          <div class="profile-row">
-            <dt>代表者</dt><dd>皇甫　友燦</dd>
+          <div class="flex flex-col sm:flex-row py-6 border-b border-gray-200">
+            <dt class="w-full sm:w-40 font-bold text-sm mb-2 sm:mb-0">代表者</dt>
+            <dd class="flex-1 text-sm text-gray-700">皇甫　友燦</dd>
           </div>
-          <div class="profile-row">
-            <dt>所在地</dt><dd>大阪府大阪市北区梅田１丁目２番２号大阪駅前第２ビル１２－１２</dd>
+          <div class="flex flex-col sm:flex-row py-6 border-b border-gray-200">
+            <dt class="w-full sm:w-40 font-bold text-sm mb-2 sm:mb-0">所在地</dt>
+            <dd class="flex-1 text-sm text-gray-700">大阪府大阪市北区梅田１丁目２番２号大阪駅前第２ビル１２－１２</dd>
           </div>
         </dl>
       </div>
     </section>
 
     <!-- Latest Works（任意） -->
-    <section class="company-section company-latest">
-      <div class="company-section__inner">
-        <h2 class="company-section__title">Latest Works</h2>
+    <section class="py-20 sm:py-32 px-4 sm:px-6 bg-black text-white">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-12 text-center">Latest Works</h2>
 
-        <ul class="works-list">
-          <li><a href="works_detail.html">2026 / Web / Project Name</a></li>
-          <li><a href="works_detail.html">2025 / Movie / Project Name</a></li>
-          <li><a href="works_detail.html">2025 / SNS / Project Name</a></li>
+        <ul class="space-y-6 mb-12">
+          <li><a href="works_detail.html" class="block text-lg sm:text-xl hover:text-gray-400 transition-colors border-b border-gray-800 pb-4">2026 / Web / Project Name</a></li>
+          <li><a href="works_detail.html" class="block text-lg sm:text-xl hover:text-gray-400 transition-colors border-b border-gray-800 pb-4">2025 / Movie / Project Name</a></li>
+          <li><a href="works_detail.html" class="block text-lg sm:text-xl hover:text-gray-400 transition-colors border-b border-gray-800 pb-4">2025 / SNS / Project Name</a></li>
         </ul>
 
-        <div class="company-cta">
-          <a class="company-cta__link" href="works.html">Archive</a>
+        <div class="text-center">
+          <a class="inline-block border border-white px-8 py-3 text-sm font-medium hover:bg-white hover:text-black transition-colors rounded-full" href="works.html">Archive</a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <div data-include="footer"></div>
+  <footer class="bg-black text-white py-16 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+    <div class="space-y-6">
+      <h2 class="text-3xl font-bold tracking-tighter">TLiM</h2>
+      <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
+      
+      <div class="flex space-x-4">
+        <a href="https://www.instagram.com/your_account" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://www.youtube.com/@your_channel" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+        </a>
+      </div>
+    </div>
+    
+    <nav>
+      <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+        <li><a href="#service" class="hover:text-white transition-colors">Service</a></li>
+        <li><a href="#case" class="hover:text-white transition-colors">Case</a></li>
+        <li><a href="#news" class="hover:text-white transition-colors">News</a></li>
+        <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
+    <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
+  </div>
+</footer>
 
-  <script src="JS/includes.js"></script>
   <script src="JS/nav-toggle.js"></script>
 
 </body>

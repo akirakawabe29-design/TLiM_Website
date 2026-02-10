@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | TLiM - Turn Life into Meaningful</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                    colors: {
+                        black: '#111',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .reveal-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-sans text-black antialiased bg-white selection:bg-black selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+            <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
+                <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+            </a>
+
+            <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
+                <ul class="flex space-x-8 text-sm font-medium tracking-wide text-white">
+                    <li><a href="index.html#about" class="hover:text-gray-500 transition-colors">About</a></li>
+                    <li><a href="index.html#service" class="hover:text-gray-500 transition-colors">Service</a></li>
+                    <li><a href="index.html#case" class="hover:text-gray-500 transition-colors">Case</a></li>
+                    <li><a href="index.html#news" class="hover:text-gray-500 transition-colors">News</a></li>
+                    <li><a href="recruit.html" class="hover:text-gray-500 transition-colors">Recruit</a></li>
+                    <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
+                </ul>
+            </nav>
+
+            <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
+                <div class="w-6 h-5 flex flex-col justify-between">
+                    <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                    <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
+                    <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <div class="fixed inset-0 z-40 bg-black transform transition-transform duration-300 translate-x-full md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+        <div class="h-full overflow-y-auto">
+            <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
+                <li><a href="index.html#about" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+                <li><a href="index.html#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+                <li><a href="index.html#case" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+                <li><a href="index.html#news" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+                <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
+                <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
+                <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="pt-20">
+    <section class="min-h-[70vh] flex flex-col justify-end px-4 sm:px-6 lg:px-8 pb-20 max-w-7xl mx-auto">
+        <p class="text-xs font-bold tracking-widest uppercase mb-6 text-gray-500 reveal-up">Careers</p>
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight reveal-up" style="transition-delay: 0.1s;">
+            Create Meaning,<br>
+            Not Just Content.
+        </h1>
+        <p class="mt-8 max-w-xl text-sm md:text-base leading-loose text-gray-600 reveal-up" style="transition-delay: 0.2s;">
+            私たちがつくるのは、一時的なバズではありません。<br>
+            誰かの人生を支える、本質的なブランドの「核」です。<br>
+            あなたの感性と情熱を、消費されることなく、<br>
+            意義ある未来をつくる力に変えませんか。
+        </p>
+    </section>
+
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 reveal-up">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">From Operator to Architect</h2>
+                <p class="text-gray-600 text-sm tracking-wide">入り口は「好き」や「得意」から。その先には、事業全体を動かすプロフェッショナルへの道が広がっています。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                <div class="absolute left-6 top-0 bottom-0 w-px bg-gray-200 md:hidden"></div>
+
+                <div class="relative pl-12 md:pl-0 md:border-t md:border-gray-200 md:pt-8 reveal-up group" style="transition-delay: 0.1s;">
+                    <span class="absolute left-[21px] top-0 w-1.5 h-1.5 bg-black rounded-full md:hidden"></span>
+                    <span class="text-xs font-bold tracking-widest text-gray-500 uppercase block mb-2">Step 01: Entry</span>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-gray-600 transition-colors">SNS & Content Creator</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                        まずはSNS運用や撮影・編集の現場から。 
+                        「どうすれば届くか」を肌で感じ、ファンが自然に増える設計を学びます。
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li>・SNS投稿企画・運用代行</li>
+                        <li>・写真/動画撮影・編集</li>
+                        <li>・数値分析・レポート作成</li>
+                    </ul>
+                </div>
+
+                <div class="relative pl-12 md:pl-0 md:border-t md:border-gray-200 md:pt-8 reveal-up group" style="transition-delay: 0.2s;">
+                    <span class="absolute left-[21px] top-0 w-1.5 h-1.5 bg-gray-300 rounded-full md:hidden"></span>
+                    <span class="text-xs font-bold tracking-widest text-gray-500 uppercase block mb-2">Step 02: Growth</span>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-gray-600 transition-colors">Planner / Assistant CD</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                        クライアントの哲学を理解し、ブランドの「核」を設計するフェーズへ。
+                        単なる制作だけでなく、採用ブランディングなどの戦略立案に関わります。
+                    </p>
+                </div>
+
+                <div class="relative pl-12 md:pl-0 md:border-t md:border-black md:pt-8 reveal-up group" style="transition-delay: 0.3s;">
+                    <span class="absolute left-[21px] top-0 w-1.5 h-1.5 bg-gray-300 rounded-full md:hidden"></span>
+                    <span class="text-xs font-bold tracking-widest text-gray-500 uppercase block mb-2">Step 03: Professional</span>
+                    <h3 class="text-xl font-bold mb-3">Creative Director / Marketer</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                        事業全体のグロースを担う責任者へ。
+                        メディアリレーション構築や、イベント・インフルエンサー施策など、
+                        複合的な手段で「意義ある成果」を生み出します。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center reveal-up">Open Positions</h2>
+
+            <div class="space-y-4">
+                
+                <details class="group bg-white border border-gray-100 rounded-lg overflow-hidden reveal-up">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-gray-50 transition-colors [&::-webkit-details-marker]:hidden">
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
+                            <span class="bg-black text-white text-[10px] font-bold px-3 py-1 uppercase tracking-wider w-fit rounded-full">Full-Time</span>
+                            <span class="text-lg font-bold">総合職（ディレクター候補）</span>
+                        </div>
+                        <span class="text-2xl font-light group-open:rotate-45 transition-transform duration-300">+</span>
+                    </summary>
+                    <div class="px-6 pb-8 pt-2 text-sm text-gray-600 border-t border-gray-50">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-bold text-black mb-2">業務内容</h4>
+                                <ul class="list-disc list-inside space-y-1 mb-4">
+                                    <li>クライアント(飲食・美容・アパレル等)のブランド戦略策定 </li>
+                                    <li>SNSアカウントのトータルディレクション </li>
+                                    <li>採用サイト・コンセプト設計・コピー開発 </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-black mb-2">必須要件</h4>
+                                <p class="mb-4">社会人経験1年以上、または同等のスキル。<br>「なぜ？」を問い続けられる思考力。</p>
+                                <h4 class="font-bold text-black mb-2">歓迎スキル</h4>
+                                <p>Illustrator / Photoshop / Premiere Pro の使用経験。</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="group bg-white border border-gray-100 rounded-lg overflow-hidden reveal-up" style="transition-delay: 0.1s;">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-gray-50 transition-colors [&::-webkit-details-marker]:hidden">
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
+                            <span class="border border-black text-black text-[10px] font-bold px-3 py-1 uppercase tracking-wider w-fit rounded-full">Contract</span>
+                            <span class="text-lg font-bold">クリエイター（映像・WEB・デザイン）</span>
+                        </div>
+                        <span class="text-2xl font-light group-open:rotate-45 transition-transform duration-300">+</span>
+                    </summary>
+                    <div class="px-6 pb-8 pt-2 text-sm text-gray-600 border-t border-gray-50">
+                        <p class="mb-4">プロジェクト単位で参画いただくパートナーを募集しています。あなたの専門性をTLiMの哲学と掛け合わせ、より高い価値を創出しましょう。</p>
+                        <h4 class="font-bold text-black mb-2">募集領域</h4>
+                        <p>WEBデザイン・コーディング / 映像撮影・編集 / スチール撮影 / ライティング</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white border border-gray-100 rounded-lg overflow-hidden reveal-up" style="transition-delay: 0.2s;">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-gray-50 transition-colors [&::-webkit-details-marker]:hidden">
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
+                            <span class="bg-gray-200 text-gray-800 text-[10px] font-bold px-3 py-1 uppercase tracking-wider w-fit rounded-full">Intern</span>
+                            <span class="text-lg font-bold">SNSマーケティング・アシスタント</span>
+                        </div>
+                        <span class="text-2xl font-light group-open:rotate-45 transition-transform duration-300">+</span>
+                    </summary>
+                    <div class="px-6 pb-8 pt-2 text-sm text-gray-600 border-t border-gray-50">
+                        <p class="mb-4">「SNSを見るのが好き」を仕事にする第一歩。インフルエンサー施策の選定や、撮影アシスタントを通じて、リアルなマーケティング現場を体験できます。</p>
+                        <h4 class="font-bold text-black mb-2">得られる経験</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>ファンが自然に増えるアカウント設計のノウハウ </li>
+                            <li>企業の「人格」を作るブランディング視点 </li>
+                        </ul>
+                    </div>
+                </details>
+
+            </div>
+
+            <div class="mt-16 text-center reveal-up" style="transition-delay: 0.3s;">
+                <a href="contact.html" class="inline-block bg-black text-white px-12 py-4 text-sm font-bold tracking-widest rounded-full hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    ENTRY FORM
+                </a>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-16 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold tracking-tighter">TLiM</h2>
+                <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
+                
+                <div class="flex space-x-4">
+                    <a href="https://www.instagram.com/your_account" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@your_channel" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <nav>
+                <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+                    <li><a href="index.html#about" class="hover:text-white transition-colors">About</a></li>
+                    <li><a href="index.html#service" class="hover:text-white transition-colors">Service</a></li>
+                    <li><a href="index.html#case" class="hover:text-white transition-colors">Case</a></li>
+                    <li><a href="index.html#news" class="hover:text-white transition-colors">News</a></li>
+                    <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
+            <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
+        </div>
+    </footer>
+
+    <script src="JS/nav-toggle.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
