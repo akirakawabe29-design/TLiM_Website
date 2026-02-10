@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const video = document.querySelector(".movie-video");
   const overlay = document.querySelector(".movie-overlay");
   const btn = document.querySelector(".movie-fullbtn");
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const scrollDistance = isMobile ? 4200 : 2000;
 
   if (!trigger || !wrapper || !poster || !video || !overlay || !btn) return;
 
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollTrigger: {
       trigger: trigger,
       start: "top top",   // セクション上部が画面上部に到達した時
-      end: "+=2000",      // アニメーションさせるスクロール距離
+      end: `+=${scrollDistance}`, // モバイルは長めに固定
       scrub: true,        // スクロール量に同期
       pin: true,          // セクションを固定
       anticipatePin: 1,   // ピン留めのガタつき防止
