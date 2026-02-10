@@ -1,9 +1,14 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Company | TLiM</title>
+  <title>Company | TLiM - Turn Life into Meaningful</title>
+  <meta name="description" content="株式会社TLiMの会社概要ページ。私たちは人生を意義あるものにするクリエイティブカンパニーです。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -11,202 +16,363 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Noto Sans JP"', 'sans-serif'],
+            sans: ['"Manrope"', '"Noto Sans JP"', 'sans-serif'],
+            jp: ['"Noto Sans JP"', 'sans-serif'],
           },
           colors: {
-            black: '#111',
+            black: '#111111',
+            gray: {
+              50: '#F9FAFB',
+              100: '#F3F4F6',
+              400: '#9CA3AF',
+              600: '#4B5563',
+              900: '#111827',
+            },
+            accent: '#333', // リンクホバー等のアクセント
+          },
+          spacing: {
+            '128': '32rem',
           }
         }
       }
     }
   </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ベーススタイル調整 */
+    body {
+      font-feature-settings: "palt"; /* 文字詰め */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* 画像のローディング対策 */
+    img {
+      will-change: opacity;
+      transition: opacity 0.5s ease;
+    }
+
+    /* ノイズテクスチャ（フィルムライクな質感） */
+    .bg-noise {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJnoiPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjY1IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2cpIiBvcGFjaXR5PSIwLjAzIi8+PC9zdmc+') opacity(0.4);
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* カスタムユーティリティ */
+    .clip-text-image {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(45deg, #111, #555);
+    }
+    
+    /* Reveal Animation Base States */
+    .reveal-up { opacity: 0; transform: translateY(30px); }
+    .reveal-in { clip-path: inset(0 100% 0 0); }
+  </style>
 </head>
-<body class="font-sans text-black antialiased bg-white">
+<body class="font-sans text-black bg-white selection:bg-black selection:text-white">
+  
+  <div class="bg-noise"></div>
+
   <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
-    <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
-      <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
-    </a>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+      <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
+        <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+      </a>
 
-    <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
-      <ul class="flex space-x-8 text-sm font-medium tracking-wide text-white">
-        <li><a href="index.html#about" class="hover:text-gray-500 transition-colors">About</a></li>
-        <li><a href="index.html#service" class="hover:text-gray-500 transition-colors">Service</a></li>
-        <li><a href="index.html#case" class="hover:text-gray-500 transition-colors">Case</a></li>
-        <li><a href="index.html#news" class="hover:text-gray-500 transition-colors">News</a></li>
-        <li><a href="company.html" class="hover:text-gray-500 transition-colors">Company</a></li>
-        <li><a href="recruit.html" class="hover:text-gray-500 transition-colors">Recruit</a></li>
-        <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
-      </ul>
-    </nav>
-
-    <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
-      <div class="w-6 h-5 flex flex-col justify-between">
-        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
-        <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
-        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
-      </div>
-    </button>
-  </div>
-</header>
-
-<div class="fixed inset-0 z-40 bg-black transition-opacity duration-300 opacity-0 pointer-events-none md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
-  <div class="h-full overflow-y-auto">
-    <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
-      <li><a href="index.html#about" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
-      <li><a href="index.html#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
-      <li><a href="index.html#case" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
-      <li><a href="index.html#news" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
-      <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
-      <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
-      <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
-    </ul>
-  </div>
-</div>
-
-  <main class="pt-20">
-
-    <!-- Hero -->
-    <section class="h-[40vh] sm:h-[50vh] flex items-center justify-center bg-gray-50">
-      <div class="text-center">
-        <h1 class="text-4xl sm:text-6xl font-bold tracking-tight">Company</h1>
-      </div>
-    </section>
-
-    <!-- Intro (Removed) -->
-
-    <!-- Message blocks (Removed) -->
-
-    <!-- What we do（導線） -->
-    <section class="py-20 sm:py-32 px-4 sm:px-6 max-w-7xl mx-auto">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl font-bold mb-12 text-center">TLiMができること</h2>
-
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
-          <li class="space-y-3">
-            <h3 class="text-lg font-bold border-b border-gray-200 pb-2">写真撮影 / 映像制作</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">ブランドムービー、採用、SNS用短尺など。</p>
-          </li>
-          <li class="space-y-3">
-            <h3 class="text-lg font-bold border-b border-gray-200 pb-2">SNS運用</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">設計〜制作〜投稿〜改善まで。</p>
-          </li>
-          <li class="space-y-3">
-            <h3 class="text-lg font-bold border-b border-gray-200 pb-2">採用支援</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">採用広報、求人LP、運用導線整備。</p>
-          </li>
-          <li class="space-y-3">
-            <h3 class="text-lg font-bold border-b border-gray-200 pb-2">広告</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">クリエイティブ制作と運用改善。</p>
-          </li>
+      <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
+        <ul class="flex space-x-8 text-sm font-medium tracking-wide text-white">
+          <li><a href="index.html#about" class="hover:text-gray-500 transition-colors">About</a></li>
+          <li><a href="index.html#service" class="hover:text-gray-500 transition-colors">Service</a></li>
+          <li><a href="index.html#case" class="hover:text-gray-500 transition-colors">Case</a></li>
+          <li><a href="index.html#news" class="hover:text-gray-500 transition-colors">News</a></li>
+          <li><a href="company.html" class="hover:text-gray-500 transition-colors">Company</a></li>
+          <li><a href="recruit.html" class="hover:text-gray-500 transition-colors">Recruit</a></li>
+          <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
         </ul>
+      </nav>
 
-        <!-- Thinking/Serviceへの導線（参考ページはThinkingへリンク） -->
-        <div class="mt-16 text-center">
-          <a class="inline-block border border-black px-8 py-3 text-sm font-medium hover:bg-black hover:text-white transition-colors rounded-full" href="service.html">View Service</a>
+      <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
+        <div class="w-6 h-5 flex flex-col justify-between">
+          <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+          <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
+          <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <div class="fixed inset-0 z-40 bg-black transition-opacity duration-300 opacity-0 pointer-events-none md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+    <div class="h-full overflow-y-auto">
+      <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
+        <li><a href="index.html#about" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+        <li><a href="index.html#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+        <li><a href="index.html#case" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+        <li><a href="index.html#news" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+        <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
+        <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
+        <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main class="pt-12 sm:pt-24 lg:pt-28">
+
+    <section class="relative h-[68vh] sm:h-[80vh] flex items-end pb-14 sm:pb-32 px-[5%]">
+      <div class="w-full pt-8">
+        <p class="text-sm font-bold tracking-widest text-gray-500 mb-4 reveal-up">WHO WE ARE</p>
+        <h1 class="text-5xl sm:text-7xl lg:text-9xl font-extrabold tracking-tighter leading-[0.9] mt-2 mb-8">
+          <div class="overflow-hidden"><span class="block reveal-text">WE DESIGN</span></div>
+          <div class="overflow-hidden"><span class="block reveal-text text-gray-400">MEANINGFUL</span></div>
+          <div class="overflow-hidden"><span class="block reveal-text">MOMENTS.</span></div>
+        </h1>
+        <div class="reveal-up">
+           <p class="text-xs sm:text-sm font-medium text-left max-w-xs leading-relaxed text-gray-600">
+             数字だけでなく、心に残る体験を。<br>
+             戦略とクリエイティブで本質的な価値を届ける。
+           </p>
         </div>
       </div>
     </section>
 
-    <!-- Philosophy -->
-    <section class="py-20 sm:py-32 px-4 sm:px-6 bg-gray-50">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl font-bold mb-12 text-center">私たちの指針</h2>
-        <div class="space-y-8 text-gray-700 leading-loose text-justify">
-          <p>
-            私たちの指針は、Turn Life into Meaningful ——「人生を、意義あるものに。」です。これは目先の成果だけでなく、関わる人や組織の時間が“意味のある体験”として積み重なる状態をつくる、という約束です。
-          </p>
-          <p>
-            TLiMが向き合っているのは、単なる「売上」や「フォロワー数」の増減ではありません。なぜこの事業を行うのか。この会社は、誰の生活や意思決定を支えたいのか。その価値は、社内外に正しく伝わり、共感として届いているのか。
-          </p>
-          <p>
-            私たちは、表面的な流行や一時的なバズに依存せず、人の心に残り、選ばれ続ける“本質的なブランドづくり”を重視します。戦略とクリエイティブ、そして運用を一体で設計し、企業の想いを「伝わる言葉」と「届く体験」へ落とし込みます。
-          </p>
-          <p>
-            柔軟性と、冷静に物事を見つめる視点を武器に。期待値を誠実に超え、成果が継続する仕組みまで伴走する。仕事を通して、「人生を、意義あるものに。」
-          </p>
+    <section class="py-14 sm:py-20 bg-gray-50 rounded-t-[3rem] relative z-10">
+      <div class="max-w-[90%] mx-auto">
+        <div class="lg:flex lg:gap-20">
+          <div class="lg:w-1/3 mb-12 lg:mb-0">
+            <div class="sticky top-32">
+              <h2 class="text-3xl sm:text-4xl font-bold mb-6 tracking-tight">Our Philosophy</h2>
+              <div class="h-1 w-20 bg-black mb-8 reveal-in trigger-line"></div>
+              <p class="text-sm text-gray-500 font-jp leading-relaxed">
+                私たちが大切にしている指針。<br>
+                それは、技術の先にある「人の感情」です。
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:w-2/3 space-y-14 sm:space-y-24 lg:space-y-40 pb-12 sm:pb-20 lg:pb-0">
+            <article class="reveal-up group">
+              <h3 class="text-xl sm:text-2xl font-bold mb-4 flex items-center gap-4">
+                <span class="text-xs font-mono border border-black rounded-full px-3 py-1">01</span>
+                Turn Life into Meaningful
+              </h3>
+              <p class="text-base sm:text-lg text-gray-700 leading-loose font-jp text-justify group-hover:text-black transition-colors duration-300">
+                私たちの指針は、「人生を、意義あるものに。」です。これは目先の成果だけでなく、関わる人や組織の時間が“意味のある体験”として積み重なる状態をつくる、という約束です。
+              </p>
+            </article>
+
+            <article class="reveal-up group">
+              <h3 class="text-xl sm:text-2xl font-bold mb-4 flex items-center gap-4">
+                <span class="text-xs font-mono border border-gray-300 text-gray-400 rounded-full px-3 py-1 group-hover:border-black group-hover:text-black transition-colors">02</span>
+                Beyond Numbers
+              </h3>
+              <p class="text-base sm:text-lg text-gray-700 leading-loose font-jp text-justify group-hover:text-black transition-colors duration-300">
+                TLiMが向き合っているのは、単なる「売上」や「フォロワー数」の増減ではありません。なぜこの事業を行うのか。この会社は、誰の生活や意思決定を支えたいのか。その価値は、社内外に正しく伝わり、共感として届いているのかを問い続けます。
+              </p>
+            </article>
+
+            <article class="reveal-up group">
+              <h3 class="text-xl sm:text-2xl font-bold mb-4 flex items-center gap-4">
+                <span class="text-xs font-mono border border-gray-300 text-gray-400 rounded-full px-3 py-1 group-hover:border-black group-hover:text-black transition-colors">03</span>
+                Essential Branding
+              </h3>
+              <p class="text-base sm:text-lg text-gray-700 leading-loose font-jp text-justify group-hover:text-black transition-colors duration-300">
+                私たちは、表面的な流行や一時的なバズに依存せず、人の心に残り、選ばれ続ける“本質的なブランドづくり”を重視します。戦略とクリエイティブ、そして運用を一体で設計し、企業の想いを「伝わる言葉」と「届く体験」へ落とし込みます。
+              </p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Members (Removed) -->
+    <section class="py-14 sm:py-24 lg:py-32 px-[5%] max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 reveal-up">
+        <div>
+          <h2 class="text-3xl sm:text-5xl font-bold tracking-tighter">What We Do</h2>
+          <div class="h-1 w-20 bg-black mt-4 md:hidden"></div>
+        </div>
+        <a href="service.html" class="hidden md:inline-flex items-center gap-2 text-sm font-bold border-b border-black pb-1 hover:opacity-50 transition-opacity">
+          VIEW ALL SERVICE
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
 
-    <!-- Company profile（表） -->
-    <section class="py-20 sm:py-32 px-4 sm:px-6 max-w-7xl mx-auto">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl font-bold mb-12 text-center">会社概要</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
+        <div class="group relative bg-white border border-gray-100 p-6 sm:p-8 rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal-up">
+          <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </div>
+          <span class="text-xs font-bold text-gray-400 mb-4 block">01</span>
+          <h3 class="text-xl font-bold mb-3 font-jp">映像制作 / Photo</h3>
+          <p class="text-sm text-gray-500 leading-relaxed font-jp">ブランドムービーからSNS用短尺動画まで、心を動かすビジュアルストーリーテリング。</p>
+        </div>
 
-        <dl class="border-t border-gray-200">
-          <div class="flex flex-col sm:flex-row py-6 border-b border-gray-200">
-            <dt class="w-full sm:w-40 font-bold text-sm mb-2 sm:mb-0">会社名</dt>
-            <dd class="flex-1 text-sm text-gray-700">株式会社ＴＬｉＭ</dd>
+        <div class="group relative bg-white border border-gray-100 p-6 sm:p-8 rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal-up" style="transition-delay: 100ms;">
+          <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </div>
-          <div class="flex flex-col sm:flex-row py-6 border-b border-gray-200">
-            <dt class="w-full sm:w-40 font-bold text-sm mb-2 sm:mb-0">代表者</dt>
-            <dd class="flex-1 text-sm text-gray-700">皇甫　友燦</dd>
+          <span class="text-xs font-bold text-gray-400 mb-4 block">02</span>
+          <h3 class="text-xl font-bold mb-3 font-jp">SNS Marketing</h3>
+          <p class="text-sm text-gray-500 leading-relaxed font-jp">設計・制作・分析を一気通貫で。ファンとのエンゲージメントを高める運用。</p>
+        </div>
+
+        <div class="group relative bg-white border border-gray-100 p-6 sm:p-8 rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal-up" style="transition-delay: 200ms;">
+          <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </div>
-          <div class="flex flex-col sm:flex-row py-6 border-b border-gray-200">
-            <dt class="w-full sm:w-40 font-bold text-sm mb-2 sm:mb-0">所在地</dt>
-            <dd class="flex-1 text-sm text-gray-700">大阪府大阪市北区梅田１丁目２番２号大阪駅前第２ビル１２－１２</dd>
+          <span class="text-xs font-bold text-gray-400 mb-4 block">03</span>
+          <h3 class="text-xl font-bold mb-3 font-jp">Recruiting</h3>
+          <p class="text-sm text-gray-500 leading-relaxed font-jp">「ここで働きたい」を作る。採用広報からLP制作、応募導線の最適化まで。</p>
+        </div>
+
+        <div class="group relative bg-white border border-gray-100 p-6 sm:p-8 rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal-up" style="transition-delay: 300ms;">
+          <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </div>
+          <span class="text-xs font-bold text-gray-400 mb-4 block">04</span>
+          <h3 class="text-xl font-bold mb-3 font-jp">Ad Creative</h3>
+          <p class="text-sm text-gray-500 leading-relaxed font-jp">データと感性を掛け合わせ、期待値を超え続ける広告クリエイティブ制作。</p>
+        </div>
+      </div>
+      
+      <div class="mt-8 text-center md:hidden">
+        <a href="service.html" class="inline-block border border-black px-8 py-3 text-sm font-medium hover:bg-black hover:text-white transition-colors rounded-full w-full">View All Service</a>
+      </div>
+    </section>
+
+    <section class="py-14 sm:py-20 bg-black text-white px-[5%]">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-12 text-gray-500 tracking-widest uppercase reveal-up">Overview</h2>
+        
+        <dl class="space-y-8 reveal-up">
+          <div class="flex flex-col sm:flex-row border-b border-gray-800 pb-8 hover:border-white transition-colors duration-500 group">
+            <dt class="w-full sm:w-48 font-bold text-sm text-gray-400 group-hover:text-white transition-colors">Company Name</dt>
+            <dd class="flex-1 text-base font-jp tracking-wide">株式会社ＴＬｉＭ</dd>
+          </div>
+          <div class="flex flex-col sm:flex-row border-b border-gray-800 pb-8 hover:border-white transition-colors duration-500 group">
+            <dt class="w-full sm:w-48 font-bold text-sm text-gray-400 group-hover:text-white transition-colors">Representative</dt>
+            <dd class="flex-1 text-base font-jp tracking-wide">皇甫　友燦</dd>
+          </div>
+          <div class="flex flex-col sm:flex-row border-b border-gray-800 pb-8 hover:border-white transition-colors duration-500 group">
+            <dt class="w-full sm:w-48 font-bold text-sm text-gray-400 group-hover:text-white transition-colors">Address</dt>
+            <dd class="flex-1 text-base font-jp tracking-wide">
+              大阪府大阪市北区梅田1-2-2<br class="sm:hidden"> 大阪駅前第2ビル 12-12
+            </dd>
           </div>
         </dl>
       </div>
     </section>
 
-    <!-- Latest Works（任意） -->
-    <section class="py-20 sm:py-32 px-4 sm:px-6 bg-black text-white">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl font-bold mb-12 text-center">Latest Works</h2>
-
-        <ul class="space-y-6 mb-12">
-          <li><a href="works_detail.html" class="block text-lg sm:text-xl hover:text-gray-400 transition-colors border-b border-gray-800 pb-4">2026 / Web / Project Name</a></li>
-          <li><a href="works_detail.html" class="block text-lg sm:text-xl hover:text-gray-400 transition-colors border-b border-gray-800 pb-4">2025 / Movie / Project Name</a></li>
-          <li><a href="works_detail.html" class="block text-lg sm:text-xl hover:text-gray-400 transition-colors border-b border-gray-800 pb-4">2025 / SNS / Project Name</a></li>
-        </ul>
-
-        <div class="text-center">
-          <a class="inline-block border border-white px-8 py-3 text-sm font-medium hover:bg-white hover:text-black transition-colors rounded-full" href="works.html">Archive</a>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <footer class="bg-black text-white py-16 px-6">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-    <div class="space-y-6">
-      <a href="index.html" aria-label="TLiM Top">
-        <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
-      </a>
-      <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
-      
-      <div class="flex space-x-4">
-        <a href="https://www.instagram.com/tlim.marketing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+  <footer class="bg-black text-white py-12 sm:py-16 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+      <div class="space-y-6">
+        <a href="index.html" aria-label="TLiM Top">
+          <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
         </a>
-        <a href="https://www.youtube.com/@your_channel" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
-        </a>
+        <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
+        
+        <div class="flex space-x-4">
+          <a href="https://www.instagram.com/tlim.marketing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="index.html" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          </a>
+        </div>
       </div>
+      
+      <nav>
+        <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+          <li><a href="index.html#about" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="index.html#service" class="hover:text-white transition-colors">Service</a></li>
+          <li><a href="index.html#case" class="hover:text-white transition-colors">Case</a></li>
+          <li><a href="index.html#news" class="hover:text-white transition-colors">News</a></li>
+          <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
+          <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    
-    <nav>
-      <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
-        <li><a href="index.html#about" class="hover:text-white transition-colors">About</a></li>
-        <li><a href="index.html#service" class="hover:text-white transition-colors">Service</a></li>
-        <li><a href="index.html#case" class="hover:text-white transition-colors">Case</a></li>
-        <li><a href="index.html#news" class="hover:text-white transition-colors">News</a></li>
-        <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
-        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-  <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
-    <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
-  </div>
-</footer>
+    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
+      <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
+    </div>
+  </footer>
 
   <script src="JS/nav-toggle.js"></script>
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
 
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Hero Text Reveal Animation
+      const tl = gsap.timeline();
+      
+      tl.to('.reveal-text', {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        stagger: 0.1,
+        ease: 'power4.out'
+      })
+      .to('.reveal-up', {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power2.out'
+      }, '-=0.5');
+
+      // 2. Scroll Trigger Animations for Sections
+      const revealElements = document.querySelectorAll('.reveal-up');
+      
+      revealElements.forEach(element => {
+        gsap.to(element, {
+          scrollTrigger: {
+            trigger: element,
+            start: "top 85%", // 画面の85%に来たら発火
+            toggleActions: "play none none reverse"
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power2.out"
+        });
+      });
+
+      // 3. Line Animation in Philosophy
+      gsap.to('.trigger-line', {
+        scrollTrigger: {
+          trigger: '.trigger-line',
+          start: "top 80%"
+        },
+        clipPath: "inset(0 0 0 0)",
+        duration: 1,
+        ease: "power2.inOut"
+      });
+
+    });
+  </script>
+
+  <style>
+    /* JSで制御する前の初期状態 */
+    .reveal-text {
+      transform: translateY(100%);
+      opacity: 0;
+      display: block;
+    }
+    .reveal-up {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+  </style>
 </body>
 </html>
