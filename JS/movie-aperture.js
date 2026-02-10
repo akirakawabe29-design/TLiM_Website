@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btn = document.querySelector(".movie-fullbtn");
   const isMobile = window.matchMedia("(max-width: 767px)").matches;
   const scrollDistance = isMobile ? 4200 : 2000;
+  const fadeInDuration = isMobile ? 0.25 : 0.5;
 
   if (!trigger || !wrapper || !poster || !video || !overlay || !btn) return;
 
@@ -82,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         opacity: 1,
         autoAlpha: 1,
-        duration: 0.5,
+        duration: fadeInDuration,
         ease: "power2.out"
       }
     );
