@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HR Support & Branding | TLiM</title>
+<meta name="description" content="TLiMの採用支援・採用ブランディング事業。「この会社で働きたい」という熱狂を生むコンセプト設計から、採用サイト、ムービー、SNS運用まで。">
+<link rel="canonical" href="https://tlim.co.jp/recruitsupport-detail.html">
+<meta property="og:title" content="HR Support & Branding | TLiM">
+<meta property="og:description" content="TLiMの採用支援・採用ブランディング事業。「この会社で働きたい」という熱狂を生むコンセプト設計から、採用サイト、ムービー、SNS運用まで。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tlim.co.jp/recruitsupport-detail.html">
+<meta property="og:image" content="https://tlim.co.jp/img/recruiting.png">
+<meta property="og:site_name" content="TLiM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HR Support & Branding | TLiM">
+<meta name="twitter:description" content="TLiMの採用支援・採用ブランディング事業。「この会社で働きたい」という熱狂を生むコンセプト設計から、採用サイト、ムービー、SNS運用まで。">
+<meta name="twitter:image" content="https://tlim.co.jp/img/recruiting.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Noto Sans JP"', 'sans-serif'],
+          serif: ['"Playfair Display"', 'serif'],
+          eng: ['"Manrope"', 'sans-serif'],
+        },
+        colors: {
+          black: '#050505',
+          dark: '#0A0A0A',
+        },
+        animation: {
+          'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          'spotlight': 'spotlight 10s ease-in-out infinite alternate',
+        },
+        keyframes: {
+          spotlight: {
+            '0%': { opacity: 0.3, transform: 'scale(1) translate(0,0)' },
+            '100%': { opacity: 0.6, transform: 'scale(1.2) translate(20px, -20px)' },
+          }
+        }
+      }
+    }
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<style>
+  /* 共通フェードイン */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 背景のスポットライト効果 */
+  .spotlight-bg {
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08), transparent 60%);
+    filter: blur(60px);
+  }
+
+  /* アコーディオンのスタイル */
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.2, 0, 0.2, 1), opacity 0.5s ease;
+    opacity: 0;
+  }
+  .group.active .accordion-content {
+    max-height: 500px; /* 十分な高さ */
+    opacity: 1;
+  }
+  .group.active .accordion-icon {
+    transform: rotate(45deg);
+  }
+</style>
+</head>
+
+<body class="font-sans text-white antialiased bg-black overflow-x-hidden">
+
+  <div class="fixed top-[-20%] left-[-20%] w-[80vw] h-[80vw] spotlight-bg animate-spotlight pointer-events-none z-0"></div>
+  <div class="fixed bottom-[-20%] right-[-20%] w-[60vw] h-[60vw] spotlight-bg animate-pulse-slow pointer-events-none z-0"></div>
+
+  <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+      <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
+        <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+      </a>
+      <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
+        <ul class="flex space-x-8 text-sm font-medium tracking-wide">
+          <li><a href="about.html" class="hover:text-gray-400 transition-colors">About</a></li>
+          <li><a href="index.html#service" class="hover:text-gray-400 transition-colors">Service</a></li>
+          <li><a href="case-list.html" class="hover:text-gray-400 transition-colors">Case</a></li>
+          <li><a href="news-list.html" class="hover:text-gray-400 transition-colors">News</a></li>
+          <li><a href="company.html" class="hover:text-gray-400 transition-colors">Company</a></li>
+          <li><a href="recruit.html" class="hover:text-gray-400 transition-colors">Recruit</a></li>
+          <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
+        <div class="w-6 h-5 flex flex-col justify-between">
+          <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+          <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
+          <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+        </div>
+      </button>
+    </div>
+  </header>
+  <div class="fixed inset-0 z-40 bg-black transition-opacity duration-300 opacity-0 pointer-events-none md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+    <div class="h-full overflow-y-auto">
+      <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
+        <li><a href="about.html" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+        <li><a href="index.html#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+        <li><a href="case-list.html" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+        <li><a href="news-list.html" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+        <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
+        <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
+        <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main class="relative z-10 pt-20">
+    
+    <section class="min-h-[85vh] flex flex-col items-center justify-center px-6 relative text-center">
+      <div class="mb-8 fade-in">
+        <span class="text-[10px] sm:text-xs font-serif italic tracking-wider text-gray-400 border-b border-gray-600 pb-1">
+          HR Support & Employer Branding
+        </span>
+      </div>
+
+      <h1 class="text-4xl sm:text-7xl md:text-8xl font-serif font-medium tracking-tight leading-[1.1] mb-8 fade-in" style="transition-delay: 0.1s;">
+        DESIGNING<br>
+        <span class="text-gray-500 italic">RELATIONSHIPS.</span>
+      </h1>
+
+      <p class="text-sm sm:text-base text-gray-300 max-w-lg mx-auto leading-loose fade-in font-light" style="transition-delay: 0.2s;">
+        採用は、数合わせではありません。<br>
+        企業の「未来」と、個人の「人生」を重ね合わせる。<br>
+        心動かすクリエイティブで、本質的なマッチングを。
+      </p>
+
+      <div class="absolute bottom-0 left-1/2 w-[1px] h-24 bg-gradient-to-b from-transparent via-white/50 to-white fade-in" style="transition-delay: 0.5s;"></div>
+    </section>
+
+    <section class="py-24 px-6 sm:px-12 max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row gap-16 items-start">
+        <div class="md:w-1/3 fade-in sticky top-32">
+          <h2 class="text-3xl font-bold mb-4">Why Branding?</h2>
+          <div class="h-[1px] w-12 bg-white mb-6"></div>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            条件だけのマッチングは、<br>
+            いつか必ず乖離（ギャップ）を生む。
+          </p>
+        </div>
+        
+        <div class="md:w-2/3 space-y-16 fade-in" style="transition-delay: 0.2s;">
+          <p class="text-base sm:text-lg leading-loose text-gray-300 font-light text-justify">
+            「応募が来ない」「ミスマッチによる早期離職」「内定辞退」。<br>
+            これらの課題の多くは、企業の“人格”や“目指す未来”が正しく伝わっていないことに起因します。
+          </p>
+          <p class="text-base sm:text-lg leading-loose text-gray-300 font-light text-justify">
+            TLiMは、単に求人媒体を運用するだけの支援は行いません。経営者の原体験や組織のカルチャーを言語化・視覚化し、「ここで働きたい」と心から思えるストーリーを設計します。
+          </p>
+          <div class="p-8 border border-white/10 bg-white/[0.02] backdrop-blur-sm">
+            <p class="text-xl font-serif italic text-center text-white/90">
+              "Matching values, not just skills."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-[#080808] border-y border-white/5">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-center text-2xl font-serif italic mb-16 fade-in">Our Services</h2>
+
+        <div class="space-y-4">
+          
+          <div class="group border-b border-white/10 pb-4 cursor-pointer fade-in" onclick="this.classList.toggle('active')">
+            <div class="flex justify-between items-center py-4 group-hover:opacity-70 transition-opacity">
+              <div class="flex items-baseline gap-6">
+                <span class="text-xs font-eng text-gray-500">01</span>
+                <h3 class="text-xl sm:text-3xl font-light">Concept & Strategy</h3>
+              </div>
+              <span class="accordion-icon text-2xl font-thin transition-transform duration-300">+</span>
+            </div>
+            <div class="accordion-content">
+              <div class="pt-4 pb-8 pl-10 sm:pl-12 text-gray-400 text-sm leading-relaxed grid md:grid-cols-2 gap-8">
+                <p>
+                  「誰に」「何を」伝えるか。採用ターゲット（ペルソナ）を明確化し、競合他社にはない貴社だけの採用コンセプト（EVP）を策定します。
+                </p>
+                <ul class="list-disc list-inside text-xs space-y-2 text-gray-500">
+                  <li>採用競合調査 / 市場分析</li>
+                  <li>ペルソナ・ジャーニーマップ策定</li>
+                  <li>採用スローガン開発</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="group border-b border-white/10 pb-4 cursor-pointer fade-in" onclick="this.classList.toggle('active')">
+            <div class="flex justify-between items-center py-4 group-hover:opacity-70 transition-opacity">
+              <div class="flex items-baseline gap-6">
+                <span class="text-xs font-eng text-gray-500">02</span>
+                <h3 class="text-xl sm:text-3xl font-light">Creative Assets</h3>
+              </div>
+              <span class="accordion-icon text-2xl font-thin transition-transform duration-300">+</span>
+            </div>
+            <div class="accordion-content">
+              <div class="pt-4 pb-8 pl-10 sm:pl-12 text-gray-400 text-sm leading-relaxed grid md:grid-cols-2 gap-8">
+                <p>
+                  言葉にできない社内の空気感や熱量を、写真・映像・WEBデザインの力で可視化します。嘘のない、けれど憧れるクリエイティブを。
+                </p>
+                <ul class="list-disc list-inside text-xs space-y-2 text-gray-500">
+                  <li>採用サイト制作</li>
+                  <li>社員インタビュー撮影</li>
+                  <li>コンセプトムービー / 会社紹介動画</li>
+                  <li>入社案内パンフレット</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="group border-b border-white/10 pb-4 cursor-pointer fade-in" onclick="this.classList.toggle('active')">
+            <div class="flex justify-between items-center py-4 group-hover:opacity-70 transition-opacity">
+              <div class="flex items-baseline gap-6">
+                <span class="text-xs font-eng text-gray-500">03</span>
+                <h3 class="text-xl sm:text-3xl font-light">Communication</h3>
+              </div>
+              <span class="accordion-icon text-2xl font-thin transition-transform duration-300">+</span>
+            </div>
+            <div class="accordion-content">
+              <div class="pt-4 pb-8 pl-10 sm:pl-12 text-gray-400 text-sm leading-relaxed grid md:grid-cols-2 gap-8">
+                <p>
+                  作っただけでは届きません。ターゲットが日常的に触れるSNSやメディアを通じて、認知から応募、内定承諾までの導線を設計します。
+                </p>
+                <ul class="list-disc list-inside text-xs space-y-2 text-gray-500">
+                  <li>採用SNS（Instagram/TikTok）運用</li>
+                  <li>Wantedly運用代行</li>
+                  <li>説明会資料（ピッチデック）制作</li>
+                  <li>内定者フォロー施策</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 h-[400px] md:h-[500px]">
+        <div class="col-span-1 h-full overflow-hidden relative fade-in">
+           <img src="img/apparel .png" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+        </div>
+        <div class="col-span-1 h-full overflow-hidden relative mt-12 fade-in" style="transition-delay: 0.1s;">
+           <img src="img/shooting.png" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+        </div>
+        <div class="col-span-1 h-full overflow-hidden relative fade-in" style="transition-delay: 0.2s;">
+           <img src="img/beauty.png" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+        </div>
+        <div class="col-span-1 h-full overflow-hidden relative mt-12 fade-in" style="transition-delay: 0.3s;">
+           <img src="img/recruiting.png" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+        </div>
+      </div>
+      <p class="text-center text-xs text-gray-500 mt-8 tracking-widest font-serif italic">Turn Life into Meaningful.</p>
+    </section>
+
+    <section class="py-24 px-6 max-w-5xl mx-auto">
+      <h2 class="text-2xl font-bold mb-16 text-center fade-in">Process</h2>
+      
+      <div class="relative">
+        <div class="absolute left-6 top-0 bottom-0 w-[1px] bg-gray-800"></div>
+        
+        <div class="space-y-12">
+          <div class="relative pl-16 fade-in">
+            <span class="absolute left-[21px] top-2 w-1.5 h-1.5 bg-white rounded-full"></span>
+            <h3 class="text-lg font-bold mb-2">Hearing & Analysis</h3>
+            <p class="text-sm text-gray-400">経営者インタビュー、社員アンケート等を通じ、御社の「らしさ（独自の価値）」を発掘します。</p>
+          </div>
+          <div class="relative pl-16 fade-in">
+            <span class="absolute left-[21px] top-2 w-1.5 h-1.5 bg-gray-700 rounded-full"></span>
+            <h3 class="text-lg font-bold mb-2">Concept Design</h3>
+            <p class="text-sm text-gray-400">採用ターゲットに刺さる「メインメッセージ」と「クリエイティブ方針」を策定します。</p>
+          </div>
+          <div class="relative pl-16 fade-in">
+            <span class="absolute left-[21px] top-2 w-1.5 h-1.5 bg-gray-700 rounded-full"></span>
+            <h3 class="text-lg font-bold mb-2">Output & Launch</h3>
+            <p class="text-sm text-gray-400">Web、動画、パンフレット等の制作物を、一貫したクオリティで制作・公開します。</p>
+          </div>
+          <div class="relative pl-16 fade-in">
+            <span class="absolute left-[21px] top-2 w-1.5 h-1.5 bg-gray-700 rounded-full"></span>
+            <h3 class="text-lg font-bold mb-2">Operation Support</h3>
+            <p class="text-sm text-gray-400">公開後の数値分析、SNS運用、説明会のブラッシュアップなど、採用成功まで伴走します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-32 px-6 text-center relative" id="contact">
+      <div class="fade-in">
+        <p class="text-xs font-serif italic text-gray-500 mb-6 tracking-widest">Connect Visions</p>
+        <h2 class="text-3xl sm:text-5xl font-bold mb-10 tracking-tight">
+          Find Your Future.
+        </h2>
+        <a class="inline-block border border-white px-12 py-4 text-sm font-bold hover:bg-white hover:text-black transition-all duration-300 rounded-sm" href="contact.html">
+          CONTACT US
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-black text-white py-16 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+      <div class="space-y-6">
+        <a href="index.html" aria-label="TLiM Top">
+          <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+        </a>
+        <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
+      </div>
+      <nav>
+        <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+          <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="index.html#service" class="hover:text-white transition-colors">Service</a></li>
+          <li><a href="case-list.html" class="hover:text-white transition-colors">Case</a></li>
+          <li><a href="news-list.html" class="hover:text-white transition-colors">News</a></li>
+          <li><a href="company.html" class="hover:text-white transition-colors">Company</a></li>
+          <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
+          <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
+      <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
+    </div>
+  </footer>
+
+  <script src="js/nav-toggle.js"></script>
+  
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade In Animation
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach(el => {
+      gsap.fromTo(el, 
+        { y: 30, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out'
+        }
+      );
+    });
+  </script>
+</body>
+</html>

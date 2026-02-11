@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Entry Form | TLiM</title>
+  <meta name="description" content="株式会社TLiMの採用エントリーフォームです。募集職種への応募を受け付けています。">
+  <link rel="canonical" href="https://tlim.co.jp/entry-form.html">
+  <meta property="og:title" content="Entry Form | TLiM">
+  <meta property="og:description" content="株式会社TLiMの採用エントリーフォームです。募集職種への応募を受け付けています。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tlim.co.jp/entry-form.html">
+  <meta property="og:image" content="https://tlim.co.jp/img/ogp.png">
+  <meta property="og:site_name" content="TLiM">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Entry Form | TLiM">
+  <meta name="twitter:description" content="株式会社TLiMの採用エントリーフォームです。募集職種への応募を受け付けています。">
+  <meta name="twitter:image" content="https://tlim.co.jp/img/ogp.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Entry Form | TLiM",
+    "url": "https://tlim.co.jp/entry-form.html",
+    "inLanguage": "ja-JP",
+    "description": "株式会社TLiMの採用エントリーフォームです。募集職種への応募を受け付けています。",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "TLiM",
+      "url": "https://tlim.co.jp/"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif']
+          },
+          colors: {
+            ink: '#0F1115',
+            mint: '#C8FFD6',
+            accent: '#89F5B0',
+            mist: '#E8F2F0'
+          },
+          boxShadow: {
+            card: '0 24px 48px rgba(15, 17, 21, 0.16)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-feature-settings: "palt";
+      -webkit-font-smoothing: antialiased;
+      background:
+        radial-gradient(circle at 14% 12%, rgba(137, 245, 176, 0.32), transparent 34%),
+        radial-gradient(circle at 88% 18%, rgba(200, 255, 214, 0.48), transparent 38%),
+        linear-gradient(150deg, #f4f9f8 0%, #ffffff 45%, #f7f6f2 100%);
+      min-height: 100dvh;
+    }
+
+    .entry-shell {
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.92), rgba(248, 252, 251, 0.86));
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(15, 17, 21, 0.07);
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .entry-input,
+    .entry-textarea,
+    .entry-select {
+      width: 100%;
+      border: 1px solid rgba(15, 17, 21, 0.15);
+      background: rgba(255, 255, 255, 0.84);
+      border-radius: 16px;
+      padding: 1rem 0.9rem 0.75rem;
+      font-size: 1rem;
+      color: #0f1115;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+      min-height: 56px;
+    }
+
+    .entry-select {
+      appearance: none;
+      padding-right: 2.6rem;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23111827' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      background-size: 1.35rem;
+    }
+
+    .entry-textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.75;
+    }
+
+    .entry-input:focus,
+    .entry-textarea:focus,
+    .entry-select:focus {
+      outline: none;
+      border-color: #111827;
+      box-shadow: 0 0 0 3px rgba(137, 245, 176, 0.32);
+      transform: translateY(-1px);
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.78rem;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin: 0 0 0.48rem 0.3rem;
+      color: rgba(15, 17, 21, 0.74);
+    }
+
+    .check-label {
+      display: grid;
+      grid-template-columns: 1.3rem 1fr;
+      gap: 0.7rem;
+      align-items: start;
+      font-size: 0.84rem;
+      line-height: 1.65;
+      color: #374151;
+    }
+
+    .check-label input {
+      margin-top: 0.1rem;
+      accent-color: #111827;
+      width: 1.1rem;
+      height: 1.1rem;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="font-sans text-ink antialiased selection:bg-ink selection:text-white">
+  <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+      <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
+        <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+      </a>
+      <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
+        <ul class="flex space-x-8 text-sm font-medium tracking-wide text-white">
+          <li><a href="about.html" class="hover:text-gray-500 transition-colors">About</a></li>
+          <li><a href="index.html#service" class="hover:text-gray-500 transition-colors">Service</a></li>
+          <li><a href="case-list.html" class="hover:text-gray-500 transition-colors">Case</a></li>
+          <li><a href="news-list.html" class="hover:text-gray-500 transition-colors">News</a></li>
+          <li><a href="company.html" class="hover:text-gray-500 transition-colors">Company</a></li>
+          <li><a href="recruit.html" class="hover:text-gray-500 transition-colors">Recruit</a></li>
+          <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
+        <div class="w-6 h-5 flex flex-col justify-between">
+          <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+          <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
+          <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <div class="fixed inset-0 z-40 bg-black transition-opacity duration-300 opacity-0 pointer-events-none md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+    <div class="h-full overflow-y-auto">
+      <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
+        <li><a href="about.html" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+        <li><a href="index.html#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+        <li><a href="case-list.html" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+        <li><a href="news-list.html" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+        <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
+        <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
+        <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main class="pt-20 sm:pt-28 pb-14">
+    <section class="px-4 sm:px-6 max-w-3xl mx-auto pt-6 sm:pt-12">
+      <div class="fade-up mb-7 sm:mb-10">
+        <p class="font-display text-[11px] tracking-[0.32em] text-gray-500 mb-3">RECRUITMENT ENTRY</p>
+        <h1 class="font-display text-3xl sm:text-5xl leading-tight tracking-tight text-ink">
+          応募エントリー
+        </h1>
+        <p class="mt-4 text-sm sm:text-base text-gray-600 leading-relaxed">
+          採用応募者向けのフォームです。必須項目をご入力のうえ送信してください。
+          通常、3営業日以内に担当者よりご連絡します。
+        </p>
+      </div>
+
+      <div class="fade-up entry-shell rounded-3xl p-4 sm:p-8 shadow-card border border-white/70" style="transition-delay: 120ms;">
+        <div class="grid grid-cols-3 gap-2 mb-7 sm:mb-10">
+          <div class="rounded-2xl bg-ink text-white px-3 py-3 text-center">
+            <p class="font-display text-[11px] tracking-[0.22em]">STEP 1</p>
+            <p class="mt-1 text-[11px] sm:text-xs">基本情報</p>
+          </div>
+          <div class="rounded-2xl bg-white/85 border border-gray-200 px-3 py-3 text-center">
+            <p class="font-display text-[11px] tracking-[0.22em] text-gray-600">STEP 2</p>
+            <p class="mt-1 text-[11px] sm:text-xs text-gray-500">応募内容</p>
+          </div>
+          <div class="rounded-2xl bg-white/85 border border-gray-200 px-3 py-3 text-center">
+            <p class="font-display text-[11px] tracking-[0.22em] text-gray-600">STEP 3</p>
+            <p class="mt-1 text-[11px] sm:text-xs text-gray-500">確認・送信</p>
+          </div>
+        </div>
+
+        <form id="entryForm" action="#" method="post" class="space-y-5 sm:space-y-6" novalidate>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+            <div class="input-wrap">
+              <label for="lastName" class="field-label">姓 <span class="text-red-600">*</span></label>
+              <input id="lastName" name="last_name" type="text" autocomplete="family-name" required class="entry-input">
+            </div>
+            <div class="input-wrap">
+              <label for="firstName" class="field-label">名 <span class="text-red-600">*</span></label>
+              <input id="firstName" name="first_name" type="text" autocomplete="given-name" required class="entry-input">
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label for="furigana" class="field-label">フリガナ <span class="text-red-600">*</span></label>
+            <input id="furigana" name="furigana" type="text" autocomplete="off" required class="entry-input">
+          </div>
+
+          <div class="input-wrap">
+            <label for="email" class="field-label">メールアドレス <span class="text-red-600">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required class="entry-input">
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+            <div class="input-wrap">
+              <label for="phone" class="field-label">電話番号 <span class="text-red-600">*</span></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required class="entry-input">
+            </div>
+            <div class="input-wrap">
+              <label for="age" class="field-label">年齢 <span class="text-red-600">*</span></label>
+              <input id="age" name="age" type="number" min="16" max="70" inputmode="numeric" required class="entry-input">
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label for="position" class="field-label">応募職種 <span class="text-red-600">*</span></label>
+            <select id="position" name="position" required class="entry-select">
+              <option value="" selected disabled>選択してください</option>
+              <option value="director">総合職（ディレクター候補）</option>
+              <option value="creator">クリエイター（映像・WEB・デザイン）</option>
+              <option value="intern">SNSマーケティング・アシスタント（インターン）</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+
+          <div class="input-wrap">
+            <label for="portfolio" class="field-label">ポートフォリオURL / SNSアカウント</label>
+            <input id="portfolio" name="portfolio" type="url" placeholder="https://example.com" class="entry-input">
+          </div>
+
+          <div class="input-wrap">
+            <label for="motivation" class="field-label">志望動機・自己PR <span class="text-red-600">*</span></label>
+            <textarea id="motivation" name="motivation" required class="entry-textarea"></textarea>
+          </div>
+
+          <div class="input-wrap">
+            <label for="availability" class="field-label">勤務開始可能時期</label>
+            <input id="availability" name="availability" type="text" placeholder="例）2026年4月〜" class="entry-input">
+          </div>
+
+          <div class="input-wrap">
+            <label class="check-label">
+              <input id="privacy" name="privacy" type="checkbox" required>
+              <span><a href="#" class="underline hover:no-underline">プライバシーポリシー</a>に同意して送信します。<span class="text-red-600">*</span></span>
+            </label>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-ink text-white min-h-[56px] px-5 text-sm font-display tracking-[0.14em] transition-all hover:bg-black focus:outline-none focus-visible:ring-4 focus-visible:ring-accent/50">
+              SEND ENTRY
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black text-white py-14 px-6 mt-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+      <div class="space-y-6">
+        <a href="index.html" aria-label="TLiM Top">
+          <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+        </a>
+        <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
+      </div>
+      <nav>
+        <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+          <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="index.html#service" class="hover:text-white transition-colors">Service</a></li>
+          <li><a href="case-list.html" class="hover:text-white transition-colors">Case</a></li>
+          <li><a href="news-list.html" class="hover:text-white transition-colors">News</a></li>
+          <li><a href="company.html" class="hover:text-white transition-colors">Company</a></li>
+          <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
+          <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="max-w-7xl mx-auto mt-10 pt-7 border-t border-gray-800 text-center md:text-left">
+      <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
+    </div>
+  </footer>
+
+  <script src="js/nav-toggle.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+
+      const textarea = document.getElementById('motivation');
+      const resizeTextarea = () => {
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px';
+      };
+      textarea.addEventListener('input', resizeTextarea);
+      resizeTextarea();
+
+      const form = document.getElementById('entryForm');
+      form.addEventListener('submit', (e) => {
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          e.stopPropagation();
+          const firstInvalid = form.querySelector(':invalid');
+          if (firstInvalid) {
+            const y = firstInvalid.getBoundingClientRect().top + window.pageYOffset - 96;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            firstInvalid.focus({ preventScroll: true });
+          }
+          return;
+        }
+
+        const button = form.querySelector('button[type="submit"]');
+        const originalLabel = button.innerHTML;
+        button.disabled = true;
+        button.classList.add('opacity-70', 'cursor-not-allowed');
+        button.innerHTML = 'SENDING...';
+
+        e.preventDefault();
+        setTimeout(() => {
+          alert('エントリーを受け付けました（デモ）');
+          form.reset();
+          resizeTextarea();
+          button.disabled = false;
+          button.classList.remove('opacity-70', 'cursor-not-allowed');
+          button.innerHTML = originalLabel;
+        }, 1200);
+      });
+    });
+  </script>
+</body>
+</html>

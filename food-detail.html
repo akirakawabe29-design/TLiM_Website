@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Food & Beverage | TLiM Expertise</title>
+<meta name="description" content="TLiMの飲食業界向けブランディング・クリエイティブ制作。シズル感のある撮影から、店舗デザイン、メニュー開発、SNS集客まで。">
+<link rel="canonical" href="https://tlim.co.jp/food-detail.html">
+<meta property="og:title" content="Food & Beverage | TLiM Expertise">
+<meta property="og:description" content="TLiMの飲食業界向けブランディング・クリエイティブ制作。シズル感のある撮影から、店舗デザイン、メニュー開発、SNS集客まで。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tlim.co.jp/food-detail.html">
+<meta property="og:image" content="https://tlim.co.jp/img/food.png">
+<meta property="og:site_name" content="TLiM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Food & Beverage | TLiM Expertise">
+<meta name="twitter:description" content="TLiMの飲食業界向けブランディング・クリエイティブ制作。シズル感のある撮影から、店舗デザイン、メニュー開発、SNS集客まで。">
+<meta name="twitter:image" content="https://tlim.co.jp/img/food.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Manrope:wght@300;400&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Noto Sans JP"', 'sans-serif'],
+          serif: ['"Playfair Display"', 'serif'],
+          eng: ['"Manrope"', 'sans-serif'],
+        },
+        colors: {
+          black: '#050505',
+          dark: '#0A0A0A',
+          gold: '#C4A878', /* 高級感のあるアクセント */
+        },
+        animation: {
+          'float': 'float 8s ease-in-out infinite',
+        },
+        keyframes: {
+          float: {
+            '0%, 100%': { transform: 'translateY(0)' },
+            '50%': { transform: 'translateY(-10px)' },
+          }
+        }
+      }
+    }
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<style>
+  /* 共通設定 */
+  body {
+    background-color: #050505;
+    color: #fff;
+  }
+  
+  /* 画像のパララックス効果用 */
+  .parallax-img-wrapper {
+    overflow: hidden;
+  }
+  .parallax-img {
+    will-change: transform;
+    transform: scale(1.1);
+  }
+
+  /* テキストのフェードイン */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ノイズテクスチャ（フィルム感） */
+  .noise {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.04;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJnoiPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjY1IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2cpIiBvcGFjaXR5PSIwLjAzIi8+PC9zdmc+');
+  }
+</style>
+</head>
+
+<body class="font-sans antialiased selection:bg-gold selection:text-black">
+
+  <div class="noise"></div>
+
+  <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+    <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
+      <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+    </a>
+
+    <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
+      <ul class="flex space-x-8 text-sm font-medium tracking-wide text-white">
+        <li><a href="about.html" class="hover:text-gray-500 transition-colors">About</a></li>
+        <li><a href="index.html#service" class="hover:text-gray-500 transition-colors">Service</a></li>
+        <li><a href="case-list.html" class="hover:text-gray-500 transition-colors">Case</a></li>
+        <li><a href="news-list.html" class="hover:text-gray-500 transition-colors">News</a></li>
+        <li><a href="company.html" class="hover:text-gray-500 transition-colors">Company</a></li>
+        <li><a href="recruit.html" class="hover:text-gray-500 transition-colors">Recruit</a></li>
+        <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
+      <div class="w-6 h-5 flex flex-col justify-between">
+        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+        <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
+        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+      </div>
+    </button>
+  </div>
+</header>
+
+<div class="fixed inset-0 z-40 bg-black transition-opacity duration-300 opacity-0 pointer-events-none md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+  <div class="h-full overflow-y-auto">
+    <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
+      <li><a href="about.html" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+      <li><a href="index.html#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+      <li><a href="case-list.html" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+      <li><a href="news-list.html" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+      <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
+      <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
+      <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+
+  <main>
+    
+    <section class="relative h-[85vh] flex items-end pb-24 px-6 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="img/food.png" alt="Fine Dining" class="w-full h-full object-cover opacity-60 parallax-hero scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/30"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl w-full mx-auto border-t border-white/20 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 fade-up">
+          <div>
+            <span class="block text-xs font-serif italic text-gold mb-4 tracking-wider">Expertise 01: Food & Beverage</span>
+            <h1 class="text-5xl sm:text-7xl md:text-8xl font-serif font-medium leading-none tracking-tight">
+              Culinary<br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Narrative.</span>
+            </h1>
+          </div>
+          <p class="text-sm text-gray-300 max-w-sm leading-relaxed font-light">
+            一皿に込められた哲学を、視覚言語へ。<br>
+            「味わう前」から始まる、美食の体験設計。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 px-6 max-w-4xl mx-auto text-center">
+      <div class="fade-up">
+        <h2 class="text-2xl sm:text-3xl font-serif italic mb-10 text-gray-200">
+          "The first bite is with the eye."
+        </h2>
+        <p class="text-base sm:text-lg text-gray-400 leading-loose font-light text-justify sm:text-center">
+          飲食店の価値は、味だけで決まるものではありません。<br>
+          エントランスの空気感、メニューの手触り、WEBサイトのシズル感。<br>
+          そのすべてが調和した時、顧客は「ファン」になります。<br>
+          TLiMは、店舗のコンセプトを深く理解し、来店前から退店後まで続く<br>
+          一貫したブランドストーリーを構築します。
+        </p>
+      </div>
+    </section>
+
+    <section class="py-24 px-6 bg-[#080808]">
+      <div class="max-w-5xl mx-auto">
+        <h3 class="text-xs font-bold tracking-[0.3em] text-gold uppercase mb-16 text-center fade-up">Service Menu</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
+          
+          <div class="group fade-up">
+            <div class="flex justify-between items-baseline border-b border-gray-800 pb-2 mb-3">
+              <h4 class="text-xl font-serif">Photography</h4>
+              <span class="text-xs text-gray-600 font-eng">01</span>
+            </div>
+            <p class="text-sm text-gray-500 leading-relaxed mb-4">
+              湯気、照り、断面。プロフェッショナルなライティングで、味覚を刺激するシズル撮影。
+            </p>
+            <div class="h-[200px] w-full overflow-hidden opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+               <img src="img/food.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+          </div>
+
+          <div class="group fade-up" style="transition-delay: 0.1s;">
+            <div class="flex justify-between items-baseline border-b border-gray-800 pb-2 mb-3">
+              <h4 class="text-xl font-serif">Branding Design</h4>
+              <span class="text-xs text-gray-600 font-eng">02</span>
+            </div>
+            <p class="text-sm text-gray-500 leading-relaxed mb-4">
+              ロゴ、メニューブック、ショップカード。店舗の世界観を体現するグラフィックツール制作。
+            </p>
+            <div class="h-[200px] w-full overflow-hidden opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+               <img src="img/sasaya.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0">
+            </div>
+          </div>
+
+          <div class="group fade-up" style="transition-delay: 0.2s;">
+            <div class="flex justify-between items-baseline border-b border-gray-800 pb-2 mb-3">
+              <h4 class="text-xl font-serif">Web & SNS</h4>
+              <span class="text-xs text-gray-600 font-eng">03</span>
+            </div>
+            <p class="text-sm text-gray-500 leading-relaxed mb-4">
+              予約導線を考慮したWEBサイト構築と、来店動機を生むSNS運用・ショート動画制作。
+            </p>
+            <div class="h-[200px] w-full overflow-hidden opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+               <img src="img/snsmanagement.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+          </div>
+
+          <div class="group fade-up" style="transition-delay: 0.3s;">
+            <div class="flex justify-between items-baseline border-b border-gray-800 pb-2 mb-3">
+              <h4 class="text-xl font-serif">Space Direction</h4>
+              <span class="text-xs text-gray-600 font-eng">04</span>
+            </div>
+            <p class="text-sm text-gray-500 leading-relaxed mb-4">
+              内装ディレクションやサイネージ制作。空間とデジタルを融合させた店舗体験の設計。
+            </p>
+            <div class="h-[200px] w-full overflow-hidden opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+               <img src="img/poster.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 px-2 sm:px-6">
+      <div class="max-w-7xl mx-auto mb-12 px-4">
+        <h2 class="text-3xl font-serif italic">Gallery</h2>
+      </div>
+      
+      <div class="columns-1 md:columns-3 gap-4 space-y-4 px-4">
+        
+        <div class="break-inside-avoid fade-up">
+          <img src="img/food.png" class="w-full rounded-sm grayscale hover:grayscale-0 transition-all duration-700">
+        </div>
+
+        <div class="break-inside-avoid fade-up" style="transition-delay: 0.1s;">
+          <img src="img/sasaya.png" class="w-full aspect-[3/4] object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700">
+        </div>
+
+        <div class="break-inside-avoid fade-up" style="transition-delay: 0.2s;">
+          <div class="bg-[#111] p-8 text-center rounded-sm h-[300px] flex flex-col items-center justify-center border border-white/5">
+            <p class="font-serif italic text-gold text-2xl mb-2">Sizzle</p>
+            <p class="text-xs text-gray-500">Visual Identity</p>
+          </div>
+        </div>
+
+        <div class="break-inside-avoid fade-up" style="transition-delay: 0.1s;">
+          <img src="img/beauty.png" class="w-full aspect-square object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700">
+        </div>
+        
+        <div class="break-inside-avoid fade-up" style="transition-delay: 0.3s;">
+          <img src="img/apparel .png" class="w-full aspect-[4/5] object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700">
+        </div>
+
+      </div>
+    </section>
+
+    <section class="py-32 px-6 text-center border-t border-white/10">
+      <div class="fade-up">
+        <p class="text-xs font-serif italic text-gold mb-6 tracking-widest">Book a Consultation</p>
+        <h2 class="text-3xl sm:text-5xl font-serif font-medium mb-10 text-white">
+          Table for Success.
+        </h2>
+        <a class="inline-block bg-white text-black px-12 py-4 text-sm font-bold hover:bg-gold hover:text-white transition-all duration-300 rounded-sm" href="contact.html">
+          CONTACT US
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-black text-white py-16 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+    <div class="space-y-6">
+      <a href="index.html" aria-label="TLiM Top">
+        <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+      </a>
+      <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
+      
+      <div class="flex space-x-4">
+        <a href="https://www.instagram.com/tlim.marketing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="index.html" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+        </a>
+      </div>
+    </div>
+    <nav>
+      <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+        <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+        <li><a href="index.html#service" class="hover:text-white transition-colors">Service</a></li>
+        <li><a href="case-list.html" class="hover:text-white transition-colors">Case</a></li>
+        <li><a href="news-list.html" class="hover:text-white transition-colors">News</a></li>
+        <li><a href="company.html" class="hover:text-white transition-colors">Company</a></li>
+        <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
+    <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
+  </div>
+</footer>
+
+
+  <script src="js/nav-toggle.js"></script>
+  
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade Up Animation
+    const fadeElements = document.querySelectorAll('.fade-up');
+    fadeElements.forEach(el => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleClass: 'is-visible',
+          once: true
+        }
+      });
+    });
+
+    // Hero Parallax
+    gsap.to('.parallax-hero', {
+      scrollTrigger: {
+        trigger: 'body',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      },
+      y: 150,
+      ease: 'none'
+    });
+  </script>
+</body>
+</html>

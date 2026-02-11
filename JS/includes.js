@@ -3,7 +3,7 @@
     header: `<header class="header-menu" aria-label="Header">
   <div class="header-wrapper">
     <a class="logo" href="index.html" aria-label="TLiM Home">
-      <img src="img/TLiMロゴ.svg" alt="TLiM">
+      <img src="img/tlimロゴ.svg" alt="TLiM">
     </a>
 
     <button class="nav-toggle" type="button" aria-controls="global-nav" aria-expanded="false">

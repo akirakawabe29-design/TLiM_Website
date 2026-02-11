@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Medical & Clinic | TLiM Expertise</title>
+<meta name="description" content="TLiMの医療業界向けブランディング。クリニック開業支援、医療法人リクルート、患者様へ安心を届けるWEBデザインと映像制作。">
+<link rel="canonical" href="https://tlim.co.jp/medical-detail.html">
+<meta property="og:title" content="Medical & Clinic | TLiM Expertise">
+<meta property="og:description" content="TLiMの医療業界向けブランディング。クリニック開業支援、医療法人リクルート、患者様へ安心を届けるWEBデザインと映像制作。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tlim.co.jp/medical-detail.html">
+<meta property="og:image" content="https://tlim.co.jp/img/medical.png">
+<meta property="og:site_name" content="TLiM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Medical & Clinic | TLiM Expertise">
+<meta name="twitter:description" content="TLiMの医療業界向けブランディング。クリニック開業支援、医療法人リクルート、患者様へ安心を届けるWEBデザインと映像制作。">
+<meta name="twitter:image" content="https://tlim.co.jp/img/medical.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Inter"', '"Noto Sans JP"', 'sans-serif'],
+          eng: ['"Manrope"', 'sans-serif'],
+        },
+        colors: {
+          black: '#050505',
+          dark: '#0A0A0A',
+          medical: '#00E5FF', /* 医療テックを感じさせるシアン */
+        },
+        backgroundImage: {
+          'tech-grid': 'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)',
+        },
+        animation: {
+          'pulse-line': 'pulse-line 3s linear infinite',
+        },
+        keyframes: {
+          'pulse-line': {
+            '0%': { strokeDashoffset: '1000' },
+            '100%': { strokeDashoffset: '0' },
+          }
+        }
+      }
+    }
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<style>
+  /* 共通設定 */
+  body {
+    background-color: #050505;
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  /* テキストのフェードイン */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 医療用グリッド背景 */
+  .bg-medical-grid {
+    background-size: 50px 50px;
+    mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+  }
+  
+  /* カードのボーダーアニメーション */
+  .hover-border {
+    position: relative;
+    overflow: hidden;
+  }
+  .hover-border::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 1px;
+    background: #00E5FF;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+  .hover-border:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* EKG (心電図) アニメーション用 */
+  .ekg-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+</style>
+</head>
+
+<body class="font-sans antialiased selection:bg-medical selection:text-black">
+
+  <div class="fixed inset-0 z-0 bg-tech-grid bg-medical-grid pointer-events-none opacity-50"></div>
+
+  <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+    <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
+      <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+    </a>
+
+    <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
+      <ul class="flex space-x-8 text-sm font-medium tracking-wide text-white">
+        <li><a href="about.html" class="hover:text-gray-500 transition-colors">About</a></li>
+        <li><a href="index.html#service" class="hover:text-gray-500 transition-colors">Service</a></li>
+        <li><a href="case-list.html" class="hover:text-gray-500 transition-colors">Case</a></li>
+        <li><a href="news-list.html" class="hover:text-gray-500 transition-colors">News</a></li>
+        <li><a href="company.html" class="hover:text-gray-500 transition-colors">Company</a></li>
+        <li><a href="recruit.html" class="hover:text-gray-500 transition-colors">Recruit</a></li>
+        <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
+      <div class="w-6 h-5 flex flex-col justify-between">
+        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+        <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
+        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+      </div>
+    </button>
+  </div>
+</header>
+
+<div class="fixed inset-0 z-40 bg-black transition-opacity duration-300 opacity-0 pointer-events-none md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+  <div class="h-full overflow-y-auto">
+    <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
+      <li><a href="about.html" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+      <li><a href="index.html#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+      <li><a href="case-list.html" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+      <li><a href="news-list.html" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+      <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
+      <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
+      <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+
+  <main class="relative z-10">
+    
+    <section class="min-h-[90vh] flex flex-col justify-center px-6 relative">
+      <div class="absolute top-1/2 left-0 w-full -translate-y-1/2 z-0 opacity-20 pointer-events-none">
+        <svg viewBox="0 0 1440 320" class="w-full h-auto text-medical stroke-current" fill="none" stroke-width="2">
+          <path class="ekg-path animate-pulse-line" d="M0,160L80,160L100,220L120,60L140,160L1440,160"></path>
+        </svg>
+      </div>
+
+      <div class="max-w-7xl mx-auto w-full z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1">
+          <span class="block text-xs font-mono text-medical mb-4 tracking-widest fade-in">Expertise 04: Medical</span>
+          <h1 class="text-5xl sm:text-7xl font-bold tracking-tighter leading-[1.1] mb-8 fade-in" style="transition-delay: 0.1s;">
+            Design for<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">Trust & Future.</span>
+          </h1>
+          <p class="text-sm sm:text-base text-gray-400 max-w-md leading-relaxed fade-in" style="transition-delay: 0.2s;">
+            医療に、「正しさ」と「優しさ」のデザインを。<br>
+            難解な情報を分かりやすく伝え、<br>
+            患者様と医療従事者の間に信頼の架け橋を築く。
+          </p>
+        </div>
+        
+        <div class="order-1 md:order-2 flex justify-center fade-in" style="transition-delay: 0.3s;">
+           <div class="relative w-64 h-80 md:w-80 md:h-96 border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden">
+             <div class="absolute top-0 right-0 p-4">
+               <div class="w-2 h-2 bg-medical rounded-full animate-pulse"></div>
+             </div>
+             <img src="img/medical.png" alt="Medical Visual" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+             
+             <div class="absolute bottom-6 left-6 bg-black/80 border border-white/10 px-4 py-2 text-[10px] font-mono text-gray-300">
+               <span class="text-medical">●</span> Clinic Identity<br>
+               <span class="text-medical">●</span> Recruitment
+             </div>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 px-6 border-y border-white/5 bg-[#080808]">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-2xl sm:text-3xl font-light mb-12 fade-in">
+          "Bridging the Gap."
+        </h2>
+        <div class="space-y-6 text-sm sm:text-base text-gray-400 leading-loose font-light fade-in text-justify sm:text-center">
+          <p>
+            医療機関のWEBサイトやパンフレットには、相反する2つの要素が求められます。<br>
+            高度な専門性を伝える「権威性」と、不安を抱える患者様に寄り添う「親しみやすさ」です。
+          </p>
+          <p>
+            TLiMは、清潔感のあるミニマルなデザインと、人間味のある写真・映像を組み合わせ、このギャップを埋めます。<br>
+            「ここで診てもらいたい」「ここで働きたい」。そう直感させる、体温のある医療ブランディングを。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+      <div class="flex items-end justify-between mb-16 fade-in">
+         <h2 class="text-3xl font-bold">Solutions</h2>
+         <p class="text-xs text-gray-500 font-mono tracking-widest uppercase">For Clinics & Hospitals</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
+        
+        <div class="bg-black p-8 group hover-border fade-in">
+          <div class="w-12 h-12 bg-white/5 flex items-center justify-center mb-6 text-gray-300 group-hover:text-medical transition-colors">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-3 group-hover:text-medical transition-colors">Clinic Branding</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">
+            ロゴ、診察券、看板デザイン。開業時のコンセプト設計から、地域に愛されるクリニックの顔をつくります。
+          </p>
+        </div>
+
+        <div class="bg-black p-8 group hover-border fade-in" style="transition-delay: 0.1s;">
+          <div class="w-12 h-12 bg-white/5 flex items-center justify-center mb-6 text-gray-300 group-hover:text-medical transition-colors">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-3 group-hover:text-medical transition-colors">Web & Reservation</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">
+            「予約のしやすさ」を最優先したUI/UX設計。高齢者にも優しい視認性と、先進的なデザインを両立。
+          </p>
+        </div>
+
+        <div class="bg-black p-8 group hover-border fade-in" style="transition-delay: 0.2s;">
+           <div class="w-12 h-12 bg-white/5 flex items-center justify-center mb-6 text-gray-300 group-hover:text-medical transition-colors">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-3 group-hover:text-medical transition-colors">Medical HR</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">
+            医師・看護師採用のための採用サイトやインタビュー動画制作。理念に共感する人材のマッチングを支援。
+          </p>
+        </div>
+
+        <div class="bg-black p-8 group hover-border fade-in" style="transition-delay: 0.3s;">
+           <div class="w-12 h-12 bg-white/5 flex items-center justify-center mb-6 text-gray-300 group-hover:text-medical transition-colors">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-3 group-hover:text-medical transition-colors">Facility Movie</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">
+            院内の雰囲気や検査機器、施術の流れを動画で可視化。来院前の不安を取り除き、受診ハードルを下げます。
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="py-24 px-6 bg-[#080808]">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-xs font-mono text-gray-500 mb-12 tracking-widest uppercase fade-in">Latest Medical Works</h2>
+        
+        <div class="space-y-24">
+          <div class="flex flex-col md:flex-row gap-12 items-center group fade-in">
+            <div class="w-full md:w-1/2 aspect-video overflow-hidden relative">
+              <div class="absolute inset-0 bg-medical/10 z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <img src="img/medical.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+            </div>
+            <div class="w-full md:w-1/2">
+              <div class="flex items-center gap-4 mb-4">
+                <span class="text-[10px] border border-gray-700 px-2 py-1 text-gray-400">Dental Clinic</span>
+                <span class="text-[10px] border border-gray-700 px-2 py-1 text-gray-400">Web Design</span>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">審美歯科クリニック リブランディング</h3>
+              <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                「治療」から「美」への意識転換。高級サロンのようなWEBデザインと、患者様の声を届けるインタビュー動画で、自費診療の成約率を向上。
+              </p>
+              <a href="#" class="text-xs font-bold text-medical hover:text-white transition-colors border-b border-medical pb-1 inline-block">VIEW CASE</a>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-12 items-center group fade-in">
+             <div class="w-full md:w-1/2 aspect-video overflow-hidden relative md:order-2">
+              <div class="absolute inset-0 bg-medical/10 z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <img src="img/beauty.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+            </div>
+            <div class="w-full md:w-1/2 md:order-1 text-right md:text-right"> <div class="flex items-center gap-4 mb-4 justify-start md:justify-end">
+                <span class="text-[10px] border border-gray-700 px-2 py-1 text-gray-400">General Hospital</span>
+                <span class="text-[10px] border border-gray-700 px-2 py-1 text-gray-400">Recruitment</span>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">総合病院 看護師採用プロジェクト</h3>
+              <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                地域医療を支える現場のリアルを伝える採用サイト構築。ドキュメンタリータッチの映像で、使命感を持つ求職者に訴求。
+              </p>
+              <a href="#" class="text-xs font-bold text-medical hover:text-white transition-colors border-b border-medical pb-1 inline-block">VIEW CASE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-32 px-6 text-center border-t border-white/5 relative overflow-hidden">
+      <div class="absolute top-1/2 left-0 w-full opacity-10 pointer-events-none">
+         <svg viewBox="0 0 1440 100" class="w-full h-auto stroke-white fill-none">
+           <path d="M0,50 L400,50 L420,20 L440,80 L460,50 L1440,50" />
+         </svg>
+      </div>
+
+      <div class="fade-in relative z-10">
+        <p class="text-xs font-mono text-gray-500 mb-6 tracking-widest">Medical Branding</p>
+        <h2 class="text-3xl sm:text-5xl font-bold mb-10 tracking-tight">
+          Reliable Design.
+        </h2>
+        <a class="inline-block border border-white/20 px-12 py-4 text-sm font-bold hover:bg-medical hover:text-black hover:border-medical transition-all duration-300 rounded-sm" href="contact.html">
+          CONTACT US
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-black text-white py-16 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+    <div class="space-y-6">
+      <a href="index.html" aria-label="TLiM Top">
+        <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+      </a>
+      <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
+      
+      <div class="flex space-x-4">
+        <a href="https://www.instagram.com/tlim.marketing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="index.html" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+        </a>
+      </div>
+    </div>
+    <nav>
+      <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+        <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+        <li><a href="index.html#service" class="hover:text-white transition-colors">Service</a></li>
+        <li><a href="case-list.html" class="hover:text-white transition-colors">Case</a></li>
+        <li><a href="news-list.html" class="hover:text-white transition-colors">News</a></li>
+        <li><a href="company.html" class="hover:text-white transition-colors">Company</a></li>
+        <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
+    <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
+  </div>
+</footer>
+
+
+  <script src="js/nav-toggle.js"></script>
+  
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade In Animation
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach(el => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleClass: 'is-visible',
+          once: true
+        }
+      });
+    });
+
+    // Pulse Line Animation (Loop)
+    gsap.to('.ekg-path', {
+      strokeDashoffset: 0,
+      duration: 3,
+      repeat: -1,
+      ease: "linear"
+    });
+  </script>
+</body>
+</html>

@@ -213,7 +213,7 @@ export default function App() {
               className="w-full h-full object-cover"
               muted playsInline loop autoPlay preload="metadata"
             >
-              <source src="Video/TLiM_Video_nobgm.mp4" type="video/mp4" />
+              <source src="video/tlim_video_nobgm.mp4" type="video/mp4" />
             </video>
           </div>
 
@@ -259,7 +259,7 @@ export default function App() {
                 ja: "PR・マーケティング", 
                 desc: "共感を生むストーリー設計で、インフルエンサーやメディアを通じてアプローチ。",
                 tags: ["Influencer", "Event", "Media"],
-                img: "img/PRmarketing.png"
+                img: "img/prmarketing.png"
               },
               { 
                 title: "HR Support", 
@@ -288,7 +288,7 @@ export default function App() {
           {/* SNS Management (Wide) */}
           <div className="mt-8 bg-white p-8 md:p-12 rounded-2xl shadow-sm flex flex-col md:flex-row gap-12 items-center fade-in-up">
             <div className="w-full md:w-1/2 h-64 md:h-auto overflow-hidden rounded-xl bg-gray-100">
-              <img src="img/SNSmanagement.png" alt="SNS Management" className="w-full h-full object-cover" />
+              <img src="img/snsmanagement.png" alt="SNS Management" className="w-full h-full object-cover" />
             </div>
             <div className="w-full md:w-1/2">
               <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">Social Media</span>
@@ -320,7 +320,7 @@ export default function App() {
             { en: "Food", ja: "飲食", img: "img/food.png" },
             { en: "Beauty", ja: "美容", img: "img/beauty.png" },
             { en: "Apparel", ja: "アパレル", img: "img/apparel .png" }, // space in filename preserved
-            { en: "Medical", ja: "医療", img: "img/Medical.png" },
+            { en: "Medical", ja: "医療", img: "img/medical.png" },
           ].map((field, idx) => (
             <a key={idx} href="#" className="group relative h-80 overflow-hidden rounded-xl fade-in-up">
               <img src={field.img} alt={field.en} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -346,7 +346,7 @@ export default function App() {
             {[1, 2].map((item) => (
               <div key={item} className="flex flex-col md:flex-row gap-8 md:gap-16 items-center fade-in-up">
                 <div className="w-full md:w-1/2 aspect-video bg-gray-800 rounded-lg overflow-hidden">
-                  <img src={item === 1 ? "img/SASAYA.png" : "img/Spiceworks.png"} alt="Case" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
+                  <img src={item === 1 ? "img/sasaya.png" : "img/spiceworks.png"} alt="Case" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
                 </div>
                 <div className="w-full md:w-1/2">
                   <p className="text-xs text-gray-400 mb-4 tracking-wider">Branding / Recruitment / SNS</p>
@@ -390,7 +390,7 @@ export default function App() {
       {/* Promo (Company/Recruit) */}
       <section className="grid md:grid-cols-2 h-[50vh] md:h-[60vh]">
         <a href="company.html" className="group relative overflow-hidden block">
-          <img src="img/TLiMcompany.png" alt="Company" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          <img src="img/tlimcompany.png" alt="Company" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
           <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
             <h3 className="text-3xl font-bold mb-2">Company</h3>
@@ -398,7 +398,7 @@ export default function App() {
           </div>
         </a>
         <a href="recruit.html" className="group relative overflow-hidden block">
-          <img src="img/Companybanner.png" alt="Recruit" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          <img src="img/companybanner.png" alt="Recruit" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
           <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
             <h3 className="text-3xl font-bold mb-2">Recruit</h3>
@@ -476,7 +476,7 @@ export default function App() {
             <video 
               className="w-full h-auto max-h-[80vh] shadow-2xl"
               controls autoPlay
-              src="Video/TLiM_TOPVideo_short.mp4"
+              src="video/tlim_topvideo_short.mp4"
             >
               Your browser does not support the video tag.
             </video>

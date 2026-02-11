@@ -36,4 +36,46 @@
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://tlim.co.jp/beauty-detail.html</loc>
+    <lastmod>2026-02-10</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://tlim.co.jp/recruitsupport-detail.html</loc>
+    <lastmod>2026-02-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://tlim.co.jp/service-list.html</loc>
+    <lastmod>2026-02-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://tlim.co.jp/professional-list.html</loc>
+    <lastmod>2026-02-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://tlim.co.jp/case-list.html</loc>
+    <lastmod>2026-02-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://tlim.co.jp/news-list.html</loc>
+    <lastmod>2026-02-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://tlim.co.jp/about.html</loc>
+    <lastmod>2026-02-11</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>

@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beauty & Cosmetics | TLiM Expertise</title>
+<meta name="description" content="TLiMの美容業界向けブランディング。美容室、エステ、コスメ、クリニックの価値を最大化するクリエイティブとマーケティング。">
+<link rel="canonical" href="https://tlim.co.jp/beauty-detail.html">
+<meta property="og:title" content="Beauty & Cosmetics | TLiM Expertise">
+<meta property="og:description" content="TLiMの美容業界向けブランディング。美容室、エステ、コスメ、クリニックの価値を最大化するクリエイティブとマーケティング。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tlim.co.jp/beauty-detail.html">
+<meta property="og:image" content="https://tlim.co.jp/img/beauty.png">
+<meta property="og:site_name" content="TLiM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Beauty & Cosmetics | TLiM Expertise">
+<meta name="twitter:description" content="TLiMの美容業界向けブランディング。美容室、エステ、コスメ、クリニックの価値を最大化するクリエイティブとマーケティング。">
+<meta name="twitter:image" content="https://tlim.co.jp/img/beauty.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Manrope:wght@200;400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Noto Sans JP"', 'sans-serif'],
+          serif: ['"Playfair Display"', 'serif'], // エレガントな印象に
+          eng: ['"Manrope"', 'sans-serif'],
+        },
+        colors: {
+          black: '#050505',
+          dark: '#0A0A0A',
+          nude: '#E8DCCA', /* 肌色に近い上品なアクセント */
+        },
+        backgroundImage: {
+          'soft-glow': 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15), transparent 70%)',
+        }
+      }
+    }
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<style>
+  /* 共通設定 */
+  body {
+    background-color: #050505;
+    color: #fff;
+  }
+
+  /* フェードアップ */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  .fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 磨りガラス効果のカード */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+  }
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* 画像のパララックス */
+  .parallax-img {
+    height: 120%;
+    width: 100%;
+    object-fit: cover;
+    will-change: transform;
+  }
+  
+  /* ノイズテクスチャ */
+  .noise {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.04;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJnoiPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjY1IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2cpIiBvcGFjaXR5PSIwLjAzIi8+PC9zdmc+');
+  }
+</style>
+</head>
+
+<body class="font-sans antialiased selection:bg-white selection:text-black">
+
+  <div class="noise"></div>
+
+  <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+    <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
+      <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+    </a>
+
+    <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
+      <ul class="flex space-x-8 text-sm font-medium tracking-wide text-white">
+        <li><a href="about.html" class="hover:text-gray-500 transition-colors">About</a></li>
+        <li><a href="index.html#service" class="hover:text-gray-500 transition-colors">Service</a></li>
+        <li><a href="case-list.html" class="hover:text-gray-500 transition-colors">Case</a></li>
+        <li><a href="news-list.html" class="hover:text-gray-500 transition-colors">News</a></li>
+        <li><a href="company.html" class="hover:text-gray-500 transition-colors">Company</a></li>
+        <li><a href="recruit.html" class="hover:text-gray-500 transition-colors">Recruit</a></li>
+        <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
+      <div class="w-6 h-5 flex flex-col justify-between">
+        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+        <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
+        <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+      </div>
+    </button>
+  </div>
+</header>
+
+<div class="fixed inset-0 z-40 bg-black transition-opacity duration-300 opacity-0 pointer-events-none md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+  <div class="h-full overflow-y-auto">
+    <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
+      <li><a href="about.html" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+      <li><a href="index.html#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+      <li><a href="case-list.html" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+      <li><a href="news-list.html" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+      <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
+      <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
+      <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+
+  <main>
+    
+    <section class="relative h-[90vh] flex items-center justify-center px-6 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="img/beauty.png" alt="Beauty & Cosmetics" class="w-full h-full object-cover opacity-50 parallax-hero">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+      </div>
+      
+      <div class="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-soft-glow blur-3xl opacity-40 animate-pulse pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-5xl text-center">
+        <span class="block text-xs font-serif italic text-gray-300 mb-6 tracking-widest fade-up">Expertise 02: Beauty</span>
+        <h1 class="text-5xl sm:text-7xl md:text-9xl font-serif font-thin leading-none tracking-tight fade-up" style="transition-delay: 0.1s;">
+          Pure &<br>
+          <span class="italic font-normal">Essential.</span>
+        </h1>
+        <p class="text-sm sm:text-base text-gray-300 mt-8 max-w-lg mx-auto leading-relaxed font-light fade-up" style="transition-delay: 0.2s;">
+          美しさは、細部に宿る。<br>
+          感性を刺激するビジュアルと、信頼を築くブランド設計で、<br>
+          選ばれ続ける「憧れ」を創り出す。
+        </p>
+      </div>
+    </section>
+
+    <section class="py-32 px-6 max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row gap-16 items-center">
+        <div class="w-full md:w-1/2 aspect-[3/4] overflow-hidden relative group fade-up">
+           <div class="absolute inset-0 border border-white/10 z-20 m-4 pointer-events-none"></div>
+           <img src="img/beauty.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000">
+        </div>
+        
+        <div class="w-full md:w-1/2 fade-up" style="transition-delay: 0.2s;">
+          <h2 class="text-3xl sm:text-4xl font-serif italic mb-8 leading-tight">
+            "Beauty is not just looking good,<br>
+            it's a feeling."
+          </h2>
+          <div class="space-y-6 text-sm text-gray-400 leading-loose font-light text-justify">
+            <p>
+              美容室、ネイルサロン、クリニック、化粧品。<br>
+              市場には無数の選択肢が溢れています。その中で選ばれるために必要なのは、機能的なスペックだけでなく、「私を美しくしてくれる」という期待感＝情緒的価値です。
+            </p>
+            <p>
+              清潔感のあるホワイトスペース、肌の質感を伝える高精細な写真、そして誠実なコピーライティング。TLiMは、ブランドが持つ本来の輝きを引き出し、ターゲットの感情に触れるクリエイティブを提供します。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 px-6 relative overflow-hidden">
+      <div class="absolute right-0 bottom-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-up">
+           <h2 class="text-3xl font-serif">Scope of Beauty</h2>
+           <p class="text-xs text-gray-500 tracking-widest mt-4 md:mt-0">美容業界特化型ソリューション</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div class="glass-card p-8 sm:p-10 fade-up">
+            <span class="text-3xl font-serif text-gray-600 mb-6 block">01</span>
+            <h3 class="text-xl font-medium mb-4 tracking-wide">Brand Identity</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-6">
+              サロンやプロダクトの「核」となるロゴ、カラーパレット、タグラインを策定。競合と差別化し、記憶に残るブランドへ。
+            </p>
+            <ul class="text-[10px] text-gray-500 space-y-2 border-t border-white/10 pt-4">
+              <li>・ロゴデザイン / VI策定</li>
+              <li>・コンセプトメイク</li>
+              <li>・パッケージデザイン</li>
+            </ul>
+          </div>
+
+          <div class="glass-card p-8 sm:p-10 fade-up" style="transition-delay: 0.1s;">
+            <span class="text-3xl font-serif text-gray-600 mb-6 block">02</span>
+            <h3 class="text-xl font-medium mb-4 tracking-wide">Salon Web & LP</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-6">
+              ホットペッパーだけでなく、指名客を増やすための自社サイトや、高単価メニューへ誘導するLPを制作。
+            </p>
+            <ul class="text-[10px] text-gray-500 space-y-2 border-t border-white/10 pt-4">
+              <li>・ブランドサイト制作</li>
+              <li>・採用サイト制作</li>
+              <li>・集客用ランディングページ</li>
+            </ul>
+          </div>
+
+          <div class="glass-card p-8 sm:p-10 fade-up" style="transition-delay: 0.2s;">
+            <span class="text-3xl font-serif text-gray-600 mb-6 block">03</span>
+            <h3 class="text-xl font-medium mb-4 tracking-wide">Style Photography</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-6">
+              ヘアスタイル、ネイル、施術風景。光と影をコントロールし、透明感とトレンド感のあるビジュアルを撮影。
+            </p>
+            <ul class="text-[10px] text-gray-500 space-y-2 border-t border-white/10 pt-4">
+              <li>・スタイル写真撮影</li>
+              <li>・施術イメージムービー</li>
+              <li>・スタッフプロフィール撮影</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 px-6 bg-[#080808]">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-center text-xs font-bold tracking-[0.3em] text-gray-500 uppercase mb-16 fade-up">Works Showcase</h2>
+        
+        <div class="w-full aspect-[21/9] overflow-hidden relative mb-4 group fade-up">
+           <img src="img/beauty.png" class="parallax-img grayscale group-hover:grayscale-0 transition-all duration-1000">
+           <div class="absolute bottom-6 left-6 text-white z-10">
+             <p class="text-xs font-serif italic mb-1">Cosmetics Brand</p>
+             <h3 class="text-xl font-medium">Rebranding & Package Design</h3>
+           </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="aspect-square overflow-hidden relative group fade-up">
+             <img src="img/apparel .png" class="parallax-img grayscale group-hover:grayscale-0 transition-all duration-1000">
+             <div class="absolute bottom-6 left-6 text-white z-10">
+               <p class="text-xs font-serif italic mb-1">Hair Salon</p>
+               <h3 class="text-xl font-medium">Concept Movie</h3>
+             </div>
+          </div>
+          <div class="aspect-square overflow-hidden relative group fade-up" style="transition-delay: 0.1s;">
+             <img src="img/poster.png" class="parallax-img grayscale group-hover:grayscale-0 transition-all duration-1000">
+             <div class="absolute bottom-6 left-6 text-white z-10">
+               <p class="text-xs font-serif italic mb-1">Aesthetic Clinic</p>
+               <h3 class="text-xl font-medium">Web Design & LP</h3>
+             </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="py-32 px-6 text-center border-t border-white/5 relative">
+      <div class="fade-up">
+        <p class="text-xs font-serif italic text-gray-400 mb-6 tracking-widest">Elevate your Brand</p>
+        <h2 class="text-3xl sm:text-5xl font-serif font-thin mb-10 text-white tracking-wide">
+          Be Beautiful.<br>Be Chosen.
+        </h2>
+        <a class="inline-block border border-white/30 px-12 py-4 text-sm font-bold hover:bg-white hover:text-black transition-all duration-500 rounded-sm" href="contact.html">
+          CONTACT US
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-black text-white py-16 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+    <div class="space-y-6">
+      <a href="index.html" aria-label="TLiM Top">
+        <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+      </a>
+      <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
+      
+      <div class="flex space-x-4">
+        <a href="https://www.instagram.com/tlim.marketing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="index.html" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+        </a>
+      </div>
+    </div>
+    <nav>
+      <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+        <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+        <li><a href="index.html#service" class="hover:text-white transition-colors">Service</a></li>
+        <li><a href="case-list.html" class="hover:text-white transition-colors">Case</a></li>
+        <li><a href="news-list.html" class="hover:text-white transition-colors">News</a></li>
+        <li><a href="company.html" class="hover:text-white transition-colors">Company</a></li>
+        <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
+    <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
+  </div>
+</footer>
+
+
+  <script src="js/nav-toggle.js"></script>
+  
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade Up Animation
+    const fadeElements = document.querySelectorAll('.fade-up');
+    fadeElements.forEach(el => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleClass: 'is-visible',
+          once: true
+        }
+      });
+    });
+
+    // Parallax Images
+    const parallaxImages = document.querySelectorAll('.parallax-img');
+    parallaxImages.forEach(img => {
+      gsap.to(img, {
+        scrollTrigger: {
+          trigger: img.parentElement,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        },
+        y: 30, // 穏やかな動き
+        ease: 'none'
+      });
+    });
+    
+    // Hero Parallax
+    gsap.to('.parallax-hero', {
+      scrollTrigger: {
+        trigger: 'body',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      },
+      y: 100,
+      opacity: 0.3,
+      ease: 'none'
+    });
+  </script>
+</body>
+</html>

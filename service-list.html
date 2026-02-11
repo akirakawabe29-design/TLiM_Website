@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Services | TLiM</title>
+<meta name="description" content="TLiMの提供サービス一覧。クリエイティブ制作、SNSマーケティング、採用ブランディング、SNS運用代行。">
+<link rel="canonical" href="https://tlim.co.jp/service-list.html">
+<meta property="og:title" content="Services | TLiM">
+<meta property="og:description" content="TLiMの提供サービス一覧。クリエイティブ制作、SNSマーケティング、採用ブランディング、SNS運用代行。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tlim.co.jp/service-list.html">
+<meta property="og:image" content="https://tlim.co.jp/img/prmarketing.png">
+<meta property="og:site_name" content="TLiM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Services | TLiM">
+<meta name="twitter:description" content="TLiMの提供サービス一覧。クリエイティブ制作、SNSマーケティング、採用ブランディング、SNS運用代行。">
+<meta name="twitter:image" content="https://tlim.co.jp/img/prmarketing.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Noto Sans JP"', 'sans-serif'],
+          serif: ['"Playfair Display"', 'serif'],
+          eng: ['"Manrope"', 'sans-serif'],
+        },
+        colors: {
+          black: '#050505',
+          dark: '#0A0A0A',
+          gray: {
+            800: '#1F1F1F',
+            900: '#121212',
+          }
+        },
+        backgroundImage: {
+          'noise': "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJnoiPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjY1IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2cpIiBvcGFjaXR5PSIwLjAzIi8+PC9zdmc+')",
+        }
+      }
+    }
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<style>
+  /* 共通設定 */
+  body {
+    background-color: #050505;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+  /* カードホバー時の画像拡大 */
+  .service-card:hover .card-img {
+    transform: scale(1.1);
+  }
+  .card-img {
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  }
+
+  /* テキストフェード */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+
+<body class="font-sans antialiased selection:bg-white selection:text-black">
+
+  <div class="fixed inset-0 z-0 bg-noise opacity-30 pointer-events-none"></div>
+
+  <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+      <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
+        <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+      </a>
+      <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
+        <ul class="flex space-x-8 text-sm font-medium tracking-wide">
+          <li><a href="about.html" class="hover:text-gray-400 transition-colors">About</a></li>
+          <li><a href="service-list.html" class="hover:text-gray-400 transition-colors">Service</a></li>
+          <li><a href="professional-list.html" class="hover:text-gray-400 transition-colors">Professional</a></li>
+          <li><a href="case-list.html" class="hover:text-gray-400 transition-colors">Case</a></li>
+          <li><a href="news-list.html" class="hover:text-gray-400 transition-colors">News</a></li>
+          <li><a href="company.html" class="hover:text-gray-400 transition-colors">Company</a></li>
+          <li><a href="recruit.html" class="hover:text-gray-400 transition-colors">Recruit</a></li>
+          <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
+        <div class="w-6 h-5 flex flex-col justify-between">
+          <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+          <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
+          <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+        </div>
+      </button>
+    </div>
+  </header>
+  <div class="fixed inset-0 z-40 bg-black transition-opacity duration-300 opacity-0 pointer-events-none md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+    <div class="h-full overflow-y-auto">
+      <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
+        <li><a href="about.html" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+        <li><a href="service-list.html" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+        <li><a href="professional-list.html" class="js-nav-link block py-2 border-b border-gray-800">Professional</a></li>
+        <li><a href="case-list.html" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+        <li><a href="news-list.html" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+        <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
+        <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
+        <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main class="relative z-10 pt-20">
+    
+    <section class="min-h-[60vh] flex flex-col justify-center px-6 relative border-b border-white/10">
+      <div class="max-w-7xl mx-auto w-full">
+        <div class="fade-up">
+          <span class="block text-xs font-mono text-gray-500 mb-4 tracking-widest uppercase">Total Solution</span>
+          <h1 class="text-5xl sm:text-7xl md:text-8xl font-serif font-medium leading-none tracking-tight mb-8">
+            Our Services.
+          </h1>
+          <p class="text-sm sm:text-base text-gray-400 max-w-2xl leading-relaxed font-light">
+            戦略、クリエイティブ、デリバリー。<br>
+            一貫したブランド体験をつくる、4つのコアサービス。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+        
+        <a href="creative-detail.html" class="service-card group relative block bg-[#0A0A0A] border border-white/5 overflow-hidden fade-up">
+          <div class="aspect-video w-full overflow-hidden relative">
+            <div class="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors"></div>
+            <img src="img/shooting.png" alt="Creative Production" class="card-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+            <div class="absolute top-4 right-4 z-20">
+              <span class="text-4xl font-serif text-white/20 group-hover:text-white transition-colors">01</span>
+            </div>
+          </div>
+          <div class="p-8">
+            <h2 class="text-2xl font-bold mb-3 group-hover:underline decoration-1 underline-offset-4">Creative Production</h2>
+            <p class="text-sm text-gray-400 leading-relaxed mb-6">
+              写真、映像、WEBデザイン。ブランドの核となる「世界観」を視覚化し、感情を動かすクリエイティブを制作します。
+            </p>
+            <div class="flex flex-wrap gap-2">
+               <span class="text-[10px] border border-white/10 px-2 py-1 text-gray-500">Photography</span>
+               <span class="text-[10px] border border-white/10 px-2 py-1 text-gray-500">Videography</span>
+               <span class="text-[10px] border border-white/10 px-2 py-1 text-gray-500">Web Design</span>
+            </div>
+            <div class="mt-8 flex items-center text-xs font-bold tracking-widest text-white group-hover:translate-x-2 transition-transform">
+              VIEW DETAIL <span class="ml-2">→</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="marketing-detail.html" class="service-card group relative block bg-[#0A0A0A] border border-white/5 overflow-hidden fade-up" style="transition-delay: 0.1s;">
+          <div class="aspect-video w-full overflow-hidden relative">
+            <div class="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors"></div>
+            <img src="img/prmarketing.png" alt="Marketing & PR" class="card-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+             <div class="absolute top-4 right-4 z-20">
+              <span class="text-4xl font-serif text-white/20 group-hover:text-white transition-colors">02</span>
+            </div>
+          </div>
+          <div class="p-8">
+            <h2 class="text-2xl font-bold mb-3 group-hover:underline decoration-1 underline-offset-4">Marketing & PR</h2>
+            <p class="text-sm text-gray-400 leading-relaxed mb-6">
+              インフルエンサー施策、イベント、メディアリレーション。共感を生むストーリー設計で、認知を拡大させます。
+            </p>
+            <div class="flex flex-wrap gap-2">
+               <span class="text-[10px] border border-white/10 px-2 py-1 text-gray-500">Influencer</span>
+               <span class="text-[10px] border border-white/10 px-2 py-1 text-gray-500">Event Promotion</span>
+               <span class="text-[10px] border border-white/10 px-2 py-1 text-gray-500">Media</span>
+            </div>
+            <div class="mt-8 flex items-center text-xs font-bold tracking-widest text-white group-hover:translate-x-2 transition-transform">
+              VIEW DETAIL <span class="ml-2">→</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="recruitsupport-detail.html" class="service-card group relative block bg-[#0A0A0A] border border-white/5 overflow-hidden fade-up" style="transition-delay: 0.2s;">
+          <div class="aspect-video w-full overflow-hidden relative">
+            <div class="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors"></div>
+            <img src="img/recruiting.png" alt="HR Support" class="card-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+             <div class="absolute top-4 right-4 z-20">
+              <span class="text-4xl font-serif text-white/20 group-hover:text-white transition-colors">03</span>
+            </div>
+          </div>
+          <div class="p-8">
+            <h2 class="text-2xl font-bold mb-3 group-hover:underline decoration-1 underline-offset-4">HR Support</h2>
+            <p class="text-sm text-gray-400 leading-relaxed mb-6">
+              採用ブランディング、採用サイト制作。「どんな人と、どんな未来をつくりたいのか」を伝え、マッチング精度を高めます。
+            </p>
+            <div class="flex flex-wrap gap-2">
+               <span class="text-[10px] border border-white/10 px-2 py-1 text-gray-500">Recruitment Site</span>
+               <span class="text-[10px] border border-white/10 px-2 py-1 text-gray-500">Concept Movie</span>
+               <span class="text-[10px] border border-white/10 px-2 py-1 text-gray-500">Wantedly</span>
+            </div>
+             <div class="mt-8 flex items-center text-xs font-bold tracking-widest text-white group-hover:translate-x-2 transition-transform">
+              VIEW DETAIL <span class="ml-2">→</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="snsmanagement-detail.html" class="service-card group relative block bg-[#0A0A0A] border border-white/5 overflow-hidden fade-up" style="transition-delay: 0.3s;">
+          <div class="aspect-video w-full overflow-hidden relative">
+            <div class="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors"></div>
+            <img src="img/snsmanagement.png" alt="SNS Management" class="card-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+             <div class="absolute top-4 right-4 z-20">
+              <span class="text-4xl font-serif text-white/20 group-hover:text-white transition-colors">04</span>
+            </div>
+          </div>
+          <div class="p-8">
+            <h2 class="text-2xl font-bold mb-3 group-hover:underline decoration-1 underline-offset-4">SNS Management</h2>
+            <p class="text-sm text-gray-400 leading-relaxed mb-6">
+              Instagram/TikTok運用代行。企画・撮影・投稿・分析まで一気通貫し、ファンが自然に増えるアカウントへ。
+            </p>
+            <div class="flex flex-wrap gap-2">
+               <span class="text-[10px] border border-white/10 px-2 py-1 text-gray-500">Instagram</span>
+               <span class="text-[10px] border border-white/10 px-2 py-1 text-gray-500">TikTok</span>
+               <span class="text-[10px] border border-white/10 px-2 py-1 text-gray-500">UGC Marketing</span>
+            </div>
+            <div class="mt-8 flex items-center text-xs font-bold tracking-widest text-white group-hover:translate-x-2 transition-transform">
+              VIEW DETAIL <span class="ml-2">→</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="py-24 px-6 bg-[#080808] border-t border-white/5">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-16 fade-up">Common Workflow</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+          <div class="hidden md:block absolute top-6 left-0 w-full h-[1px] bg-gray-800 -z-10"></div>
+
+          <div class="relative fade-up bg-[#080808]">
+            <div class="w-12 h-12 bg-gray-900 border border-gray-700 rounded-full flex items-center justify-center mx-auto mb-6 text-sm font-bold">01</div>
+            <h3 class="text-sm font-bold mb-2">Hearing</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">現状の課題とゴールのヒアリング</p>
+          </div>
+
+          <div class="relative fade-up bg-[#080808]" style="transition-delay: 0.1s;">
+            <div class="w-12 h-12 bg-gray-900 border border-gray-700 rounded-full flex items-center justify-center mx-auto mb-6 text-sm font-bold">02</div>
+            <h3 class="text-sm font-bold mb-2">Strategy</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">戦略立案・チーム編成</p>
+          </div>
+
+          <div class="relative fade-up bg-[#080808]" style="transition-delay: 0.2s;">
+            <div class="w-12 h-12 bg-gray-900 border border-gray-700 rounded-full flex items-center justify-center mx-auto mb-6 text-sm font-bold">03</div>
+            <h3 class="text-sm font-bold mb-2">Output</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">制作・撮影・実装</p>
+          </div>
+
+          <div class="relative fade-up bg-[#080808]" style="transition-delay: 0.3s;">
+            <div class="w-12 h-12 bg-gray-900 border border-gray-700 rounded-full flex items-center justify-center mx-auto mb-6 text-sm font-bold">04</div>
+            <h3 class="text-sm font-bold mb-2">Review</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">分析・改善・定例会</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-32 px-6 text-center border-t border-white/5">
+      <div class="fade-up">
+        <h2 class="text-3xl sm:text-5xl font-bold mb-10 tracking-tight">
+          Partner with TLiM.
+        </h2>
+        <a class="inline-block border border-white px-12 py-4 text-sm font-bold hover:bg-white hover:text-black transition-all duration-300 rounded-sm" href="contact.html">
+          CONTACT US
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-black text-white py-16 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+      <div class="space-y-6">
+        <a href="index.html" aria-label="TLiM Top">
+          <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+        </a>
+        <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
+      </div>
+      <nav>
+        <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+          <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="service-list.html" class="hover:text-white transition-colors">Service</a></li>
+          <li><a href="professional-list.html" class="hover:text-white transition-colors">Professional</a></li>
+          <li><a href="case-list.html" class="hover:text-white transition-colors">Case</a></li>
+          <li><a href="news-list.html" class="hover:text-white transition-colors">News</a></li>
+          <li><a href="company.html" class="hover:text-white transition-colors">Company</a></li>
+          <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
+          <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
+      <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
+    </div>
+  </footer>
+
+  <script src="js/nav-toggle.js"></script>
+  
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade Up Animation
+    const fadeElements = document.querySelectorAll('.fade-up');
+    fadeElements.forEach(el => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleClass: 'is-visible',
+          once: true
+        }
+      });
+    });
+  </script>
+</body>
+</html>

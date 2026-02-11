@@ -24,7 +24,7 @@
   "name": "株式会社TLiM",
   "alternateName": "TLiM",
   "url": "https://tlim.co.jp/",
-  "logo": "https://tlim.co.jp/img/TLiMロゴ.svg",
+  "logo": "https://tlim.co.jp/img/tlimロゴ.svg",
   "sameAs": [
     "https://www.instagram.com/tlim.marketing/"
   ]
@@ -68,8 +68,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-<!-- <link href="CSS/reset.css" rel="stylesheet" type="text/css"> -->
-<!-- <link href="CSS/style.css" rel="stylesheet" type="text/css"> -->
+<!-- <link href="css/reset.css" rel="stylesheet" type="text/css"> -->
+<!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
 <meta name="format-detection" content="telephone=no">
 <style>
   .fade-in {
@@ -88,15 +88,16 @@
   <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
     <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
-      <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+      <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
     </a>
 
     <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
       <ul class="flex space-x-8 text-sm font-medium tracking-wide">
-        <li><a href="#about" class="hover:text-gray-400 transition-colors">About</a></li>
-        <li><a href="#service" class="hover:text-gray-400 transition-colors">Service</a></li>
-        <li><a href="#case" class="hover:text-gray-400 transition-colors">Case</a></li>
-        <li><a href="#news" class="hover:text-gray-400 transition-colors">News</a></li>
+        <li><a href="about.html" class="hover:text-gray-400 transition-colors">About</a></li>
+        <li><a href="service-list.html" class="hover:text-gray-400 transition-colors">Service</a></li>
+        <li><a href="professional-list.html" class="hover:text-gray-400 transition-colors">Professional</a></li>
+        <li><a href="case-list.html" class="hover:text-gray-400 transition-colors">Case</a></li>
+        <li><a href="news-list.html" class="hover:text-gray-400 transition-colors">News</a></li>
         <li><a href="company.html" class="hover:text-gray-400 transition-colors">Company</a></li>
         <li><a href="recruit.html" class="hover:text-gray-400 transition-colors">Recruit</a></li>
         <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
@@ -116,10 +117,11 @@
 <div class="fixed inset-0 z-40 bg-black transition-opacity duration-300 opacity-0 pointer-events-none md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
   <div class="h-full overflow-y-auto">
     <ul class="flex flex-col space-y-6 text-xl font-bold">
-      <li><a href="#about" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
-      <li><a href="#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
-      <li><a href="#case" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
-      <li><a href="#news" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+      <li><a href="about.html" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+      <li><a href="service-list.html" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+      <li><a href="professional-list.html" class="js-nav-link block py-2 border-b border-gray-800">Professional</a></li>
+      <li><a href="case-list.html" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+      <li><a href="news-list.html" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
       <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
       <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
       <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
@@ -130,7 +132,7 @@
 <section class="relative h-screen flex flex-col items-center justify-center text-center px-4 fade-in" aria-label="Hero">
   <!-- 背景画像（PC/SPで出し分けも可能ですが、今回はCSSで制御） -->
   <div class="absolute inset-0 -z-10">
-    <img src="img/HEROsteel.png" alt="" class="w-full h-full object-cover">
+    <img src="img/herosteel.png" alt="" class="w-full h-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-b from-black/35 to-black/65"></div>
   </div>
 
@@ -201,7 +203,7 @@
       <div class="movie-video-layer absolute inset-0 z-10 w-full h-full">
         <video class="movie-video w-full h-full object-cover object-center scale-110" muted playsinline loop autoplay preload="metadata" poster="img/poster.png">
           <!-- 動画パスはご自身の環境に合わせて変更してください -->
-          <source src="Video/TLiM_Video_nobgm.mp4" type="video/mp4">
+          <source src="video/tlim_video_nobgm.mp4" type="video/mp4">
         </video>
       </div>
 
@@ -233,50 +235,57 @@
     <!-- 3つの主要事業 -->
     <ul class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
       <li>
-        <div class="bg-white p-8 h-full flex flex-col fade-in">
-          <div class="mb-6 aspect-video bg-gray-100 overflow-hidden"><img src="img/shooting.png" alt="Creative" class="w-full h-full object-cover"></div>
-          <div class="flex-1">
-            <span class="text-[10px] font-bold tracking-widest text-gray-500 uppercase block mb-2">Creative</span>
-            <h3 class="text-xl font-bold mb-4">クリエイティブ制作事業</h3>
-            <p class="text-sm text-gray-600 leading-relaxed mb-6">企業やブランドが持つ世界観・哲学から設計し、ブランドの「核」を写真・映像・WEBから表現</p>
-            <div class="flex flex-wrap gap-2 text-[10px] text-gray-500">
-              <span class="bg-gray-100 px-2 py-1">Photo</span><span class="bg-gray-100 px-2 py-1">Movie</span><span class="bg-gray-100 px-2 py-1">Web Design</span>
+        <a href="creative-detail.html" class="block h-full">
+          <div class="bg-white p-8 h-full flex flex-col fade-in hover:opacity-80 transition-opacity">
+            <div class="mb-6 aspect-video bg-gray-100 overflow-hidden"><img src="img/shooting.png" alt="Creative" class="w-full h-full object-cover"></div>
+            <div class="flex-1">
+              <span class="text-[10px] font-bold tracking-widest text-gray-500 uppercase block mb-2">Creative</span>
+              <h3 class="text-xl font-bold mb-4">クリエイティブ制作事業</h3>
+              <p class="text-sm text-gray-600 leading-relaxed mb-6">企業やブランドが持つ世界観・哲学から設計し、ブランドの「核」を写真・映像・WEBから表現</p>
+              <div class="flex flex-wrap gap-2 text-[10px] text-gray-500">
+                <span class="bg-gray-100 px-2 py-1">Photo</span><span class="bg-gray-100 px-2 py-1">Movie</span><span class="bg-gray-100 px-2 py-1">Web Design</span>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       </li>
       <li>
-        <div class="bg-white p-8 h-full flex flex-col fade-in">
-          <div class="mb-6 aspect-video bg-gray-100 overflow-hidden"><img src="img/PRmarketing.png" alt="Marketing" class="w-full h-full object-cover"></div>
-          <div class="flex-1">
-            <span class="text-[10px] font-bold tracking-widest text-gray-500 uppercase block mb-2">Marketing</span>
-            <h3 class="text-xl font-bold mb-4">PR・マーケティング事業</h3>
-            <p class="text-sm text-gray-600 leading-relaxed mb-6">インフルエンサーやイベント、メディアリレーションなど共感を生むストーリー設計でアプローチ</p>
-            <div class="flex flex-wrap gap-2 text-[10px] text-gray-500">
-              <span class="bg-gray-100 px-2 py-1">Influencer</span><span class="bg-gray-100 px-2 py-1">Event</span><span class="bg-gray-100 px-2 py-1">Media</span>
+        <a href="marketing-detail.html" class="block h-full">
+          <div class="bg-white p-8 h-full flex flex-col fade-in hover:opacity-80 transition-opacity">
+            <div class="mb-6 aspect-video bg-gray-100 overflow-hidden"><img src="img/prmarketing.png" alt="Marketing" class="w-full h-full object-cover"></div>
+            <div class="flex-1">
+              <span class="text-[10px] font-bold tracking-widest text-gray-500 uppercase block mb-2">Marketing</span>
+              <h3 class="text-xl font-bold mb-4">PR・マーケティング事業</h3>
+              <p class="text-sm text-gray-600 leading-relaxed mb-6">インフルエンサーやイベント、メディアリレーションなど共感を生むストーリー設計でアプローチ</p>
+              <div class="flex flex-wrap gap-2 text-[10px] text-gray-500">
+                <span class="bg-gray-100 px-2 py-1">Influencer</span><span class="bg-gray-100 px-2 py-1">Event</span><span class="bg-gray-100 px-2 py-1">Media</span>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       </li>
       <li>
-        <div class="bg-white p-8 h-full flex flex-col fade-in">
-          <div class="mb-6 aspect-video bg-gray-100 overflow-hidden"><img src="img/recruiting.png" alt="Recruiting" class="w-full h-full object-cover"></div>
-          <div class="flex-1">
-            <span class="text-[10px] font-bold tracking-widest text-gray-500 uppercase block mb-2">HR Support</span>
-            <h3 class="text-xl font-bold mb-4">採用サポート事業</h3>
-            <p class="text-sm text-gray-600 leading-relaxed mb-6">採用サイトやSNS構築、コンセプト設計等、「どんな人と、どんな未来をつくりたいのか」を届ける支援</p>
-            <div class="flex flex-wrap gap-2 text-[10px] text-gray-500">
-              <span class="bg-gray-100 px-2 py-1">Branding</span><span class="bg-gray-100 px-2 py-1">Copywriting</span><span class="bg-gray-100 px-2 py-1">Movie</span>
+        <a href="recruitsupport-detail.html" class="block h-full">
+          <div class="bg-white p-8 h-full flex flex-col fade-in hover:opacity-80 transition-opacity">
+            <div class="mb-6 aspect-video bg-gray-100 overflow-hidden"><img src="img/recruiting.png" alt="Recruiting" class="w-full h-full object-cover"></div>
+            <div class="flex-1">
+              <span class="text-[10px] font-bold tracking-widest text-gray-500 uppercase block mb-2">HR Support</span>
+              <h3 class="text-xl font-bold mb-4">採用サポート事業</h3>
+              <p class="text-sm text-gray-600 leading-relaxed mb-6">採用サイトやSNS構築、コンセプト設計等、「どんな人と、どんな未来をつくりたいのか」を届ける支援</p>
+              <div class="flex flex-wrap gap-2 text-[10px] text-gray-500">
+                <span class="bg-gray-100 px-2 py-1">Branding</span><span class="bg-gray-100 px-2 py-1">Copywriting</span><span class="bg-gray-100 px-2 py-1">Movie</span>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       </li>
     </ul>
 
     <!-- SNS運用代行（ワイド） -->
-    <div class="bg-gray-100 p-8 md:px-12 md:py-5 flex flex-col md:flex-row gap-8 md:gap-12 items-center fade-in">
+    <a href="snsmanagement-detail.html" class="block">
+    <div class="bg-gray-100 p-8 md:px-12 md:py-5 flex flex-col md:flex-row gap-8 md:gap-12 items-center fade-in hover:opacity-90 transition-opacity">
       <div class="w-full md:w-1/2">
-        <img src="img/SNSmanagement.png" alt="SNS Management" class="w-full h-[255px] sm:h-[315px] md:h-[305px] object-cover">
+        <img src="img/snsmanagement.png" alt="SNS Management" class="w-full h-[255px] sm:h-[315px] md:h-[305px] object-cover">
       </div>
       <div class="w-full md:w-1/2">
         <span class="text-[10px] font-bold tracking-widest text-gray-500 uppercase block mb-2">Social Media</span>
@@ -307,6 +316,7 @@
         </p>
       </div>
     </div>
+    </a>
   </div>
 </section>
 
@@ -323,7 +333,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 w-full fade-in">
       
       <!-- Card 1: Food -->
-      <a href="#" class="group relative block w-full aspect-[3/1] overflow-hidden">
+      <a href="food-detail.html" class="group relative block w-full aspect-[3/1] overflow-hidden">
         <img src="img/food.png" alt="Food and Beverage" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500 flex flex-col justify-center items-center text-center p-8">
           <div class="flex flex-col items-center transition-transform duration-500 group-hover:-translate-y-2">
@@ -339,7 +349,7 @@
       </a>
 
       <!-- Card 2: Beauty -->
-      <a href="#" class="group relative block w-full aspect-[3/1] overflow-hidden">
+      <a href="beauty-detail.html" class="group relative block w-full aspect-[3/1] overflow-hidden">
         <img src="img/beauty.png" alt="Beauty" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500 flex flex-col justify-center items-center text-center p-8">
           <div class="flex flex-col items-center transition-transform duration-500 group-hover:-translate-y-2">
@@ -355,7 +365,7 @@
       </a>
 
       <!-- Card 3: Apparel -->
-      <a href="#" class="group relative block w-full aspect-[3/1] overflow-hidden">
+      <a href="apparel-detail.html" class="group relative block w-full aspect-[3/1] overflow-hidden">
         <img src="img/apparel .png" alt="Apparel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500 flex flex-col justify-center items-center text-center p-8">
           <div class="flex flex-col items-center transition-transform duration-500 group-hover:-translate-y-2">
@@ -371,8 +381,8 @@
       </a>
 
       <!-- Card 4: Medical -->
-      <a href="#" class="group relative block w-full aspect-[3/1] overflow-hidden">
-        <img src="img/Medical.png" alt="Medical" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+      <a href="medical-detail.html" class="group relative block w-full aspect-[3/1] overflow-hidden">
+        <img src="img/medical.png" alt="Medical" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500 flex flex-col justify-center items-center text-center p-8">
           <div class="flex flex-col items-center transition-transform duration-500 group-hover:-translate-y-2">
             <span class="text-2xl sm:text-3xl font-bold text-white mb-2">Medical</span>
@@ -401,7 +411,7 @@
         <!-- Case 1 -->
         <a href="case-detail-sasaya.html" class="block">
         <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
-          <div class="w-full md:w-1/2 aspect-video bg-gray-200 overflow-hidden"><img src="img/SASAYA.png" class="w-full h-full object-cover"></div>
+          <div class="w-full md:w-1/2 aspect-video bg-gray-200 overflow-hidden"><img src="img/sasaya.png" class="w-full h-full object-cover"></div>
           <div class="w-full md:w-1/2">
             <div class="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-4">Branding / Recruitment / SNS Management</div>
             <h3 class="text-2xl font-bold mb-4 leading-tight">SASAYA Holdings<br>信頼を育てるSNS戦略と<br>採用ブランディング支援</h3>
@@ -413,7 +423,7 @@
         <!-- Case 2 -->
         <a href="case-detail-spiceworks.html" class="block">
         <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
-          <div class="w-full md:w-1/2 aspect-video bg-gray-200 overflow-hidden"><img src="img/Spiceworks.png" class="w-full h-full object-cover"></div>
+          <div class="w-full md:w-1/2 aspect-video bg-gray-200 overflow-hidden"><img src="img/spiceworks.png" class="w-full h-full object-cover"></div>
           <div class="w-full md:w-1/2">
             <div class="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-4">Branding / SNS Marketing / Creative Production</div>
             <h3 class="text-2xl font-bold mb-4 leading-tight">Spiceworks<br>新店舗ローンチのPR設計と<br>SNSクリエイティブ運用</h3>
@@ -464,7 +474,7 @@
 <section class="py-4 px-4 sm:px-6" aria-label="Company & Recruit">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-7xl mx-auto fade-in">
     <a class="group relative block h-64 sm:h-80 overflow-hidden" href="company.html">
-      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="img/TLiMcompany.png">
+      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="img/tlimcompany.png">
       <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" aria-hidden="true"></div>
       <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
         <div class="text-2xl sm:text-3xl font-bold mb-2">Company Info</div>
@@ -473,7 +483,7 @@
     </a>
 
     <a class="group relative block h-64 sm:h-80 overflow-hidden" href="recruit.html">
-      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="img/Companybanner.png">
+      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="img/companybanner.png">
       <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" aria-hidden="true"></div>
       <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
         <div class="text-2xl sm:text-3xl font-bold mb-2">Recruit</div>
@@ -494,7 +504,7 @@
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
     <div class="space-y-6">
       <a href="index.html" aria-label="TLiM Top">
-        <img src="img/TLiMロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+        <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
       </a>
       <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
       
@@ -510,10 +520,11 @@
     
     <nav>
       <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
-        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
-        <li><a href="#service" class="hover:text-white transition-colors">Service</a></li>
-        <li><a href="#case" class="hover:text-white transition-colors">Case</a></li>
-        <li><a href="#news" class="hover:text-white transition-colors">News</a></li>
+        <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+        <li><a href="service-list.html" class="hover:text-white transition-colors">Service</a></li>
+        <li><a href="professional-list.html" class="hover:text-white transition-colors">Professional</a></li>
+        <li><a href="case-list.html" class="hover:text-white transition-colors">Case</a></li>
+        <li><a href="news-list.html" class="hover:text-white transition-colors">News</a></li>
         <li><a href="company.html" class="hover:text-white transition-colors">Company</a></li>
           <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
         <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
@@ -537,11 +548,11 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="JS/nav-toggle.js"></script>
-<script src="JS/movie-aperture.js"></script>
-<script src="JS/full-movie.js"></script>
-<script src="JS/scroll-fade.js"></script>
-<script src="JS/header-scroll.js"></script>
+<script src="js/nav-toggle.js"></script>
+<script src="js/movie-aperture.js"></script>
+<script src="js/full-movie.js"></script>
+<script src="js/scroll-fade.js"></script>
+<script src="js/header-scroll.js"></script>
 
 </body>
 </html>

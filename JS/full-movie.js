@@ -10,8 +10,8 @@
 
   if (!btn || !modal || !video) return;
 
-  const PRIMARY_SRC = 'Video/TLiM_TOPVideo_short.mp4'; // 推奨配置
-  const FALLBACK_SRC = 'TLiM_TOPVideo_short.mp4';      // 直下配置のフォールバック
+  const PRIMARY_SRC = 'video/tlim_topvideo_short.mp4'; // 推奨配置
+  const FALLBACK_SRC = 'tlim_topvideo_short.mp4';      // 直下配置のフォールバック
 
   let lastFocused = null;
 

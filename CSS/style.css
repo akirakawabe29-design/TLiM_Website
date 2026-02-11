@@ -50,7 +50,7 @@ button{ font: inherit; }
 ========================= */
 .hero--still{
   min-height: 78svh;
-  background: url("../img/HEROsteel.png") center/cover no-repeat;
+  background: url("../img/herosteel.png") center/cover no-repeat;
   position: relative;
   display: grid;
 }
@@ -1209,7 +1209,7 @@ button{ font: inherit; }
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url('../img/HEROsteel.png'); /* 画像パスは環境に合わせてください */
+  background-image: url('../img/herosteel.png'); /* 画像パスは環境に合わせてください */
   background-size: cover;
   background-position: center;
 }

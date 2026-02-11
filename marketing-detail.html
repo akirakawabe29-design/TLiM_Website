@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marketing & PR | TLiM</title>
+<meta name="description" content="TLiMのPR・マーケティング事業。データとクリエイティブで、ブランドの資産となるコミュニティを構築します。">
+<link rel="canonical" href="https://tlim.co.jp/marketing-detail.html">
+<meta property="og:title" content="Marketing & PR | TLiM">
+<meta property="og:description" content="TLiMのPR・マーケティング事業。データとクリエイティブで、ブランドの資産となるコミュニティを構築します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tlim.co.jp/marketing-detail.html">
+<meta property="og:image" content="https://tlim.co.jp/img/prmarketing.png">
+<meta property="og:site_name" content="TLiM">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Marketing & PR | TLiM">
+<meta name="twitter:description" content="TLiMのPR・マーケティング事業。データとクリエイティブで、ブランドの資産となるコミュニティを構築します。">
+<meta name="twitter:image" content="https://tlim.co.jp/img/prmarketing.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Manrope:wght@300;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Noto Sans JP"', 'sans-serif'],
+          serif: ['"Playfair Display"', 'serif'],
+          eng: ['"Manrope"', 'sans-serif'],
+          mono: ['"Space Mono"', 'monospace'], // データ数値用
+        },
+        colors: {
+          black: '#050505',
+          dark: '#0A0A0A',
+        },
+        backgroundImage: {
+          // テック感を出す極細グリッド
+          'grid-pattern': "linear-gradient(to right, #222 1px, transparent 1px), linear-gradient(to bottom, #222 1px, transparent 1px)",
+        },
+        animation: {
+          'scan': 'scan 4s linear infinite',
+        },
+        keyframes: {
+          scan: {
+            '0%': { top: '0%', opacity: 0 },
+            '10%': { opacity: 1 },
+            '90%': { opacity: 1 },
+            '100%': { top: '100%', opacity: 0 },
+          }
+        }
+      }
+    }
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<style>
+  /* 共通フェードイン */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 背景グリッドの設定 */
+  .bg-grid {
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  }
+
+  /* ガラスパネル（ダークモード仕様） */
+  .glass-card {
+    background: rgba(20, 20, 20, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+  }
+  .glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(30, 30, 30, 0.6);
+  }
+</style>
+</head>
+
+<body class="font-sans text-white antialiased bg-black overflow-x-hidden">
+
+  <div class="fixed inset-0 z-0 pointer-events-none opacity-30 bg-grid-pattern bg-grid"></div>
+
+  <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-20">
+      <a href="index.html" class="flex-shrink-0" aria-label="TLiM Top">
+        <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+      </a>
+      <nav class="hidden md:flex space-x-8 items-center" aria-label="Global Navigation">
+        <ul class="flex space-x-8 text-sm font-medium tracking-wide">
+          <li><a href="about.html" class="hover:text-gray-400 transition-colors">About</a></li>
+          <li><a href="index.html#service" class="hover:text-gray-400 transition-colors">Service</a></li>
+          <li><a href="case-list.html" class="hover:text-gray-400 transition-colors">Case</a></li>
+          <li><a href="news-list.html" class="hover:text-gray-400 transition-colors">News</a></li>
+          <li><a href="company.html" class="hover:text-gray-400 transition-colors">Company</a></li>
+          <li><a href="recruit.html" class="hover:text-gray-400 transition-colors">Recruit</a></li>
+          <li><a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="md:hidden p-2 -mr-2 text-white focus:outline-none" id="js-nav-toggle" aria-label="Menu" aria-expanded="false">
+        <div class="w-6 h-5 flex flex-col justify-between">
+          <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+          <span class="block w-full h-0.5 bg-current transition-all duration-300"></span>
+          <span class="block w-full h-0.5 bg-current transition-all duration-300 origin-center"></span>
+        </div>
+      </button>
+    </div>
+  </header>
+  <div class="fixed inset-0 z-40 bg-black transition-opacity duration-300 opacity-0 pointer-events-none md:hidden pt-20 px-6" id="js-mobile-nav" aria-hidden="true">
+    <div class="h-full overflow-y-auto">
+      <ul class="flex flex-col space-y-6 text-xl font-bold text-white">
+        <li><a href="about.html" class="js-nav-link block py-2 border-b border-gray-800">About</a></li>
+        <li><a href="index.html#service" class="js-nav-link block py-2 border-b border-gray-800">Service</a></li>
+        <li><a href="case-list.html" class="js-nav-link block py-2 border-b border-gray-800">Case</a></li>
+        <li><a href="news-list.html" class="js-nav-link block py-2 border-b border-gray-800">News</a></li>
+        <li><a href="company.html" class="js-nav-link block py-2 border-b border-gray-800">Company</a></li>
+        <li><a href="recruit.html" class="js-nav-link block py-2 border-b border-gray-800">Recruit</a></li>
+        <li><a href="contact.html" class="js-nav-link block py-2 border-b border-gray-800 text-gray-400">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main class="relative z-10 pt-20">
+    
+    <section class="min-h-[90vh] flex flex-col items-center justify-center px-4 relative overflow-hidden">
+      
+      <div class="text-center z-20 max-w-5xl">
+        <div class="mb-8 fade-in">
+           <span class="text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-gray-500 border border-gray-800 px-3 py-1 rounded-full bg-black/50">
+             Marketing & PR
+           </span>
+        </div>
+
+        <h1 class="text-4xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-[1.1] mb-8 fade-in" style="transition-delay: 0.1s;">
+          HACK THE<br>
+          <span class="text-gray-500">ALGORITHM.</span>
+        </h1>
+
+        <p class="text-sm sm:text-base text-gray-300 max-w-xl mx-auto leading-relaxed fade-in tracking-wide" style="transition-delay: 0.2s;">
+          感覚値を排除し、ロジックで熱狂を生む。<br>
+          アルゴリズム解析とクリエイティブの融合で、<br>ブランドの資産となるコミュニティを構築します。
+        </p>
+
+        <div class="relative w-[280px] h-[500px] mx-auto mt-16 fade-in" style="transition-delay: 0.3s;">
+          <div class="absolute inset-0 border border-gray-700 rounded-[2.5rem] bg-black/80 overflow-hidden shadow-2xl backdrop-blur-sm">
+            <div class="absolute top-0 left-0 w-full h-1 bg-white/20 animate-scan z-20 shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
+            
+            <div class="p-6 h-full flex flex-col justify-between opacity-70">
+              <div class="flex justify-between items-center border-b border-gray-800 pb-4">
+                <div class="w-8 h-8 rounded-full border border-gray-600"></div>
+                <div class="h-2 w-20 bg-gray-800 rounded"></div>
+              </div>
+              
+              <div class="flex-1 flex items-center justify-center relative">
+                 <svg viewBox="0 0 100 60" class="w-full text-gray-600 stroke-current" fill="none" stroke-width="0.5">
+                   <line x1="0" y1="10" x2="100" y2="10" opacity="0.2" />
+                   <line x1="0" y1="30" x2="100" y2="30" opacity="0.2" />
+                   <line x1="0" y1="50" x2="100" y2="50" opacity="0.2" />
+                   
+                   <path d="M0 50 Q 20 45, 40 30 T 100 10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]"></path>
+                 </svg>
+                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-900 border border-gray-700 px-3 py-1 rounded text-[10px] font-mono text-white">
+                   +340% Growth
+                 </div>
+              </div>
+
+              <div class="space-y-3">
+                <div class="h-2 w-full bg-gray-800 rounded"></div>
+                <div class="h-2 w-2/3 bg-gray-800 rounded"></div>
+                <div class="flex gap-2 mt-4">
+                  <div class="h-8 w-8 rounded bg-gray-900 border border-gray-800"></div>
+                  <div class="h-8 w-8 rounded bg-gray-900 border border-gray-800"></div>
+                  <div class="flex-1 h-8 rounded bg-gray-200 opacity-20"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 border-y border-white/10 bg-white/[0.02]">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 sm:gap-8">
+        
+        <div class="text-left border-l border-white/20 pl-6 fade-in group cursor-default">
+          <p class="text-[10px] font-mono text-gray-500 mb-2 tracking-widest group-hover:text-white transition-colors">TOTAL REACH</p>
+          <div class="text-3xl sm:text-5xl font-mono font-medium flex items-baseline">
+            <span class="counter" data-target="15">0</span><span class="text-base sm:text-lg ml-1 text-gray-400">M+</span>
+          </div>
+        </div>
+
+        <div class="text-left border-l border-white/20 pl-6 fade-in group cursor-default" style="transition-delay: 0.1s;">
+          <p class="text-[10px] font-mono text-gray-500 mb-2 tracking-widest group-hover:text-white transition-colors">ENGAGEMENT</p>
+          <div class="text-3xl sm:text-5xl font-mono font-medium flex items-baseline">
+            <span class="counter" data-target="8.5">0</span><span class="text-base sm:text-lg ml-1 text-gray-400">%</span>
+          </div>
+        </div>
+
+        <div class="text-left border-l border-white/20 pl-6 fade-in group cursor-default" style="transition-delay: 0.2s;">
+          <p class="text-[10px] font-mono text-gray-500 mb-2 tracking-widest group-hover:text-white transition-colors">ACCOUNTS</p>
+          <div class="text-3xl sm:text-5xl font-mono font-medium flex items-baseline">
+            <span class="counter" data-target="50">0</span><span class="text-base sm:text-lg ml-1 text-gray-400">+</span>
+          </div>
+        </div>
+        
+        <div class="text-left border-l border-white/20 pl-6 fade-in group cursor-default" style="transition-delay: 0.3s;">
+          <p class="text-[10px] font-mono text-gray-500 mb-2 tracking-widest group-hover:text-white transition-colors">YoY GROWTH</p>
+          <div class="text-3xl sm:text-5xl font-mono font-medium flex items-baseline">
+            <span class="counter" data-target="300">0</span><span class="text-base sm:text-lg ml-1 text-white">↑%</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="py-32 px-4 sm:px-6 max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-in px-2">
+        <div>
+           <h2 class="text-3xl sm:text-4xl font-bold mb-2">Methodology</h2>
+           <p class="text-xs font-bold tracking-widest text-gray-500 uppercase">再現性のあるグロースハック</p>
+        </div>
+        <p class="text-xs font-mono text-gray-500 mt-4 md:mt-0 tracking-widest">// LOGIC & CREATIVE</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[minmax(280px,auto)]">
+        
+        <div class="glass-card md:col-span-2 md:row-span-1 p-8 sm:p-10 relative group overflow-hidden fade-in">
+          <div class="absolute top-6 right-6 text-5xl sm:text-7xl font-mono font-bold text-white/5 group-hover:text-white/10 transition-colors">01</div>
+          <div class="relative z-10 h-full flex flex-col justify-between">
+            <div class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center mb-6 text-gray-300">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xl sm:text-2xl font-bold mb-3 font-eng tracking-tight">Strategic Planning</h3>
+              <p class="text-sm text-gray-400 leading-relaxed max-w-lg">
+                KGI/KPI設計、ペルソナ策定、競合分析。バズを狙うだけでなく、事業成果（リード獲得・採用・売上）に直結するロードマップを描きます。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card md:col-span-1 md:row-span-2 p-0 relative group overflow-hidden fade-in">
+          <div class="absolute inset-0 bg-gray-900">
+             <div class="w-full h-full flex flex-col items-center justify-center opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+                <div class="w-[1px] h-20 bg-white mb-4"></div>
+                <span class="text-[10px] tracking-[0.3em]">VERTICAL</span>
+                <div class="w-[1px] h-20 bg-white mt-4"></div>
+             </div>
+          </div>
+          
+          <div class="absolute top-8 left-8 z-20">
+             <div class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center mb-6 bg-black/50 backdrop-blur-sm text-gray-300">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold font-eng tracking-tight mb-2">Vertical<br>Creative</h3>
+            <p class="text-xs text-gray-400 leading-relaxed max-w-[80%]">
+              TikTok / Reels / Shorts。<br>開始2秒で視線を奪う、没入型縦動画制作。
+            </p>
+          </div>
+          <div class="absolute bottom-6 right-6 text-5xl font-mono font-bold text-white/5 group-hover:text-white/10 transition-colors">02</div>
+        </div>
+
+        <div class="glass-card md:col-span-1 md:row-span-1 p-8 relative group overflow-hidden fade-in">
+          <div class="absolute top-6 right-6 text-5xl font-mono font-bold text-white/5 group-hover:text-white/10 transition-colors">03</div>
+          <div class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center mb-6 text-gray-300">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-3 font-eng tracking-tight">Data Analysis</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            保存数、プロフィール遷移率、視聴完了率。インサイトを徹底分析し、再現性のある運用へ昇華させます。
+          </p>
+        </div>
+
+        <div class="glass-card md:col-span-1 md:row-span-1 p-8 relative group overflow-hidden fade-in">
+          <div class="absolute top-6 right-6 text-5xl font-mono font-bold text-white/5 group-hover:text-white/10 transition-colors">04</div>
+           <div class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center mb-6 text-gray-300">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-3 font-eng tracking-tight">Social Ads</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            オーガニック運用で得た知見を広告へ。UGC風クリエイティブでCPAを最適化します。
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="py-12 border-y border-white/10 bg-black overflow-hidden">
+      <div class="flex whitespace-nowrap" id="marquee-container">
+        <div class="marquee-content flex gap-16 sm:gap-24 px-10 items-center opacity-50 text-sm font-mono tracking-widest text-gray-500">
+          <span>INSTAGRAM</span>
+          <span>TIKTOK</span>
+          <span>YOUTUBE SHORTS</span>
+          <span>X (TWITTER)</span>
+          <span>LINE OFFICIAL</span>
+          <span>THREADS</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-32 px-6 text-center relative" id="contact">
+      <div class="fade-in">
+        <p class="text-xs font-mono text-gray-500 mb-6 tracking-widest">NEXT ACTION</p>
+        <h2 class="text-3xl sm:text-5xl font-bold mb-10 tracking-tight">
+          Optimize Your Brand.
+        </h2>
+        <a class="inline-block text-xl sm:text-2xl font-bold tracking-tighter hover:text-gray-400 transition-colors border-b border-white pb-1" href="contact.html">
+          CONTACT US.
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-black text-white py-16 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+      <div class="space-y-6">
+        <a href="index.html" aria-label="TLiM Top">
+          <img src="img/tlimロゴ.svg" alt="TLiM" class="h-6 w-auto sm:h-8 brightness-0 invert">
+        </a>
+        <p class="text-sm text-gray-400 tracking-wide">Turn Life into Meaningful.</p>
+        <div class="flex space-x-4">
+          <a href="https://www.instagram.com/tlim.marketing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="index.html" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          </a>
+        </div>
+        </div>
+      <nav>
+        <ul class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm font-medium text-gray-300">
+          <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="index.html#service" class="hover:text-white transition-colors">Service</a></li>
+          <li><a href="case-list.html" class="hover:text-white transition-colors">Case</a></li>
+          <li><a href="news-list.html" class="hover:text-white transition-colors">News</a></li>
+          <li><a href="company.html" class="hover:text-white transition-colors">Company</a></li>
+          <li><a href="recruit.html" class="hover:text-white transition-colors">Recruit</a></li>
+          <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center md:text-left">
+      <small class="text-xs text-gray-500">&copy; All Rights Reserved TLiM Inc.</small>
+    </div>
+  </footer>
+
+  <script src="js/nav-toggle.js"></script>
+  <script>
+    // 簡易版JS（共通JSがない場合のフォールバック）
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade In Animation
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach(el => {
+      gsap.fromTo(el, 
+        { y: 30, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out'
+        }
+      );
+    });
+
+    // Number Counters
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const target = parseFloat(counter.getAttribute('data-target'));
+      const isFloat = target % 1 !== 0; // 小数点があるかチェック
+      
+      gsap.to(counter, {
+        scrollTrigger: {
+          trigger: counter,
+          start: 'top 85%',
+          once: true
+        },
+        innerHTML: target,
+        duration: 2.0,
+        ease: 'power3.out',
+        snap: { innerHTML: isFloat ? 0.1 : 1 } // 小数点対応
+      });
+    });
+
+    // Marquee Animation
+    const marqueeContainer = document.getElementById('marquee-container');
+    const marqueeContent = document.querySelector('.marquee-content');
+    
+    if(marqueeContent) {
+      // 複製してループさせる
+      for(let i=0; i<3; i++) {
+        const clone = marqueeContent.cloneNode(true);
+        marqueeContainer.appendChild(clone);
+      }
+      
+      gsap.to(marqueeContainer, {
+        x: '-33.33%', // コンテンツの長さにあわせて調整
+        duration: 20,
+        ease: 'none',
+        repeat: -1
+      });
+    }
+  </script>
+</body>
+</html>
